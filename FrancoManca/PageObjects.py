@@ -1,7 +1,7 @@
-from builtins import print
 
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
+
 
 params = GenericPO.webDriver.loadJson()
 print (params)

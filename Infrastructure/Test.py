@@ -1,6 +1,4 @@
-from webbrowser import Chrome
 
-from selenium import webdriver
 
 import json
 
