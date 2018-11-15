@@ -56,7 +56,7 @@ class Wrapper:
 
     def saveScreenShot(self, ProjectName):
 
-        if ProjectName == "FM":
+        if ProjectName == "FrancoManca":
             filename = 'fmScreenShot'
 
         if ProjectName == "TRG":
@@ -69,3 +69,4 @@ class Wrapper:
             obj = json.load(f)
 
         return obj
+
