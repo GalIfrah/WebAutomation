@@ -1,4 +1,3 @@
-from builtins import print
 
 from FrancoManca.PageObjects import SUT
 from Infrastructure.GenericPageObject import GenericPO

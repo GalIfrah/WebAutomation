@@ -11,8 +11,8 @@ SUT = "https://order.francomanca.co.uk/"
 COOKIES_POLICY_BTN = "//div[@class='continue ng-binding']"
 BACK_TO_FM_HEADER = "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']"
 BACK_TO_FM_LOGO = "//a[@ng-if='homeUrl']"
-CONNECT_BTN = "login-btn"
-
+CONNECT_BTN = '//*[@id="login-btn"]/span'
+PHONE_FIELD = '//div[@class="intl-tel-input allow-dropdown"]/input'
 
 class FmHomePage(GenericPO):
 
@@ -34,7 +34,9 @@ class FmHomePage(GenericPO):
 
     @staticmethod
     def clickOnConnect():
-        GenericPO.webDriver.findElementBy(CONNECT_BTN, LocatorsType=LocatorsTypes.ID).click()
+        GenericPO.webDriver.findElementBy(CONNECT_BTN, LocatorsType=LocatorsTypes.XPATH).click()
+       # GenericPO.webDriver.showElement()
+
 
 
 # end of login page class
@@ -45,7 +47,6 @@ class FmHomePage(GenericPO):
 class EnterPhonePage(GenericPO):
 
     @staticmethod
-    def enterValidPhoneNumber():
-        dic = GenericPO.webDriver.loadJson()
-        print(dic['SUT']['LOGIN_PAGE'])
+    def enterValidPhoneNumber(phone):
+        GenericPO.webDriver.findElementBy(PHONE_FIELD, LocatorsType=LocatorsTypes.XPATH).send_keys(phone)
 # end of enter phone class

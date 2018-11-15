@@ -3,6 +3,7 @@ from Infrastructure.WebDriverWrapper import Wrapper
 
 
 class BasicTestClass():
+
     driver = Wrapper()
 
     def setUp(self):
