@@ -5,6 +5,11 @@ from Infrastructure.Locators import LocatorsTypes
 from selenium.common.exceptions import (InvalidArgumentException, WebDriverException)
 from selenium.common.exceptions import (InvalidArgumentException,
                                         NoSuchElementException)
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+import selenium.webdriver.support.ui as ui
+
 
 
 class Wrapper:
@@ -29,22 +34,27 @@ class Wrapper:
     def findElementBy(self, value, LocatorsType=LocatorsTypes):
 
         if LocatorsType.XPATH:
+            self.remoteWebDriver.implicitly_wait(10)
             element = self.remoteWebDriver.find_element_by_xpath(value)
             return element
 
         if LocatorsType.ID:
+            self.remoteWebDriver.implicitly_wait(10)
             element = self.remoteWebDriver.find_element_by_id(value)
             return element
 
         if LocatorsType.CLASS_NAME:
+            self.remoteWebDriver.implicitly_wait(10)
             element = self.remoteWebDriver.find_element_by_class_name(value)
             return element
 
         if LocatorsType.NAME:
+            self.remoteWebDriver.implicitly_wait(10)
             element = self.remoteWebDriver.find_element_by_name(value)
             return element
 
         if LocatorsType.CSS_SELECTOR:
+            self.remoteWebDriver.implicitly_wait(10)
             element = self.remoteWebDriver.find_element_by_css_selector(value)
             return element
 
@@ -65,8 +75,10 @@ class Wrapper:
         self.remoteWebDriver.save_screenshot(filename)
 
     def loadJson(self):
-        with open('gal.json', 'r') as f:
+        with open('C:\\Users\galif\PycharmProjects\WebAutomation\FrancoManca\gal.json', 'r') as f:
             obj = json.load(f)
 
         return obj
 
+    def waitforele(self, value):
+        self.remoteWebDriver.implicitly_wait(10)
