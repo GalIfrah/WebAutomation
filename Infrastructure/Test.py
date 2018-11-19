@@ -2,7 +2,7 @@
 
 import json
 
-with open('gal.json', 'r') as f:
+with open('AppConfig.json', 'r') as f:
     obj = json.load(f)
    # print(obj['SUT']['prod'])
 

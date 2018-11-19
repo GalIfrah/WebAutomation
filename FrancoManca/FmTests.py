@@ -3,9 +3,9 @@ import unittest
 
 from Infrastructure.BasicTest import BasicTestClass
 from FrancoManca.PageObjects import *
-import HtmlTestRunner
+import HtmlTestRunner.runner
 
-html_report_dir = 'C:/Users/galif/PycharmProjects/WebAutomation/Reports'
+html_report_dir = 'C:/Users/MyCheck/PycharmProjects/WebAutomation/Reports'
 
 
 class FmTestsClass(BasicTestClass, unittest.TestCase):
@@ -20,6 +20,6 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
 
 if __name__ == "__main__":
 
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output=html_report_dir))
+    unittest.main()
 
 

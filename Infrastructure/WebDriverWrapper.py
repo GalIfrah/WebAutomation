@@ -75,7 +75,7 @@ class Wrapper:
         self.remoteWebDriver.save_screenshot(filename)
 
     def loadJson(self):
-        with open('C:\\Users\galif\PycharmProjects\WebAutomation\FrancoManca\gal.json', 'r') as f:
+        with open('AppConfig.json', 'r') as f:
             obj = json.load(f)
 
         return obj
