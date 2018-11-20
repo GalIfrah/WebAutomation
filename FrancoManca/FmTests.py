@@ -13,9 +13,12 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         FmHomePage.openLoginPage()
         FmHomePage.clickOnCookPolicyBtn()
         FmHomePage.clickOnConnect()
-
         EnterPhonePage.enterValidPhoneNumber("+972542567405")
         EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+        EnterPhonePage.enterEmail('galgal12345@gmail.com')
+        EnterPhonePage.submitEmail()
 
 
 if __name__ == "__main__":
