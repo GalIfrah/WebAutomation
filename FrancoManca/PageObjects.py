@@ -18,6 +18,8 @@ ENTER_EMAIL_FIELD = '//input[@type="email"]'
 SUBMIT_EMAIL_BUTTON = '//div[@type="button"]'
 
 
+# python run-tests.py --config=/config/apps/franco.json
+
 class FmHomePage(GenericPO):
 
     @staticmethod
@@ -73,6 +75,7 @@ class EnterPhonePage(GenericPO):
     @staticmethod
     def submitEmail():
         GenericPO.webDriver.findElementBy(SUBMIT_EMAIL_BUTTON, LocatorsType=LocatorsTypes.XPATH).click()
+
 
 # end of enter phone class
 

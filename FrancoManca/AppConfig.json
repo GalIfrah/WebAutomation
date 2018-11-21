@@ -1,4 +1,5 @@
 {
-  "SUT": {"test": "", "prod": "https://order.francomanca.co.uk/"},
-  "iePath": "asfadsgs"
+  "SUT": {"test": "https://test.mycheckapp.com/takeaway/?appId=ad53e060a6305eafda0d59f5120e7a60#/", "prod": "https://order.francomanca.co.uk/"},
 }
+
+
