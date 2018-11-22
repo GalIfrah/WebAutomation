@@ -1,5 +1,42 @@
 {
-  "SUT": {"test": "https://test.mycheckapp.com/takeaway/?appId=ad53e060a6305eafda0d59f5120e7a60#/", "prod": "https://order.francomanca.co.uk/"},
+  "SUT": {"test": "https://test.mycheckapp.com/takeaway/?appId=ad53e060a6305eafda0d59f5120e7a60#/",
+          "prod": "https://order.francomanca.co.uk/"
+  },
+
+  "HOME_PAGE": {"COOKIES_POLICY_BTN" : "//div[@class='continue ng-binding']",
+                "BACK_TO_APP_HEADER" : "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
+                "BACK_TO_APP_LOGO" : "//a[@ng-if='homeUrl']",
+                "CONNECT_BTN" : "//*[@id='login-btn']/span"
+  },
+
+  "ENTER_PHONE_PAGE" :
+
+                       {"LOCATORS" : {"PHONE_FIELD" : "//input[@name='phone']",
+                                      "SUBMIT_BUTTON" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div[2]/form/div[1]/div[2]",
+                                      "ENTER_SMS_CODE" : "//form/div/div/input",
+                                      "SUBMIT_SMS_CODE" : "//form/div/div/div",
+                                      "ENTER_EMAIL_FIELD" : "//input[@type='email']"
+
+                       }, "DATA" : {"VALID_PHONE_NUMBER" : "+972542567405",
+                                    "INVALID_PHONE_NUMBER" : "+9725425675555",
+                                    "INVALID_SMS_CODE" : "000000"
+                                   }
+
+  },
+
+  "ENTER_EMAIL_PAGE": {"ENTER_EMAIL_FIELD" : "//input[@type='email']",
+                       "SUBMIT_EMAIL_BUTTON" : "//div[@type='button']"
+  },
+
+  "FORM_PAGE": {"FORM_EMAIL_FIELD" : "",
+                "FORM_FULL_NAME_FIELD" : "//div[@class='col-12']/input[@placeholder='Full Name']",
+                "FORM_PIN_FIELD" : "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
+                "FORM_DATE_FIELD" : "//div[@class='relative-wrapper']/input[@placeholder='Date Of Birth']",
+                "FORM_OPTIN_TRUE" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
+                "FORM_SUBMIT_BUTTON" : "//div[@class='continue-btn item-input-disable ng-binding']"
+  },
+
+  "": ""
 }
 
 
