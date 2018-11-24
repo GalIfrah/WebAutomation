@@ -7,6 +7,7 @@
                 "BACK_TO_APP_HEADER" : "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
                 "BACK_TO_APP_LOGO" : "//a[@ng-if='homeUrl']",
                 "CONNECT_BTN" : "//*[@id='login-btn']/span"
+
   },
 
   "ENTER_PHONE_PAGE" :
