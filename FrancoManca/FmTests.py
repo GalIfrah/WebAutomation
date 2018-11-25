@@ -25,7 +25,7 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         MainScreen.enterExpDate("12/18")
         MainScreen.enterCvc('123')
         MainScreen.enterPostalCode('12333')
-       # MainScreen.ClickOnCcSubmit()
+        MainScreen.ClickOnCcSubmit()
         MainScreen.closeWallet()
 """
         FormPage.enterEmail('galgal12345@gmail.com')

@@ -6,7 +6,11 @@
   "HOME_PAGE": {"COOKIES_POLICY_BTN" : "//div[@class='continue ng-binding']",
                 "BACK_TO_APP_HEADER" : "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
                 "BACK_TO_APP_LOGO" : "//a[@ng-if='homeUrl']",
-                "CONNECT_BTN" : "//*[@id='login-btn']/span"
+                "CONNECT_BTN" : "//*[@id='login-btn']/span",
+                "ACCOUNT": {"ACCOUNT_BUTTON" : "//ul[@id='profile-menu']'",
+                            "PERSONAL_INFO_BUTTON" : "//li[@class='profile-item ng-binding ng-scope account-info]",
+                            "PAYMENT_METHODS_BUTTON" : "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']"
+                }
 
   },
 
@@ -25,8 +29,15 @@
 
   },
 
-  "ENTER_EMAIL_PAGE": {"ENTER_EMAIL_FIELD" : "//input[@type='email']",
-                       "SUBMIT_EMAIL_BUTTON" : "//div[@type='button']"
+  "ENTER_EMAIL_PAGE": {
+
+                        "LOCATORS" : {"ENTER_EMAIL_FIELD": "//input[@type='email']",
+                                      "SUBMIT_EMAIL_BUTTON": "//div[@type='button']"
+                                   },
+
+                        "DATA" : {"EXIST_EMAIL" : "gal@gmail.com"
+
+                        }
   },
 
   "FORM_PAGE": {"FORM_EMAIL_FIELD" : "",
@@ -35,6 +46,31 @@
                 "FORM_DATE_FIELD" : "//div[@class='relative-wrapper']/input[@placeholder='Date Of Birth']",
                 "FORM_OPTIN_TRUE" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
                 "FORM_SUBMIT_BUTTON" : "//div[@class='continue-btn item-input-disable ng-binding']"
+  },
+
+
+
+  "WALLET": {
+
+               "LOCATORS" : {
+                 "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
+                 "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
+                 "CC_NUMBER_INPUT": "creditNumber",
+                 "EXP_DATE_INPUT": "fullYear",
+                 "CVC_INPUT": "cvc",
+                 "POSTCODE_INPUT": "postalCode",
+                 "SUBMIT_CC_BUTTON": "submit",
+                 "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
+
+               },
+
+               "DATA" : {"VALID_CC_NUMBER" : "4012-0000-3333-0026",
+                         "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
+                         "EXP_DATE" : "12/18",
+                         "CVC" : "123",
+                         "POSTCODE" : "12333"
+               }
+
   },
 
   "": ""

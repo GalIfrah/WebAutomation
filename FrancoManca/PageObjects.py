@@ -30,7 +30,12 @@ FORM_SUBMIT_BUTTON = '//div[@class="continue-btn item-input-disable ng-binding"]
 
 ACCOUNT_BUTTON = '//ul[@id="profile-menu"]'
 PERSONAL_INFO_BUTTON = '//li[@class="profile-item ng-binding ng-scope account-info"]'
+
+
 PAYMENT_METHODS_BUTTON = '//ul/li[@class="profile-item ng-binding ng-scope payment-methods"]'
+
+
+
 CC_VALUES_IFRAME = '//*[@id="myc-wallet-modal-outer"]/div[1]/div[2]/div[1]/div[1]/iframe'
 ADD_NEW_CARD_BUTTON = '//div[@class="myc-wallet-inner myc-wallet-payment-modal"]/div[2]/div[1]/div[2]/ul/li[' \
                       '@class="add-new-card"] '
@@ -92,18 +97,18 @@ class EnterPhonePage(GenericPO):
     def enterSmsCode():
         print("enter sms code")
         code = input()
-        GenericPO.webDriver.findElementBy(ENTER_SMS_CODE, LocatorsType=LocatorsTypes.XPATH).send_keys(code)
+        GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['ENTER_SMS_CODE'], LocatorsType=LocatorsTypes.XPATH).send_keys(code)
 
     @staticmethod
     def submitSmsCode():
-        GenericPO.webDriver.findElementBy(SUBMIT_SMS_CODE, LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['SUBMIT_SMS_CODE'], LocatorsType=LocatorsTypes.XPATH).click()
 
 
 class EnterEmailPage(GenericPO):
 
     @staticmethod
     def enterEmail(email):
-        GenericPO.webDriver.findElementBy(ENTER_EMAIL_FIELD, LocatorsType=LocatorsTypes.XPATH).send_keys(email)
+        GenericPO.webDriver.findElementBy(params['ENTER_EMAIL_PAGE']['LOCATORS']['ENTER_EMAIL_FIELD'], LocatorsType=LocatorsTypes.XPATH).send_keys(email)
 
     @staticmethod
     def submitEmail():
