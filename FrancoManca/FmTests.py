@@ -10,6 +10,7 @@ html_report_dir = 'C:/Users/MyCheck/PycharmProjects/WebAutomation/Reports'
 class FmTestsClass(BasicTestClass, unittest.TestCase):
 
     def test_100_OpenFm(self):
+
         HomePage.openLoginPage()
         HomePage.clickOnCookPolicyBtn()
         HomePage.clickOnConnect()
@@ -19,17 +20,17 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
 
-        MainScreen.clickOnPaymentMethods()
-        MainScreen.clickOnAddNewCard()
-        MainScreen.enterCcNumber("4111-1111-1111-1111")
-        MainScreen.enterExpDate("12/18")
-        MainScreen.enterCvc('123')
-        MainScreen.enterPostalCode('12333')
-        MainScreen.ClickOnCcSubmit()
-        MainScreen.closeWallet()
+        Wallet.clickOnPaymentMethods()
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        Wallet.ClickOnCcSubmit()
+        Wallet.closeWallet()
 """
-        FormPage.enterEmail('galgal12345@gmail.com')
-        FormPage.submitEmail()
+        EnterEmailPage.enterEmail('galgal12345@gmail.com')
+        EnterEmailPage.submitEmail()
         FormPage.enterFullName("gal tester")
         FormPage.enterPin(1234)
         FormPage.enterDate("01/02/2003")

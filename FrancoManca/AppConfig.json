@@ -35,17 +35,26 @@
                                       "SUBMIT_EMAIL_BUTTON": "//div[@type='button']"
                                    },
 
-                        "DATA" : {"EXIST_EMAIL" : "gal@gmail.com"
+                        "DATA" : {"EXIST_EMAIL" : "gal@gmail.com",
+                                  "UN_EXIST_EMAIL" : ""
 
                         }
   },
 
-  "FORM_PAGE": {"FORM_EMAIL_FIELD" : "",
-                "FORM_FULL_NAME_FIELD" : "//div[@class='col-12']/input[@placeholder='Full Name']",
-                "FORM_PIN_FIELD" : "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
-                "FORM_DATE_FIELD" : "//div[@class='relative-wrapper']/input[@placeholder='Date Of Birth']",
-                "FORM_OPTIN_TRUE" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
-                "FORM_SUBMIT_BUTTON" : "//div[@class='continue-btn item-input-disable ng-binding']"
+  "FORM_PAGE": {
+                "LOCATORS" : {
+                  "FORM_EMAIL_FIELD": "",
+                  "FORM_FULL_NAME_FIELD": "//div[@class='col-12']/input[@placeholder='Full Name']",
+                  "FORM_PIN_FIELD": "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
+                  "FORM_DATE_FIELD": "//div[@class='relative-wrapper']/input[@placeholder='Date Of Birth']",
+                  "FORM_OPTIN_TRUE": "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
+                  "FORM_SUBMIT_BUTTON": "//div[@class='continue-btn item-input-disable ng-binding']"
+                },
+
+                "DATA" : {"NAME" : "test tester",
+                          "PIN" : "1234",
+                          "DATE" : "01/02/2003"
+                }
   },
 
 
@@ -53,18 +62,19 @@
   "WALLET": {
 
                "LOCATORS" : {
-                 "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
-                 "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
-                 "CC_NUMBER_INPUT": "creditNumber",
-                 "EXP_DATE_INPUT": "fullYear",
-                 "CVC_INPUT": "cvc",
-                 "POSTCODE_INPUT": "postalCode",
-                 "SUBMIT_CC_BUTTON": "submit",
-                 "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
+                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
+                              "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
+                              "CC_NUMBER_INPUT": "creditNumber",
+                              "EXP_DATE_INPUT": "fullYear",
+                              "CVC_INPUT": "cvc",
+                              "POSTCODE_INPUT": "postalCode",
+                              "SUBMIT_CC_BUTTON": "submit",
+                              "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
 
                },
 
-               "DATA" : {"VALID_CC_NUMBER" : "4012-0000-3333-0026",
+               "DATA" : {
+                         "VALID_CC_NUMBER" : "4111-1111-1111-1111",
                          "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
                          "EXP_DATE" : "12/18",
                          "CVC" : "123",

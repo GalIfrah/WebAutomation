@@ -1,21 +1,18 @@
+import sys
 from venv import logger
-
-from selenium import webdriver
 import json
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import random
 from Infrastructure.Locators import LocatorsTypes
-from selenium.common.exceptions import (InvalidArgumentException, WebDriverException)
 from selenium.common.exceptions import (InvalidArgumentException,
                                         NoSuchElementException)
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
-import selenium.webdriver.support.ui as ui
+import inspect
 
 
 class Wrapper:
+
     remoteWebDriver = None
 
     def init(self, remote_url):
@@ -75,12 +72,9 @@ class Wrapper:
 
         ActionChains(self.remoteWebDriver).move_to_element(self.remoteWebDriver.find_element_by_xpath
                                                            (firstElementLocator)).perform()
-
         ActionChains(self.remoteWebDriver).move_to_element(self.remoteWebDriver.find_element_by_xpath
                                                            (secondElementLocator)).perform()
-
         time.sleep(3)
-
         ActionChains(self.remoteWebDriver).double_click(self.remoteWebDriver.find_element_by_xpath
                                                         (secondElementLocator)).perform()
 
@@ -90,21 +84,31 @@ class Wrapper:
     def takeScreenShot(self):
         self.remoteWebDriver.get_screenshot_as_png()
 
-    def saveScreenShot(self, ProjectName):
+    def saveScreenShot(self):
 
-        if ProjectName == "FrancoManca":
-            filename = 'fmScreenShot'
+        currentRunningFuncionName = sys._getframe(1).f_code.co_name
+        filename = currentRunningFuncionName + '_screenShot.png'
 
-        if ProjectName == "TRG":
-            filename = 'trgScreenShot'
-
-        self.remoteWebDriver.save_screenshot(filename)
+        self.remoteWebDriver.save_screenshot('C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
 
     def loadJson(self):
+
         with open('AppConfig.json', 'r') as f:
+
             obj = json.load(f)
 
         return obj
 
+    def writeToJson(self, data):
+        with open('AppConfig.json', 'w') as outfile:
+
+            json.dump(data, outfile)
+
     def waitforele(self, value):
         self.remoteWebDriver.implicitly_wait(10)
+
+    def createRandomMail(self):
+        randEmail = ''.join(random.choice('0123456789ABCDEF') for i in range(16)) + '@mycheck.co.il'
+
+        return randEmail
+
