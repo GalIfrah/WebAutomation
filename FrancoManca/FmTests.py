@@ -12,6 +12,7 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
     def test_100_OpenFm(self):
 
         HomePage.openLoginPage()
+
         HomePage.clickOnCookPolicyBtn()
         HomePage.clickOnConnect()
 
@@ -20,6 +21,16 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
 
+        """
+        EnterEmailPage.enterEmail()
+        EnterEmailPage.submitEmail()
+
+        FormPage.enterFullName()
+        FormPage.enterPin()
+        FormPage.enterDate()
+        FormPage.chooseOptinTrue()
+        FormPage.submitForm()
+  
         Wallet.clickOnPaymentMethods()
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
@@ -29,14 +40,13 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         Wallet.ClickOnCcSubmit()
         Wallet.closeWallet()
 """
-        EnterEmailPage.enterEmail('galgal12345@gmail.com')
-        EnterEmailPage.submitEmail()
-        FormPage.enterFullName("gal tester")
-        FormPage.enterPin(1234)
-        FormPage.enterDate("01/02/2003")
-        FormPage.chooseOptinTrue()
-        FormPage.submitForm()
-"""
+        HomePage.chooseLocation()
+        HomePage.startOrder()
+
+        Menu.chooseFirstItem()
+        Menu.clickOnProceedToCheckout()
+
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,13 +1,15 @@
 {
-  "SUT": {"test": "https://test.mycheckapp.com/takeaway/?appId=ad53e060a6305eafda0d59f5120e7a60#/",
+  "SUT": {"test": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
           "prod": "https://order.francomanca.co.uk/"
   },
 
-  "HOME_PAGE": {"COOKIES_POLICY_BTN" : "//div[@class='continue ng-binding']",
+  "HOME_PAGE": {
+                "COOKIES_POLICY_BTN" : "//div[@class='continue ng-binding']",
                 "BACK_TO_APP_HEADER" : "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
                 "BACK_TO_APP_LOGO" : "//a[@ng-if='homeUrl']",
                 "CONNECT_BTN" : "//*[@id='login-btn']/span",
-                "ACCOUNT": {"ACCOUNT_BUTTON" : "//ul[@id='profile-menu']'",
+                "START_ORDER_BUTTON" : "//div/button[@class='button button-block start-order ng-binding']",
+                "ACCOUNT": {"ACCOUNT_BUTTON" : "//ul[@id='profile-menu']",
                             "PERSONAL_INFO_BUTTON" : "//li[@class='profile-item ng-binding ng-scope account-info]",
                             "PAYMENT_METHODS_BUTTON" : "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']"
                 }
@@ -83,7 +85,11 @@
 
   },
 
-  "": ""
+  "MENU": {
+            "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
+            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+
+          }
 }
 
 
