@@ -1,8 +1,10 @@
 import sys
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from venv import logger
 import json
 from selenium import webdriver
+import urllib3
+
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import random
@@ -17,6 +19,8 @@ class Wrapper:
     remoteWebDriver = None
 
     def init(self, remote_url):
+        urllib3.disable_warnings(urllib3.exceptions)
+
         desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
 
         self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
@@ -87,14 +91,27 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
-        time.sleep(1)
+        # time.sleep(1)
 
     def waitForElemToBeClickable(self, elementLocator):
-        WebDriverWait(self.remoteWebDriver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, elementLocator)))
+        for x in range(5):
+            try:
+                self.remoteWebDriver.find_element_by_xpath(elementLocator).click()
+                break
+
+            except Exception:
+                print("not found yet")
+                time.sleep(1)
+
+
 
     def switchToIframe(self, element):
         self.remoteWebDriver.switch_to.frame(element)
+
+    def getCurrentUrl(self):
+        currentUrl = self.remoteWebDriver.current_url
+
+        return currentUrl
 
     def saveScreenShot(self):
 

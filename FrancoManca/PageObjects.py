@@ -36,18 +36,37 @@ class HomePage(GenericPO):
 
     @staticmethod
     def chooseLocation():
-        GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
+        GenericPO.webDriver.selectFromDropDown('home-select-location', 'AireusTest')
 
     @staticmethod
     def startOrder():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_BUTTON'],
+        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['START_ORDER_BUTTON'])
+
+        # find solution to the sleep!!!
+        time.sleep(4)
+
+        if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
+            print('')
+
+        elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_TEXT'],
+                                               LocatorsType=LocatorsTypes.XPATH).text == "Please Select Time":
+
+            GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_BUTTON'],
+                                              LocatorsType=LocatorsTypes.XPATH).click()
+
+            GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
+
+            HomePage.startOrder()
+
+
+
+class Account(GenericPO):
+
+    @staticmethod
+    def clickOnAccountInformation():
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['BACK_TO_APP_LOGO'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
-
-# end of login page class
-
-
-# login page constants
 
 class EnterPhonePage(GenericPO):
 
@@ -132,8 +151,6 @@ class Wallet(GenericPO):
     def clickOnAddNewCard():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
-        # time.sleep(4)
-        # move the frame switching to here
 
     @staticmethod
     def enterCcNumber():
@@ -174,6 +191,7 @@ class Wallet(GenericPO):
     def closeWallet():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+        print("bla")
 
 
 class Menu(GenericPO):
@@ -187,9 +205,4 @@ class Menu(GenericPO):
     def clickOnProceedToCheckout():
         GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
-        time.sleep(2)
-        GenericPO.webDriver.findElementBy("//span[@class='ng-binding']", LocatorsType=LocatorsTypes.XPATH).click()
-
-# end of enter phone class
-
-# class EnterEmailPage(GenericPO):
+        GenericPO.webDriver.waitForElemToBeClickable("//span[@class='ng-binding']")
