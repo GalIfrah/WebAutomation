@@ -8,22 +8,46 @@ html_report_dir = 'C:/Users/MyCheck/PycharmProjects/WebAutomation/Reports'
 
 class FmTestsClass(BasicTestClass, unittest.TestCase):
 
-    def test_100_OpenFm(self):
+    def test_100_registration(self):
 
-        HomePage.openLoginPage()
+        HomePage.openSut()
 
         HomePage.clickOnCookPolicyBtn()
         HomePage.clickOnConnect()
-
 
         EnterPhonePage.enterValidPhoneNumber()
         EnterPhonePage.clickOnSubmitBtn()
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
 
+        Wallet.clickOnPaymentMethods()
+        Wallet.ClickOnDeleteCard()
+        Wallet.clickOnDeleteYes()
+        Wallet.closeWallet()
+
+        """
+        
+        EnterEmailPage.enterUnExistEmail()
+        EnterEmailPage.submitEmail()
+        
+        FormPage.enterFullName()
+        FormPage.enterPin()
+        FormPage.enterDate()
+        FormPage.chooseOptinTrue()
+        FormPage.submitForm()
+        
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        Wallet.ClickOnCcSubmit()
+
         HomePage.chooseLocation()
         HomePage.startOrder()
-        """
+
+        Menu.chooseFirstItem()
+        Menu.clickOnProceedToCheckout()
 
         Wallet.clickOnPaymentMethods()
         Wallet.clickOnAddNewCard()
@@ -35,7 +59,6 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         Wallet.closeWallet()
 
         HomePage.chooseLocation()
-        HomePage.startOrder()
 
         Menu.chooseFirstItem()
         Menu.clickOnProceedToCheckout()
@@ -48,7 +71,8 @@ class FmTestsClass(BasicTestClass, unittest.TestCase):
         FormPage.enterDate()
         FormPage.chooseOptinTrue()
         FormPage.submitForm()
-          """
+
+        """
 
 
 

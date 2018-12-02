@@ -73,6 +73,8 @@
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
                               "SUBMIT_CC_BUTTON": "submit",
+                              "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
+                              "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
 
                },

@@ -1,18 +1,17 @@
 import sys
-from selenium.webdriver.support import expected_conditions as ec
 from venv import logger
 import json
 from selenium import webdriver
 import urllib3
-
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import random
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from Infrastructure.Locators import LocatorsTypes
 from selenium.common.exceptions import (NoSuchElementException)
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class Wrapper:
@@ -79,13 +78,7 @@ class Wrapper:
             (self.remoteWebDriver.find_element_by_xpath(secondElementLocator))).double_click((
             self.remoteWebDriver.find_element_by_xpath(secondElementLocator))).perform()
 
-    # ActionChains(self.remoteWebDriver).move_to_element(self.remoteWebDriver.find_element_by_xpath
-    #                                                   (secondElementLocator)).perform()
-    #  WebDriverWait(self.remoteWebDriver, 900).until(
-    #     EC.element_to_be_clickable((By.XPATH, secondElementLocator)))
 
-    # ActionChains(self.remoteWebDriver).double_click(self.remoteWebDriver.find_element_by_xpath
-    #                                               (secondElementLocator)).perform()
 
     def selectFromDropDown(self, drop_down_locator, option_text):
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))

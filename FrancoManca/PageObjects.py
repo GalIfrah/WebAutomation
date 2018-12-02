@@ -2,15 +2,16 @@ from builtins import print
 from selenium.common.exceptions import StaleElementReferenceException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
+from Utils.utils import ProjectUtils
 import time
 
-params = GenericPO.webDriver.loadJson()
+params = ProjectUtils.loadJson()
 
 
 class HomePage(GenericPO):
 
     @staticmethod
-    def openLoginPage():
+    def openSut():
         GenericPO.webDriver.openSut(params['SUT']['test'])
 
     @staticmethod
@@ -41,23 +42,28 @@ class HomePage(GenericPO):
     @staticmethod
     def startOrder():
         GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['START_ORDER_BUTTON'])
+        time.sleep(1)
 
-        # find solution to the sleep!!!
-        time.sleep(4)
+        for x in range(5):
+            try:
+                if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
+                    print('')
+                    break
+                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_TEXT'],
+                                                       LocatorsType=LocatorsTypes.XPATH).is_displayed():
 
-        if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
-            print('')
+                    GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_BUTTON'],
+                                                      LocatorsType=LocatorsTypes.XPATH).click()
 
-        elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_TEXT'],
-                                               LocatorsType=LocatorsTypes.XPATH).text == "Please Select Time":
+                    GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
 
-            GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_BUTTON'],
-                                              LocatorsType=LocatorsTypes.XPATH).click()
+                    GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['START_ORDER_BUTTON'])
 
-            GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
+                    break
 
-            HomePage.startOrder()
-
+            except Exception:
+                print("still not found the url/popup")
+                time.sleep(1)
 
 
 class Account(GenericPO):
@@ -98,8 +104,8 @@ class EnterPhonePage(GenericPO):
 class EnterEmailPage(GenericPO):
 
     @staticmethod
-    def enterEmail():
-        UN_EXIST_EMAIL = GenericPO.webDriver.createRandomMail()
+    def enterUnExistEmail():
+        UN_EXIST_EMAIL = ProjectUtils.createRandomMail()
         GenericPO.webDriver.findElementBy(params['ENTER_EMAIL_PAGE']['LOCATORS']['ENTER_EMAIL_FIELD'],
                                           LocatorsType=LocatorsTypes.XPATH).send_keys(UN_EXIST_EMAIL)
 
@@ -191,8 +197,16 @@ class Wallet(GenericPO):
     def closeWallet():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
-        print("bla")
 
+    @staticmethod
+    def ClickOnDeleteCard():
+        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def clickOnDeleteYes():
+        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_YES_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
 
 class Menu(GenericPO):
 
