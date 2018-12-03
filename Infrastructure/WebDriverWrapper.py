@@ -117,14 +117,14 @@ class Wrapper:
 
     def loadJson(self):
 
-        with open('AppConfig.json', 'r') as f:
+        with open('FM.json', 'r') as f:
             obj = json.load(f)
 
         return obj
 
     def writeToJson(self, data):
 
-        with open('AppConfig.json', 'w') as outfile:
+        with open('FM.json', 'w') as outfile:
             json.dump(data, outfile)
 
     def waitforele(self, value):

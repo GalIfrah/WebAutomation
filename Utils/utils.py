@@ -7,7 +7,7 @@ class ProjectUtils:
     @staticmethod
     def loadJson():
 
-        with open('AppConfig.json', 'r') as f:
+        with open('FM.json', 'r') as f:
             obj = json.load(f)
 
         return obj
@@ -15,7 +15,7 @@ class ProjectUtils:
     @staticmethod
     def writeToJson(data):
 
-        with open('AppConfig.json', 'w') as outfile:
+        with open('FM.json', 'w') as outfile:
             json.dump(data, outfile)
 
     @staticmethod

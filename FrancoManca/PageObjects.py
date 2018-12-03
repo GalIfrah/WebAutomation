@@ -208,6 +208,7 @@ class Wallet(GenericPO):
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_YES_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
+
 class Menu(GenericPO):
 
     @staticmethod
