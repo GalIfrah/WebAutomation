@@ -1,14 +1,30 @@
 import unittest
-
 from Infrastructure.BasicTest import BasicTestClass
 from FrancoManca.PageObjects import *
 
-html_report_dir = 'C:/Users/MyCheck/PycharmProjects/WebAutomation/Reports'
 
 
-class FmTestsClass(BasicTestClass, unittest.TestCase):
+class HomeScreenTests(BasicTestClass, unittest.TestCase):
+    def test_100_openSut(self):
 
-    def test_100_registration(self):
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+
+        currentAppLinkText = HomePage.getAppLinkText()
+
+        expectedAppLinkText = params['HOME_PAGE']['TEXTS']['BACK_TO_APP_HEADER_LINK_TEXT']
+
+        self.assertEqual(currentAppLinkText, expectedAppLinkText, 'not match')
+
+
+
+
+
+
+class FlowTests(BasicTestClass, unittest.TestCase):
+
+    def test_101_registration(self):
 
         HomePage.openSut()
 

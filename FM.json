@@ -1,19 +1,32 @@
-{
+{ "APP_NAME": "Franco",
+
   "SUT": {"test": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
           "prod": "https://order.francomanca.co.uk/"
   },
 
   "HOME_PAGE": {
-                "COOKIES_POLICY_BTN" : "//div[@class='continue ng-binding']",
-                "BACK_TO_APP_HEADER" : "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
-                "BACK_TO_APP_LOGO" : "//a[@ng-if='homeUrl']",
-                "CONNECT_BTN" : "//*[@id='login-btn']/span",
-                "START_ORDER_BUTTON" : "//div/button[@class='button button-block start-order ng-binding']",
-                "START_ORDER_POPUP_TEXT" : "//div[@class='popup-body']",
-                "START_ORDER_POPUP_BUTTON" : "//div/button[@class='button ng-binding app-bg-color no-border']",
-                "ACCOUNT": {"ACCOUNT_BUTTON" : "//ul[@id='profile-menu']",
-                            "PERSONAL_INFO_BUTTON" : "//li[@class='profile-item ng-binding ng-scope account-info]",
-                            "PAYMENT_METHODS_BUTTON" : "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']"
+
+                "LOCATORS": {
+                              "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
+                              "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
+                              "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
+                              "CONNECT_BTN": "//*[@id='login-btn']/span",
+                              "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
+                              "START_ORDER_POPUP_TEXT_AREA": "//div[@class='popup-body']",
+                              "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
+                              "TERMS_AND_COND_LINK": "//span[@class='small ng-scope']/a[1]",
+                              "PRIVACY_POLICY_LINK": "//span[@class='small ng-scope']/a[2]",
+                              "ACCOUNT": {
+                                          "ACCOUNT_BUTTON": "//ul[@id='profile-menu']",
+                                          "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info]",
+                                          "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']"
+                  }
+
+                },
+
+                "TEXTS": {
+                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.uk"
+
                 }
 
   },
@@ -75,6 +88,7 @@
                               "SUBMIT_CC_BUTTON": "submit",
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
+                              "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
 
                },

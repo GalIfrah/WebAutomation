@@ -1,9 +1,13 @@
 import sys
-import unittest
 import json
 
+# Test Classes
+from FrancoManca.SutTests import *
 
-class App():
+
+
+
+class App:
     name = None
     config = None
 
@@ -18,10 +22,10 @@ class App():
         if self.name == 'FM':
             return
 
-        if self.name == 'sandbox':
+        if self.name == 'TRG':
             return
 
-        if self.name == 'prod':
+        if self.name == 'ML':
             return
 
         raise Exception('`' + self.name + '` is not a valid environment')
@@ -36,8 +40,6 @@ class App():
 # end of Environment class
 
 app = App()
-
-from FrancoManca.FmTests import *
 
 print("===================================")
 print('Running on ' + app.name + ' App')

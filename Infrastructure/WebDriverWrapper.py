@@ -115,6 +115,7 @@ class Wrapper:
         self.remoteWebDriver.save_screenshot(
             'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
 
+
     def loadJson(self):
 
         with open('FM.json', 'r') as f:
