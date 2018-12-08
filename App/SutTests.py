@@ -1,11 +1,27 @@
 import unittest
 from Infrastructure.BasicTest import BasicTestClass
-from FrancoManca.PageObjects import *
-
+from App.PageObjects import *
+from Utils.TestName import TestsName
+import HtmlTestRunner
 
 
 class HomeScreenTests(BasicTestClass, unittest.TestCase):
+
     def test_100_openSut(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+
+        currentAppLinkText = HomePage.getAppLinkText()
+
+        expectedAppLinkText = params['HOME_PAGE']['TEXTS']['BACK_TO_APP_HEADER_LINK_TEXT']
+
+        GenericPO.webDriver.saveScreenShot()
+
+        self.assertEqual(currentAppLinkText, expectedAppLinkText, 'not match')
+
+    def test_100_openSut2(self):
 
         HomePage.openSut()
 
@@ -19,12 +35,11 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
 
 
-
-
+        """
 
 class FlowTests(BasicTestClass, unittest.TestCase):
 
-    def test_101_registration(self):
+    def test_101_sanity(self):
 
         HomePage.openSut()
 
@@ -36,43 +51,47 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
 
-        Wallet.clickOnPaymentMethods()
-        Wallet.ClickOnDeleteCard()
-        Wallet.clickOnDeleteYes()
-        Wallet.closeWallet()
-
-        """
-        
         EnterEmailPage.enterUnExistEmail()
         EnterEmailPage.submitEmail()
-        
+
         FormPage.enterFullName()
         FormPage.enterPin()
         FormPage.enterDate()
         FormPage.chooseOptinTrue()
         FormPage.submitForm()
-        
+        Wallet.clickOnPaymentMethods()
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
         Wallet.enterExpDate()
         Wallet.enterCvc()
         Wallet.enterPostalCode()
         Wallet.ClickOnCcSubmit()
-
+        Wallet.closeWallet()
         HomePage.chooseLocation()
         HomePage.startOrder()
 
         Menu.chooseFirstItem()
         Menu.clickOnProceedToCheckout()
 
+
         Wallet.clickOnPaymentMethods()
+        Wallet.ClickOnDeleteCard()
+        Wallet.clickOnDeleteYes()
+        Wallet.closeWallet()
+
+        
+        
+        
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
         Wallet.enterExpDate()
         Wallet.enterCvc()
         Wallet.enterPostalCode()
         Wallet.ClickOnCcSubmit()
-        Wallet.closeWallet()
+
+        
+
+        
 
         HomePage.chooseLocation()
 
@@ -97,4 +116,4 @@ class FlowTests(BasicTestClass, unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports'))

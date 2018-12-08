@@ -1,14 +1,14 @@
 import sys
 import json
-
+import HtmlTestRunner
 # Test Classes
-from FrancoManca.SutTests import *
+import buf as buf
 
-
+from App.SutTests import *
 
 
 class App:
-    name = None
+    name = 'FM'
     config = None
 
     def __init__(self):
@@ -46,4 +46,4 @@ print('Running on ' + app.name + ' App')
 print("===================================")
 
 if __name__ == '__main__':
-    unittest.main()
+     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports'))

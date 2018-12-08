@@ -1,4 +1,5 @@
 import sys
+from builtins import print
 from venv import logger
 import json
 from selenium import webdriver
@@ -12,6 +13,8 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+
+from Utils.TestName import TestsName
 
 
 class Wrapper:
@@ -57,13 +60,14 @@ class Wrapper:
             elementFlag = True
 
         except TimeoutError:
-            print('time out error')
+            logger.error('time out error')
 
-        except NoSuchElementException:
+        except NoSuchElementException as E:
             logger.error('element not found')
 
         except UnboundLocalError:
             logger.error("element not assigned to any value yet")
+
 
         if elementFlag is True:
             return element
@@ -107,14 +111,16 @@ class Wrapper:
         return currentUrl
 
     def saveScreenShot(self):
+        time.sleep(1)
 
-        currentRunningFuncionName = sys._getframe(1).f_code.co_name
+        TestsName.test_name = sys._getframe(1).f_code.co_name
 
-        filename = currentRunningFuncionName + '_screenShot.png'
+        filename = TestsName.test_name + '_screenShot.png'
 
         self.remoteWebDriver.save_screenshot(
             'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
 
+        return TestsName.test_name
 
     def loadJson(self):
 

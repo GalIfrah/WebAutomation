@@ -59,12 +59,12 @@ class HomePage(GenericPO):
                 if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
                     print('')
                     break
-                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_TEXT'],
+                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_TEXT_AREA'],
                                                        LocatorsType=LocatorsTypes.XPATH).is_displayed():
 
                     GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_BUTTON'],
                                                       LocatorsType=LocatorsTypes.XPATH).click()
-
+                    print('okkkkk')
                     GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
 
                     GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
@@ -89,7 +89,7 @@ class Account(GenericPO):
 
     @staticmethod
     def clickOnAccountInformation():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['BACK_TO_APP_LOGO'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_LOGO_LINK'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
 
@@ -169,8 +169,8 @@ class Wallet(GenericPO):
 
     @staticmethod
     def clickOnPaymentMethods():
-        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['ACCOUNT']['ACCOUNT_BUTTON'],
-                                          params['HOME_PAGE']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
+        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+                                          params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
 
     @staticmethod
     def clickOnAddNewCard():
@@ -245,3 +245,8 @@ class Menu(GenericPO):
         GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         GenericPO.webDriver.waitForElemToBeClickable("//span[@class='ng-binding']")
+
+    @staticmethod
+    def clickOnSubmitOrder():
+        GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
+                                              LocatorsType=LocatorsTypes.XPATH).click()
