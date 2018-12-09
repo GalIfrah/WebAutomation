@@ -50,7 +50,6 @@ class HomePage(GenericPO):
         GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
                                                params['HOME_PAGE']['LOCATORS']['AIREUS_TEST_LOCATION'])
 
-
     @staticmethod
     def startOrder():
         time.sleep(1)
@@ -175,10 +174,8 @@ class Wallet(GenericPO):
 
     @staticmethod
     def clickOnPaymentMethods():
-            GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
-                                              params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
-
-
+        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+                                          params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
 
     @staticmethod
     def clickOnAddNewCard():
@@ -218,16 +215,12 @@ class Wallet(GenericPO):
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['SUBMIT_CC_BUTTON'],
                                           LocatorsType=LocatorsTypes.ID).click()
         GenericPO.webDriver.remoteWebDriver.switch_to.default_content()
-        # time.sleep(5)
+        time.sleep(5)
 
     @staticmethod
     def closeWallet():
-        GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
+        #       GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
         GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
-
-    # element = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'],
-    #  LocatorsType=LocatorsTypes.XPATH)
-    # element.click()
 
     @staticmethod
     def ClickOnDeleteCard():
@@ -267,6 +260,8 @@ class Checkout(GenericPO):
 
     @staticmethod
     def enter4DigitsCode():
-        GenericPO.webDriver.findElementBy('//div[@class="popup"]/div[2]/input', LocatorsType=LocatorsTypes.XPATH).send_keys("1234")
-        GenericPO.webDriver.findElementBy('//div[@class="popup"]/div[3]/button', LocatorsType=LocatorsTypes.XPATH).click()
-
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_INPUT'],
+                                          LocatorsType=LocatorsTypes.XPATH).send_keys(
+                                          params['FORM_PAGE']['DATA']['PIN'])
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_OK_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()

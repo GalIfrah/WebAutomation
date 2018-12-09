@@ -50,14 +50,6 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.clickOnSubmitBtn()
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
-        EnterEmailPage.enterUnExistEmail()
-        EnterEmailPage.submitEmail()
-
-        FormPage.enterFullName()
-        FormPage.enterPin()
-        FormPage.enterDate()
-        FormPage.chooseOptinTrue()
-        FormPage.submitForm()
 
         Wallet.clickOnPaymentMethods()
         Wallet.clickOnAddNewCard()
@@ -70,13 +62,22 @@ class FlowTests(BasicTestClass, unittest.TestCase):
 
         HomePage.chooseLocation()
         HomePage.startOrder()
+        """
 
         Menu.chooseFirstItem()
         Menu.clickOnProceedToCheckout()
 
         Checkout.clickOnSubmitOrder()
         Checkout.enter4DigitsCode()
+        EnterEmailPage.enterUnExistEmail()
+        EnterEmailPage.submitEmail()
 
+        FormPage.enterFullName()
+        FormPage.enterPin()
+        FormPage.enterDate()
+        FormPage.chooseOptinTrue()
+        FormPage.submitForm()
+"""
 
 
 """

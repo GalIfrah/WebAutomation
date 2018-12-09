@@ -115,8 +115,10 @@
           },
 
   "CHECKOUT_SCREEN": {
-                       "SUBMIT_ORDER_BUTTON": "//div[@class='modal-content']/div/div[3]/button"
-
+                       "SUBMIT_ORDER_BUTTON": "//div[@class='modal-content']/div/div[3]/button",
+                       "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
+                       "ENTER_PIN_OK_BUTTON": "//div[@class='popup']/div[3]/button",
+                       "ENTER_PIN_CANCEL_BUTTON": ""
 
   }
 }
