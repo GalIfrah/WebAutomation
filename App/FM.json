@@ -16,9 +16,6 @@
                               "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
                               "TERMS_AND_COND_LINK": "//span[@class='small ng-scope']/a[1]",
                               "PRIVACY_POLICY_LINK": "//span[@class='small ng-scope']/a[2]",
-                              "SELECT_LOCATION_DROP_DOWN": "home-select-location",
-                              "FM2_LOCATION": "fm2",
-                              "AIREUS_TEST_LOCATION": "AireusTest",
                               "ACCOUNT": {
                                           "ACCOUNT_BUTTON": "//ul[@id='profile-menu']",
                                           "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info]",
@@ -28,7 +25,7 @@
                 },
 
                 "TEXTS": {
-                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.ukk"
+                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.uk"
 
                 }
 
@@ -92,8 +89,7 @@
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
-                              "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
-                              "WALLET_LOADER": "//div[@class='myc-loading']"
+                              "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]"
 
                },
 
@@ -112,13 +108,7 @@
             "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
             "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
 
-          },
-
-  "CHECKOUT_SCREEN": {
-                       "SUBMIT_ORDER_BUTTON": "//div[@class='modal-content']/div/div[3]/button"
-
-
-  }
+          }
 }
 
 

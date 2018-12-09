@@ -35,7 +35,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
 
 
-        """
+
 
 class FlowTests(BasicTestClass, unittest.TestCase):
 
@@ -50,7 +50,6 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.clickOnSubmitBtn()
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
-
         EnterEmailPage.enterUnExistEmail()
         EnterEmailPage.submitEmail()
 
@@ -59,6 +58,7 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         FormPage.enterDate()
         FormPage.chooseOptinTrue()
         FormPage.submitForm()
+
         Wallet.clickOnPaymentMethods()
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
@@ -67,11 +67,25 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         Wallet.enterPostalCode()
         Wallet.ClickOnCcSubmit()
         Wallet.closeWallet()
+
         HomePage.chooseLocation()
         HomePage.startOrder()
 
         Menu.chooseFirstItem()
         Menu.clickOnProceedToCheckout()
+
+        Checkout.clickOnSubmitOrder()
+        Checkout.enter4DigitsCode()
+
+
+
+"""
+        
+
+        
+        
+        
+
 
 
         Wallet.clickOnPaymentMethods()
@@ -106,8 +120,9 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         FormPage.enterDate()
         FormPage.chooseOptinTrue()
         FormPage.submitForm()
+        
+"""
 
-        """
 
 
 
