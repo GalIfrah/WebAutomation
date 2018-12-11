@@ -14,62 +14,86 @@ class HomePage(GenericPO):
         GenericPO.webDriver.openSut(params['SUT']['test'])
 
     @staticmethod
+    def getSutUrl():
+        GenericPO.webDriver.getCurrentUrl()
+
+    @staticmethod
     def clickOnCookPolicyBtn():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['COOKIES_POLICY_BTN'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['COOKIES_POLICY_BTN'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def backToFmFromHeader():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['BACK_TO_APP_HEADER'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
+    def getAppLinkText():
+        appLinkText = GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'],
+                                                        LocatorsType=LocatorsTypes.XPATH).text
+        return appLinkText
+
+    @staticmethod
     def backToFmFromLogo():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['BACK_TO_APP_LOGO'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_LOGO_LINK'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def clickOnConnect():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['CONNECT_BTN'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['CONNECT_BTN'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         GenericPO.webDriver.saveScreenShot()
 
     @staticmethod
     def chooseLocation():
-        GenericPO.webDriver.selectFromDropDown('home-select-location', 'AireusTest')
+        GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
+                                               params['HOME_PAGE']['LOCATORS']['AIREUS_TEST_LOCATION'])
 
     @staticmethod
     def startOrder():
-        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['START_ORDER_BUTTON'])
         time.sleep(1)
+        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
         for x in range(5):
             try:
+
                 if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
-                    print('')
+
                     break
-                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_TEXT'],
+
+                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_TEXT_AREA'],
                                                        LocatorsType=LocatorsTypes.XPATH).is_displayed():
 
-                    GenericPO.webDriver.findElementBy(params['HOME_PAGE']['START_ORDER_POPUP_BUTTON'],
+                    GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_BUTTON'],
                                                       LocatorsType=LocatorsTypes.XPATH).click()
 
-                    GenericPO.webDriver.selectFromDropDown('home-select-location', 'fm2')
+                    GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
+                                                           params['HOME_PAGE']['LOCATORS']['FM2_LOCATION'])
 
-                    GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['START_ORDER_BUTTON'])
+                    GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
                     break
 
-            except Exception:
+            except Exception as e:
+
                 print("still not found the url/popup")
+
                 time.sleep(1)
+
+    def clickOnTermsAndConditions(self):
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['TERMS_AND_COND_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    def ClIckOnPrivacyPolicy(self):
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['PRIVACY_POLICY'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
 
 
 class Account(GenericPO):
 
     @staticmethod
     def clickOnAccountInformation():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['BACK_TO_APP_LOGO'],
+        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_LOGO_LINK'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
 
@@ -97,7 +121,7 @@ class EnterPhonePage(GenericPO):
     def submitSmsCode():
         GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['SUBMIT_SMS_CODE'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
-        time.sleep(2)
+        time.sleep(3)
 
 
 class EnterEmailPage(GenericPO):
@@ -149,8 +173,8 @@ class Wallet(GenericPO):
 
     @staticmethod
     def clickOnPaymentMethods():
-        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['ACCOUNT']['ACCOUNT_BUTTON'],
-                                          params['HOME_PAGE']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
+        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+                                          params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
 
     @staticmethod
     def clickOnAddNewCard():
@@ -194,8 +218,8 @@ class Wallet(GenericPO):
 
     @staticmethod
     def closeWallet():
-        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'],
-                                          LocatorsType=LocatorsTypes.XPATH).click()
+        #       GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
+        GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
 
     @staticmethod
     def ClickOnDeleteCard():
@@ -205,6 +229,11 @@ class Wallet(GenericPO):
     @staticmethod
     def clickOnDeleteYes():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_YES_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def clickOnDeleteNo():
+        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_NO_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
 
@@ -220,3 +249,18 @@ class Menu(GenericPO):
         GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         GenericPO.webDriver.waitForElemToBeClickable("//span[@class='ng-binding']")
+
+
+class Checkout(GenericPO):
+
+    @staticmethod
+    def clickOnSubmitOrder():
+        GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['SUBMIT_ORDER_BUTTON'])
+
+    @staticmethod
+    def enter4DigitsCode():
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_INPUT'],
+                                          LocatorsType=LocatorsTypes.XPATH).send_keys(
+                                          params['FORM_PAGE']['DATA']['PIN'])
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_OK_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
