@@ -1,4 +1,3 @@
-from builtins import print
 from selenium.common.exceptions import StaleElementReferenceException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
