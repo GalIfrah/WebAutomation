@@ -21,6 +21,9 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         self.assertEqual(currentAppLinkText, expectedAppLinkText, 'not match')
 
+        print('pull test')
+        
+        
     def test_100_openSut2(self):
 
         HomePage.openSut()
