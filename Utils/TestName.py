@@ -1,5 +1,2 @@
-
 class TestsName:
-
-
-   test_name = ""
+    test_name = ""
