@@ -1,14 +1,12 @@
 import sys
 from builtins import print
 from venv import logger
-import json
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-import random
 from Infrastructure.Locators import LocatorsTypes
-from selenium.common.exceptions import (NoSuchElementException, TimeoutException)
+from selenium.common.exceptions import (NoSuchElementException)
 from selenium.webdriver.support.ui import Select
 from Utils.TestName import TestsName
 from selenium.webdriver.common.by import By
@@ -19,7 +17,7 @@ from selenium.webdriver.support import expected_conditions as ec
 class Wrapper:
     remoteWebDriver = None
 
-    def init(self, remote_url):
+    def initDesktop(self, remote_url):
         urllib3.disable_warnings(urllib3.exceptions)
 
         desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
@@ -28,14 +26,32 @@ class Wrapper:
 
         self.remoteWebDriver.maximize_window()
 
+
+    def initMobile(self, remote_url, device_model):
+
+        urllib3.disable_warnings(urllib3.exceptions)
+
+        mobile_emulation = {"deviceName": device_model}
+
+        chrome_options = webdriver.ChromeOptions()
+
+        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+        self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
+                              desired_capabilities=chrome_options.to_capabilities())
+
+
     def openSut(self, url):
         self.remoteWebDriver.get(url)
+
 
     def closeCurrent(self):
         self.remoteWebDriver.close()
 
+
     def closeAll(self):
         self.remoteWebDriver.quit()
+
 
     def findElementBy(self, value, LocatorsType):
         elementFlag = False
@@ -72,19 +88,21 @@ class Wrapper:
         else:
             logger.error("element not assigned to any value yet")
 
+
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
 
         action = ActionChains(self.remoteWebDriver)
 
         action.move_to_element(self.remoteWebDriver.find_element_by_xpath(firstElementLocator)).move_to_element(
             (self.remoteWebDriver.find_element_by_xpath(secondElementLocator))).double_click((
-            self.remoteWebDriver.find_element_by_xpath(secondElementLocator))).perform()
+             self.remoteWebDriver.find_element_by_xpath(secondElementLocator))).perform()
+
 
     def selectFromDropDown(self, drop_down_locator, option_text):
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
-        # time.sleep(1)
+
 
     def waitForElemToBeClickable(self, elementLocator):
         for x in range(5):
@@ -96,56 +114,64 @@ class Wrapper:
                 print("not found yet")
                 time.sleep(1)
 
+
+    def waitForElemToBeDisplayed(self, elementLocator):
+
+        self.displayed = False
+
+        for x in range(5):
+            try:
+                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
+                    self.displayed = True
+                    break
+
+            except Exception:
+                print("not displayed yet")
+                time.sleep(1)
+
+        return self.displayed
+
     def waitForInvisabilityOfElem(self, elementLocator):
             element = WebDriverWait(self.remoteWebDriver, 10).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return element
 
+
     def switchToIframe(self, element):
         self.remoteWebDriver.switch_to.frame(element)
+
 
     def getCurrentUrl(self):
         currentUrl = self.remoteWebDriver.current_url
 
         return currentUrl
 
-    def saveScreenShot(self):
+
+    def refreshPage(self):
+        self.remoteWebDriver.refresh()
+
+
+    def saveScreenShot(self, i):
         time.sleep(1)
 
         TestsName.test_name = sys._getframe(1).f_code.co_name
 
-        filename = TestsName.test_name + '_screenShot.png'
 
-        self.remoteWebDriver.save_screenshot(
-            'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
+        if i == 0:
+            filename = TestsName.test_name + '_screenShot.png'
+            self.remoteWebDriver.save_screenshot(
+                'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
+
+        elif i != 0:
+            filename = TestsName.test_name + '_screenShot' + str(i) + '.png'
+            self.remoteWebDriver.save_screenshot(
+                'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
 
         return TestsName.test_name
 
-    def loadJson(self):
-
-        with open('FM.json', 'r') as f:
-            obj = json.load(f)
-
-        return obj
-
-    def writeToJson(self, data):
-
-        with open('FM.json', 'w') as outfile:
-            json.dump(data, outfile)
-
-    def waitforele(self, value):
-        self.remoteWebDriver.implicitly_wait(10)
-
-    def createRandomMail(self):
-
-        randEmail = ''.join(random.choice('0123456789ABCDEF') for i in range(16)) + '@mycheck.co.il'
-
-        return randEmail
 
 
-"""
-        
-"""
 
-# python run-tests.py --config=/config/apps/franco.json
+
+
