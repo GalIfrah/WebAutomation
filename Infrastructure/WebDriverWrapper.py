@@ -133,16 +133,16 @@ class Wrapper:
         return self.displayed
 
     def waitForInvisabilityOfElem(self, elementLocator):
-            element = WebDriverWait(self.remoteWebDriver, 10).until(
+            element = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return element
 
     def waitForVisabilityOfElem(self, elementLocator):
             try:
-                visible = WebDriverWait(self.remoteWebDriver, 10).until(
+                element = WebDriverWait(self.remoteWebDriver, 10).until(
                  ec.visibility_of_element_located((By.XPATH, elementLocator)))
-                return visible
+                return element
 
             except TimeoutException:
                 print("there is no popup")
@@ -175,12 +175,12 @@ class Wrapper:
         if i == 0:
             filename = TestsName.test_name + '_screenShot.png'
             self.remoteWebDriver.save_screenshot(
-                'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
+                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots/' + filename)
 
         elif i != 0:
             filename = TestsName.test_name + '_screenShot' + str(i) + '.png'
             self.remoteWebDriver.save_screenshot(
-                'C:/Users/galif/PycharmProjects/WebAutomation/Reports/ScreenShots/' + filename)
+                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots' + filename)
 
         return TestsName.test_name
 

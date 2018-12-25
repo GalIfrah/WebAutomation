@@ -319,6 +319,7 @@ class Wallet(GenericPO):
 
 
 class Menu(GenericPO):
+
     @staticmethod
     def chooseFirstCategory():
 
@@ -375,12 +376,15 @@ class Checkout(GenericPO):
         return text
 
 
+
 class ConfirmationScreen(GenericPO):
 
     @staticmethod
     def getConfirmationText():
-        text = GenericPO.webDriver.findElementBy('//*[@id="confirmation-page"]/div/header-widget/div[1]', LocatorsType=LocatorsTypes.XPATH).text
-        return text
+        element = GenericPO.webDriver.waitForVisabilityOfElem('//*[@id="confirmation-page"]/div/header-widget/div[1]')
+        return element.text
+        #text = GenericPO.webDriver.findElementBy('//*[@id="confirmation-page"]/div/header-widget/div[1]', LocatorsType=LocatorsTypes.XPATH).text
+        #return text
 
     @staticmethod
     def clickOnDone():
