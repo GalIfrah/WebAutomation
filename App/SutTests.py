@@ -1,8 +1,4 @@
 import unittest
-from builtins import print
-
-from Tools.scripts.generate_opcode_h import footer
-
 from Infrastructure.BasicTest import BasicTestClass
 import App.PageObjects
 from App.PageObjects import *
@@ -32,7 +28,6 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         HomePage.clickOnCookPolicyBtn()
         HomePage.clickOnConnect()
 
-        #if EnterPhonePage.getPhoneFieldElement().is_displayed():
         self.assertTrue(EnterPhonePage.getPhoneFieldElement().is_displayed(), "true")
 
     def test_102_footerText(self):
@@ -66,7 +61,41 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.submitSmsCode()
         GenericPO.webDriver.saveScreenShot(3)
 
-        EnterEmailPage.enterUnExistEmail()
+
+        HomePage.chooseLocation()
+        GenericPO.webDriver.saveScreenShot(4)
+        HomePage.startOrder()
+        GenericPO.webDriver.saveScreenShot(5)
+
+        Menu.chooseFirstCategory()
+        Menu.chooseFirstItem()
+        Menu.clickOnProceedToCheckout()
+        GenericPO.webDriver.saveScreenShot(6)
+
+
+        Checkout.clickOnSubmitOrder()
+        GenericPO.webDriver.saveScreenShot(7)
+        Checkout.enter4DigitsCode()
+        GenericPO.webDriver.saveScreenShot(8)
+
+
+        Checkout.submit4digitsCode()
+
+        if Checkout.getErrorPopup() is True:
+
+            text = Checkout.getErrorPopupText()
+
+            GenericPO.webDriver.saveScreenShot(9)
+
+            self.fail("CHECKOUT_ERROR: " + text)
+
+
+        self.assertEqual(ConfirmationScreen.getConfirmationText(), "THANK YOU FOR\nYOUR ORDER!", "not equals")
+
+
+
+"""
+ EnterEmailPage.enterUnExistEmail()
         EnterEmailPage.submitEmail()
 
         FormPage.enterFullName()
@@ -89,44 +118,6 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         Wallet.closeWallet()
 
         GenericPO.webDriver.saveScreenShot(7)
-
-
-
-
-        HomePage.chooseLocation()
-        GenericPO.webDriver.saveScreenShot(8)
-        HomePage.startOrder()
-        GenericPO.webDriver.saveScreenShot(9)
-
-        Menu.chooseFirstCategory()
-        Menu.chooseFirstItem()
-        Menu.clickOnProceedToCheckout()
-        GenericPO.webDriver.saveScreenShot(10)
-
-
-        Checkout.clickOnSubmitOrder()
-        GenericPO.webDriver.saveScreenShot(11)
-        Checkout.enter4DigitsCode()
-        GenericPO.webDriver.saveScreenShot(12)
-
-
-        Checkout.submit4digitsCode()
-
-        if Checkout.getErrorPopup() is True:
-
-            text = Checkout.getErrorPopupText()
-
-            GenericPO.webDriver.saveScreenShot(9)
-
-            self.fail("CHECKOUT_ERROR: " + text)
-
-
-        self.assertEqual(ConfirmationScreen.getConfirmationText(), "THANK YOU FOR\nYOUR ORDER!", "not equals")
-
-
-
-"""
-
 """
 
 

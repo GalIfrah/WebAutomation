@@ -1,7 +1,7 @@
 import json
 import random
-import cv2
-import numpy as py
+#import cv2
+#import numpy as py
 
 
 class ProjectUtils:

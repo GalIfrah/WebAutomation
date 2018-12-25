@@ -1,4 +1,3 @@
-from builtins import print
 from selenium.common.exceptions import StaleElementReferenceException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
@@ -366,7 +365,7 @@ class Checkout(GenericPO):
 
     @staticmethod
     def getErrorPopup():
-        exist = GenericPO.webDriver.waitForElemToBeDisplayed(params['CHECKOUT_SCREEN']['ERROR_POPUP'])
+        exist = GenericPO.webDriver.waitForVisabilityOfElem(params['CHECKOUT_SCREEN']['ERROR_POPUP'])
         return exist
 
     @staticmethod
