@@ -1,7 +1,7 @@
 import sys
 from multiprocessing import TimeoutError
 
-from logger import logger
+import logger
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
