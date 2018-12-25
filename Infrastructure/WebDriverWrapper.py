@@ -1,12 +1,13 @@
 import sys
-from builtins import print
-from venv import logger
+from multiprocessing import TimeoutError
+
+from logger import logger
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 from Infrastructure.Locators import LocatorsTypes
-from selenium.common.exceptions import (NoSuchElementException)
+from selenium.common.exceptions import (NoSuchElementException, TimeoutException)
 from selenium.webdriver.support.ui import Select
 from Utils.TestName import TestsName
 from selenium.webdriver.common.by import By
@@ -128,7 +129,7 @@ class Wrapper:
             except Exception:
                 print("not displayed yet")
                 time.sleep(1)
-
+# remove waiting for next time
         return self.displayed
 
     def waitForInvisabilityOfElem(self, elementLocator):
@@ -136,6 +137,19 @@ class Wrapper:
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return element
+
+    def waitForVisabilityOfElem(self, elementLocator):
+            try:
+                visible = WebDriverWait(self.remoteWebDriver, 10).until(
+                 ec.visibility_of_element_located((By.XPATH, elementLocator)))
+                return visible
+
+            except TimeoutException:
+                print("there is no popup")
+
+
+
+
 
 
     def switchToIframe(self, element):

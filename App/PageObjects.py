@@ -365,7 +365,7 @@ class Checkout(GenericPO):
 
     @staticmethod
     def getErrorPopup():
-        exist = GenericPO.webDriver.waitForElemToBeDisplayed(params['CHECKOUT_SCREEN']['ERROR_POPUP'])
+        exist = GenericPO.webDriver.waitForVisabilityOfElem(params['CHECKOUT_SCREEN']['ERROR_POPUP'])
         return exist
 
     @staticmethod
