@@ -81,16 +81,17 @@ class FlowTests(BasicTestClass, unittest.TestCase):
 
         Checkout.submit4digitsCode()
 
-        if Checkout.getErrorPopup() is True:
+        if Checkout.getErrorPopup() is not None:
 
-            text = Checkout.getErrorPopupText()
+            text = Checkout.getErrorPopup().text
 
             GenericPO.webDriver.saveScreenShot(9)
 
             self.fail("CHECKOUT_ERROR: " + text)
 
 
-        self.assertEqual(ConfirmationScreen.getConfirmationText(), "THANK YOU FOR\nYOUR ORDER!", "not equals")
+        self.assertEqual(ConfirmationScreen.getConfirmationText(), "THANsdaK YOU FOR\nYOUR ORDER!",
+                         "texts not equals, actual text is: " + ConfirmationScreen.getConfirmationText())
 
 
 
