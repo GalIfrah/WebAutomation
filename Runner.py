@@ -1,7 +1,7 @@
 import sys
 import json
 from App import PageObjects
-
+from App.PageObjects import params
 from App.SutTests import *
 
 
@@ -67,9 +67,9 @@ class App:
 
     def setConfig(self):
         with open(self.name + '.json') as data_file:
-            data = json.load(data_file)
+            PageObjects.params = json.load(data_file)
 
-        self.config = data
+        self.config = params
 
 
     def setPlatform(self):

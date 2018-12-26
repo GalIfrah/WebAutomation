@@ -1,7 +1,9 @@
-{ "APP_NAME": "Franco",
+{
+  "APP_NAME": "Franco",
 
-  "SUT": {"test": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
-          "prod": "https://order.francomanca.co.uk/"
+  "SUT": {
+          "test": "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#",
+          "prod": "https://order.meatliquor.com/"
   },
 
 
@@ -36,9 +38,9 @@
                 },
 
                 "DATA": {
-                         "FIRST_LOCATION": "AireusTest",
-                         "SECOND_LOCATION": "fm2",
-                         "DATE": "Today only",
+                         "FIRST_LOCATION": "MEATliquor W1",
+                         "SECOND_LOCATION": "MEATmarket Covent Garden",
+                         "DATE": "Tomorrow",
                          "TIME": "14:20"
                 },
 
@@ -120,12 +122,12 @@
 
   "FORM_PAGE": {
                 "LOCATORS" : {
-                  "FORM_EMAIL_FIELD": "",
-                  "FORM_FULL_NAME_FIELD": "//div[@class='col-12']/input[@placeholder='Full Name']",
-                  "FORM_PIN_FIELD": "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
-                  "FORM_DATE_FIELD": "//div[@class='row form-element'][4]/div/input",
-                  "FORM_OPTIN_TRUE": "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
-                  "FORM_SUBMIT_BUTTON": "//div[@class='continue-btn item-input-disable ng-binding']"
+                               "FORM_EMAIL_FIELD": "",
+                               "FORM_FULL_NAME_FIELD": "//div[@class='col-12']/input[@placeholder='Full Name']",
+                               "FORM_PIN_FIELD": "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
+                               "FORM_DATE_FIELD": "//div[@class='row form-element'][4]/div/input",
+                               "FORM_OPTIN_TRUE": "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
+                               "FORM_SUBMIT_BUTTON": "//div[@class='continue-btn item-input-disable ng-binding']"
                 },
 
                 "DATA" : {"NAME" : "test tester",
@@ -139,8 +141,8 @@
   "WALLET": {
 
                "LOCATORS" : {
-                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
-                              "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
+                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[2]/div/iframe",
+                              "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[1]/ul/li[@class='add-new-card']",
                               "CC_NUMBER_INPUT": "creditNumber",
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
@@ -167,10 +169,10 @@
 
 
   "MENU": {
-            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
-            "FIRST_CATEGORY": "//div[@id='store-cg-title']/nav/ul/li[1]/a",
-            "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
-            "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
+            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
+            "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
+            "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
+            "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
             "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
 
           },
