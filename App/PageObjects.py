@@ -56,7 +56,7 @@ class HomePage(GenericPO):
     @staticmethod
     def clickOnConnect():
         GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['CONNECT_BTN'],
-                                          LocatorsType=LocatorsTypes.XPATH).click()
+                                          LocatorsType=LocatorsTypes.ID).click()
 
     @staticmethod
     def chooseLocation():
@@ -350,28 +350,28 @@ class Checkout(GenericPO):
 
     @staticmethod
     def clickOnSubmitOrder():
-        GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['SUBMIT_ORDER_BUTTON'])
+        GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'])
 
     @staticmethod
     def enter4DigitsCode():
-        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_INPUT'],
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['ENTER_PIN_INPUT'],
                                           LocatorsType=LocatorsTypes.XPATH).send_keys(
             params['FORM_PAGE']['DATA']['PIN'])
 
     @staticmethod
     def submit4digitsCode():
-        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ENTER_PIN_OK_BUTTON'],
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['ENTER_PIN_OK_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         time.sleep(2)
 
     @staticmethod
     def getErrorPopup():
-        exist = GenericPO.webDriver.waitForVisabilityOfElem(params['CHECKOUT_SCREEN']['ERROR_POPUP'])
+        exist = GenericPO.webDriver.waitForVisibilityOfElem(params['CHECKOUT_SCREEN']['LOCATORS']['ERROR_POPUP'])
         return exist
 
     @staticmethod
     def getErrorPopupText():
-        text = GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['ERROR_POPUP'],
+        text = GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['ERROR_POPUP'],
                                                  LocatorsType=LocatorsTypes.XPATH).text
         return text
 
@@ -381,11 +381,14 @@ class ConfirmationScreen(GenericPO):
 
     @staticmethod
     def getConfirmationText():
-        element = GenericPO.webDriver.waitForVisabilityOfElem('//*[@id="confirmation-page"]/div/header-widget/div[1]')
+        element = GenericPO.webDriver.waitForVisibilityOfElem(
+            params['CONFIRMATION_SCREEN']['LOCATORS']['CONFIRMATION_TEXT_AREA'])
         return element.text
-        #text = GenericPO.webDriver.findElementBy('//*[@id="confirmation-page"]/div/header-widget/div[1]', LocatorsType=LocatorsTypes.XPATH).text
-        #return text
+
 
     @staticmethod
     def clickOnDone():
-        GenericPO.webDriver.findElementBy()
+        GenericPO.webDriver.findElementBy(params['CONFIRMATION_SCREEN']['LOCATORS']['DONE_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+        time.sleep(4)
+        # remove the sleep

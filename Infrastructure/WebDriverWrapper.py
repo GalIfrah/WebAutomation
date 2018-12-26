@@ -79,7 +79,7 @@ class Wrapper:
             logger.error('time out error')
 
         except NoSuchElementException as E:
-            logger.error('element not found')
+            logger.error(self, 'element not found')
 
         except UnboundLocalError:
             logger.error("element not assigned to any value yet")
@@ -132,13 +132,13 @@ class Wrapper:
 # remove waiting for next time
         return self.displayed
 
-    def waitForInvisabilityOfElem(self, elementLocator):
+    def waitForInvisibilityOfElem(self, elementLocator):
             element = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return element
 
-    def waitForVisabilityOfElem(self, elementLocator):
+    def waitForVisibilityOfElem(self, elementLocator):
             try:
                 element = WebDriverWait(self.remoteWebDriver, 10).until(
                  ec.visibility_of_element_located((By.XPATH, elementLocator)))
@@ -175,12 +175,12 @@ class Wrapper:
         if i == 0:
             filename = TestsName.test_name + '_screenShot.png'
             self.remoteWebDriver.save_screenshot(
-                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots/' + filename)
+                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\ScreenShots/' + filename)
 
         elif i != 0:
             filename = TestsName.test_name + '_screenShot' + str(i) + '.png'
             self.remoteWebDriver.save_screenshot(
-                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots' + filename)
+                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\ScreenShots' + filename)
 
         return TestsName.test_name
 

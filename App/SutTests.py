@@ -21,14 +21,19 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         self.assertEqual(currentAppLinkText, expectedAppLinkText, 'not match')
 
-    def test_101_sanity(self):
+
+    def test_101_clickOnConnect(self):
 
         HomePage.openSut()
+
         GenericPO.webDriver.saveScreenShot(1)
+
         HomePage.clickOnCookPolicyBtn()
+
         HomePage.clickOnConnect()
 
         self.assertTrue(EnterPhonePage.getPhoneFieldElement().is_displayed(), "true")
+
 
     def test_102_footerText(self):
 
@@ -43,6 +48,60 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         self.assertEqual(CurrentFooterText, expectedFooterText, 'not match')
 
 
+
+class FlowTests2(BasicTestClass, unittest.TestCase):
+
+    def test_100_sanity(self):
+        HomePage.openSut()
+        GenericPO.webDriver.saveScreenShot(1)
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+        GenericPO.webDriver.saveScreenShot(2)
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+        GenericPO.webDriver.saveScreenShot(3)
+
+        HomePage.chooseLocation()
+        GenericPO.webDriver.saveScreenShot(8)
+        HomePage.startOrder()
+        GenericPO.webDriver.saveScreenShot(9)
+
+        Menu.chooseFirstCategory()
+        Menu.chooseFirstItem()
+        Menu.clickOnProceedToCheckout()
+        GenericPO.webDriver.saveScreenShot(10)
+
+        Checkout.clickOnSubmitOrder()
+        GenericPO.webDriver.saveScreenShot(11)
+        Checkout.enter4DigitsCode()
+        GenericPO.webDriver.saveScreenShot(12)
+
+        Checkout.submit4digitsCode()
+        if Checkout.getErrorPopup() is not None:
+            text = Checkout.getErrorPopup().text
+
+            GenericPO.webDriver.saveScreenShot(13)
+
+            self.fail("CHECKOUT_ERROR: " + text)
+
+        confirmationText = params['CHECKOUT_SCREEN']['TEXTS']['CONFIRMATION_TEXT']
+
+        self.assertEqual(ConfirmationScreen.getConfirmationText(),
+                         confirmationText, "actual text is: " + ConfirmationScreen.getConfirmationText() +
+                         " and expected is: " + confirmationText)
+
+        ConfirmationScreen.clickOnDone()
+
+        self.assertEqual(GenericPO.webDriver.getCurrentUrl(), "https://www.francomanca.co.uk/", 'asdf')
+
+
+
+
+"""
 class FlowTests(BasicTestClass, unittest.TestCase):
 
     def test_100_sanity(self):
@@ -54,49 +113,13 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         HomePage.clickOnConnect()
         GenericPO.webDriver.saveScreenShot(2)
 
-
         EnterPhonePage.enterValidPhoneNumber()
         EnterPhonePage.clickOnSubmitBtn()
         EnterPhonePage.enterSmsCode()
         EnterPhonePage.submitSmsCode()
         GenericPO.webDriver.saveScreenShot(3)
 
-
-        HomePage.chooseLocation()
-        GenericPO.webDriver.saveScreenShot(4)
-        HomePage.startOrder()
-        GenericPO.webDriver.saveScreenShot(5)
-
-        Menu.chooseFirstCategory()
-        Menu.chooseFirstItem()
-        Menu.clickOnProceedToCheckout()
-        GenericPO.webDriver.saveScreenShot(6)
-
-
-        Checkout.clickOnSubmitOrder()
-        GenericPO.webDriver.saveScreenShot(7)
-        Checkout.enter4DigitsCode()
-        GenericPO.webDriver.saveScreenShot(8)
-
-
-        Checkout.submit4digitsCode()
-
-        if Checkout.getErrorPopup() is not None:
-
-            text = Checkout.getErrorPopup().text
-
-            GenericPO.webDriver.saveScreenShot(9)
-
-            self.fail("CHECKOUT_ERROR: " + text)
-
-
-        self.assertEqual(ConfirmationScreen.getConfirmationText(), "THANsdaK YOU FOR\nYOUR ORDER!",
-                         "texts not equals, actual text is: " + ConfirmationScreen.getConfirmationText())
-
-
-
-"""
- EnterEmailPage.enterUnExistEmail()
+        EnterEmailPage.enterUnExistEmail()
         EnterEmailPage.submitEmail()
 
         FormPage.enterFullName()
@@ -119,6 +142,41 @@ class FlowTests(BasicTestClass, unittest.TestCase):
         Wallet.closeWallet()
 
         GenericPO.webDriver.saveScreenShot(7)
+        HomePage.chooseLocation()
+        GenericPO.webDriver.saveScreenShot(8)
+        HomePage.startOrder()
+        GenericPO.webDriver.saveScreenShot(9)
+
+        Menu.chooseFirstCategory()
+        Menu.chooseFirstItem()
+        Menu.clickOnProceedToCheckout()
+        GenericPO.webDriver.saveScreenShot(10)
+
+
+        Checkout.clickOnSubmitOrder()
+        GenericPO.webDriver.saveScreenShot(11)
+        Checkout.enter4DigitsCode()
+        GenericPO.webDriver.saveScreenShot(12)
+
+
+        Checkout.submit4digitsCode()
+
+        if Checkout.getErrorPopup() is not None:
+
+            text = Checkout.getErrorPopup().text
+
+            GenericPO.webDriver.saveScreenShot(13)
+
+            self.fail("CHECKOUT_ERROR: " + text)
+
+        confirmationText = params['CHECKOUT_SCREEN']['TEXTS']['CONFIRMATION_TEXT']
+
+        self.assertEqual(ConfirmationScreen.getConfirmationText(),
+             confirmationText, "actual text is: " + ConfirmationScreen.getConfirmationText() +
+                         " and expected is: " + confirmationText)
+
+
+ 
 """
 
 

@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8685fcb1-839c-46ae-888a-a8338578ad19" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/FM.json" beforeDir="false" afterPath="$PROJECT_DIR$/App/FM.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/PageObjects.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/PageObjects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SutTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/SutTests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FM.json" beforeDir="false" afterPath="$PROJECT_DIR$/FM.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_16-56-11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_16-58-56.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_17-04-32.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_17-14-19.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot2.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,57 +28,74 @@
       <file leaf-file-name="SutTests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/SutTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+            <state relative-caret-position="83">
+              <caret line="170" selection-start-line="170" selection-end-line="170" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test_App.SutTests.FlowTests_2018-12-25_18-02-20.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_18-02-20.html">
+      <file leaf-file-name="Test_App.SutTests.FlowTests2_2018-12-26_12-00-34.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-26_12-00-34.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="Test_App.SutTests.HomeScreenTests_2018-12-24_10-47-58.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-24_10-47-58.html">
+      <file leaf-file-name="Test_App.SutTests.HomeScreenTests_2018-12-26_12-00-34.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-26_12-00-34.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Test_App.SutTests.FlowTests2_2018-12-25_22-06-57.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-06-57.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="FM.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/FM.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2822">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
+            <state relative-caret-position="799">
+              <caret line="47" column="73" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageObjects.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
+      <file leaf-file-name="Test_App.SutTests.FlowTests2_2018-12-25_21-56-17.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_21-56-17.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4760">
-              <caret line="350" column="8" selection-start-line="350" selection-start-column="8" selection-end-line="350" selection-end-column="8" />
-            </state>
+            <state relative-caret-position="-204" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FM.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FM.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="167" column="3" selection-start-line="167" selection-start-column="3" selection-end-line="167" selection-end-column="3" />
+            <state relative-caret-position="447">
+              <caret line="204" selection-start-line="204" selection-end-line="204" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebDriverWrapper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
+      <file leaf-file-name="Test_App.SutTests.FlowTests2_2018-12-25_22-01-10.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-01-10.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="PageObjects.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765">
-              <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+            <state relative-caret-position="338">
+              <caret line="393" column="26" selection-start-line="393" selection-start-column="26" selection-end-line="393" selection-end-column="26" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#69#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Infrastructure/BasicTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -103,6 +131,7 @@
       <find>screen</find>
       <find>//ul/li[@class='profile-item ng-binding ng-scope payment-methods']</find>
       <find>FIRST_CATEGORY</find>
+      <find>CONFIRMATION_SCREEN</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\galif\AppData\Local\Programs\Python\Python37-32\Lib\site-packages</dir>
@@ -138,18 +167,18 @@
         <option value="$PROJECT_DIR$/Utils/utils.py" />
         <option value="$PROJECT_DIR$/TestRunner.py" />
         <option value="$PROJECT_DIR$/Utils/TestName.py" />
-        <option value="$PROJECT_DIR$/App/PageObjects.py" />
-        <option value="$PROJECT_DIR$/App/SutTests.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" />
         <option value="$PROJECT_DIR$/App/FM.json" />
         <option value="$PROJECT_DIR$/FM.json" />
-        <option value="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" />
+        <option value="$PROJECT_DIR$/App/PageObjects.py" />
+        <option value="$PROJECT_DIR$/App/SutTests.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1105" />
-    <option name="y" value="45" />
-    <option name="width" value="815" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="698" />
     <option name="height" value="950" />
   </component>
   <component name="ProjectView">
@@ -185,11 +214,6 @@
               <item name="Reports" type="462c0819:PsiDirectoryNode" />
               <item name="Reports" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WebAutomation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebAutomation" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -202,14 +226,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
       <recent name="C:\Users\galif\PycharmProjects\WebAutomation\Utils" />
       <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
-      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -379,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544361699368</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changing locators to json">
+      <created>1545754464542</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1545754464542</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -417,14 +448,15 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21877065" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21877065" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009914" side_tool="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44547257" weight="0.53418803" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32905984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4990086" visible="true" weight="0.54415953" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4990086" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4900285" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -433,7 +465,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -481,18 +512,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/test_100_openSut_screenShot.png" />
-    <entry file="file://$PROJECT_DIR$/App/test_100_openSut_screenShot2.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-09_12-28-30.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-08_19-49-02.html" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/numpy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test.py" />
-    <entry file="file://$PROJECT_DIR$/App/result.png" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/galenpy/remote_service_lifecycle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -543,6 +562,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-119">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -573,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/BasicTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Pilots_2018-12-23_22-55-08.html" />
     <entry file="file://$PROJECT_DIR$/Reports/screenShots/test_101_sanity_screenShot1.png" />
     <entry file="file://$PROJECT_DIR$/Reports/screenShots/test_101_sanity_screenShot2.png" />
@@ -593,45 +608,81 @@
     <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-24_10-47-58.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/FM.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FM.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="167" column="3" selection-start-line="167" selection-start-column="3" selection-end-line="167" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4760">
-          <caret line="350" column="8" selection-start-line="350" selection-start-column="8" selection-end-line="350" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_18-02-20.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="81" column="23" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
+        <state relative-caret-position="141">
+          <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/SutTests.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_21-40-18.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_21-46-45.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_21-56-17.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-01-10.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-06-57.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Infrastructure/BasicTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_18-02-20.html">
+    <entry file="file://$PROJECT_DIR$/FM.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="204" selection-start-line="204" selection-end-line="204" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="393" column="26" selection-start-line="393" selection-start-column="26" selection-end-line="393" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/FM.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="73" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/SutTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-26_12-00-34.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-26_12-00-34.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
