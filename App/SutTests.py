@@ -65,12 +65,25 @@ class FlowTests2(BasicTestClass, unittest.TestCase):
         EnterPhonePage.submitSmsCode()
         GenericPO.webDriver.saveScreenShot(3)
 
+
+        Account.clickOnPaymentMethods()
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        GenericPO.webDriver.saveScreenShot(5)
+
+        Wallet.ClickOnCcSubmit()
+        GenericPO.webDriver.saveScreenShot(6)
+        Wallet.closeWallet()
+
         HomePage.chooseLocation()
         GenericPO.webDriver.saveScreenShot(8)
         HomePage.startOrder()
         GenericPO.webDriver.saveScreenShot(9)
 
-        Menu.chooseFirstCategory()
+       # Menu.chooseFirstCategory()
         Menu.chooseFirstItem()
         Menu.clickOnProceedToCheckout()
         GenericPO.webDriver.saveScreenShot(10)
@@ -102,6 +115,18 @@ class FlowTests2(BasicTestClass, unittest.TestCase):
 
 
 """
+
+EnterEmailPage.enterUnExistEmail()
+        EnterEmailPage.submitEmail()
+
+        FormPage.enterFullName()
+        FormPage.enterPin()
+        FormPage.enterDate()
+        FormPage.chooseOptinTrue()
+        FormPage.submitForm()
+        GenericPO.webDriver.saveScreenShot(4)
+
+
 class FlowTests(BasicTestClass, unittest.TestCase):
 
     def test_100_sanity(self):

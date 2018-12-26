@@ -5,7 +5,8 @@ from Utils.utils import ProjectUtils
 import time
 
 
-params = ProjectUtils.loadJson()
+params = None
+# ProjectUtils.loadJson()
 env = None
 
 
@@ -61,7 +62,7 @@ class HomePage(GenericPO):
     @staticmethod
     def chooseLocation():
         GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
-                                               params['HOME_PAGE']['DATA']['AIREUS_TEST_LOCATION'])
+                                               params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
 
     @staticmethod
     def chooseDate():
@@ -92,7 +93,7 @@ class HomePage(GenericPO):
                                                       LocatorsType=LocatorsTypes.XPATH).click()
 
                     GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
-                                                           params['HOME_PAGE']['DATA']['FM2_LOCATION'])
+                                                           params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
 
                     GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
@@ -335,7 +336,7 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseFirstItem():
-        GenericPO.webDriver.findElementBy(params['MENU']['FIRST_ITEM'],
+        GenericPO.webDriver.findElementBy(params['MENU']['SECOND_ITEM'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
