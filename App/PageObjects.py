@@ -1,18 +1,31 @@
 from selenium.common.exceptions import StaleElementReferenceException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
+
 from Utils.utils import ProjectUtils
 import time
 
 
 params = None
 # ProjectUtils.loadJson()
-env = None
+env = ''
 
+"""
+class Params():
 
+    @staticmethod
+    def appTexts():
+        appTaxts = params
+        return appTaxts
+"""
 
 
 class HomePage(GenericPO):
+
+    @staticmethod
+    def firstFooterttt():
+           text = params['HOME_PAGE']['TEXTS']['FOOTER_FIRST_PART_TEXT']
+           return text
 
     @staticmethod
     def openSut():
@@ -60,9 +73,27 @@ class HomePage(GenericPO):
                                           LocatorsType=LocatorsTypes.ID).click()
 
     @staticmethod
+    def getLoginButtonText():
+        time.sleep(3)
+        text = GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['CONNECT_BTN_TEXT_AREA'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return text
+
+    @staticmethod
     def chooseLocation():
         GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
                                                params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
+
+    @staticmethod
+    def getInputsPlaceHolder():
+        placeHolders = [GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_PLACE_HOLDER'],
+                                          LocatorsType=LocatorsTypes.XPATH).text,
+                        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['SELECT_DATE_PLACE_HOLDER'],
+                                          LocatorsType=LocatorsTypes.XPATH).text,
+                        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['SELECT_TIME_PLACE_HOLDER'],
+                                          LocatorsType=LocatorsTypes.XPATH).text]
+        return placeHolders
+
 
     @staticmethod
     def chooseDate():
@@ -153,8 +184,16 @@ class Account(GenericPO):
 
     @staticmethod
     def clickOnLogOut():
-        GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+        GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
                                           params['HOME_PAGE']['LOCATORS']['ACCOUNT']['LOG_OUT'])
+
+    @staticmethod
+    def logOutYes():
+        GenericPO.webDriver.findElementBy(params['LOGOUT_SCREEN']['YES_BTN'], LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def logOutNo():
+        GenericPO.webDriver.findElementBy(params['LOGOUT_SCREEN']['NO_BTN']).click()
 
 
 
@@ -335,7 +374,7 @@ class Menu(GenericPO):
         return text
 
     @staticmethod
-    def chooseFirstItem():
+    def chooseSecondItem():
         GenericPO.webDriver.findElementBy(params['MENU']['SECOND_ITEM'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 

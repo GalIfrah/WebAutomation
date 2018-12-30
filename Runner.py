@@ -1,12 +1,10 @@
 import sys
 import json
-from App import PageObjects
-from App.PageObjects import params
-from App.SutTests import *
+import unittest
+import HtmlTestRunner
 
 
-class App:
-
+class SUT:
     name = None
     config = None
     platform = None
@@ -19,6 +17,12 @@ class App:
             self.name = sys.argv.pop(1)
             self.env = sys.argv.pop(1)
             self.platform = sys.argv.pop(1)
+
+            # self.name = "ML"
+            # self.env = "test"
+            # self.platform = "desktop"
+
+
 
 
         self.validateApp()
@@ -49,7 +53,7 @@ class App:
         if self.platform == 'desktop':
             return
 
-        raise Exception('`' + self.mobile + '` is not a valid platform')
+        raise Exception('`' + self.platform + '` is not a valid platform')
 
 
     def validateEnv(self):
@@ -66,29 +70,36 @@ class App:
 
 
     def setConfig(self):
-        with open(self.name + '.json') as data_file:
-            PageObjects.params = json.load(data_file)
 
-        self.config = params
+        import App.PageObjects
+
+        with open(self.name + '.json') as data_file:
+            App.PageObjects.params = json.load(data_file)
 
 
     def setPlatform(self):
+        from Infrastructure.BasicTest import BasicTestClass
         BasicTestClass.platform = self.platform
 
 
     def setEnv(self):
-        PageObjects.env = self.env
+
+        import App.PageObjects
+        App.PageObjects.env = self.env
 
 
 # end of Environment class
 
 
-app = App()
+sut = SUT()
+
+from App.SutTests import *
+
+
 
 print("===================================")
-print('Running on ' + app.name + '_' + app.platform + ' App')
+print('Running on ' + sut.name + '_' + sut.platform + ' App')
 print("===================================")
-
 
 
 if __name__ == '__main__':

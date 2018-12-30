@@ -3,13 +3,13 @@ import random
 import cv2
 import numpy as py
 
-class ProjectUtils:
 
+class ProjectUtils:
 
     @staticmethod
     def loadJson():
 
-        with open('FM.json', 'r') as f:
+        with open('ML' + '.json', 'r') as f:
             obj = json.load(f)
 
         return obj

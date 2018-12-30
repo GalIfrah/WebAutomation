@@ -12,17 +12,21 @@
 
                 "LOCATORS": {
                               "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
-                              "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
+                              "BACK_TO_APP_HEADER_LINK": 0,
                               "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
                               "CONNECT_BTN": "login-btn",
+                              "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
                               "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
                               "START_ORDER_POPUP_TEXT_AREA": "//div[@class='popup-body']",
                               "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
                               "TERMS_AND_COND_LINK": "//span[@class='small ng-scope']/a[1]",
                               "PRIVACY_POLICY_LINK": "//span[@class='small ng-scope']/a[2]",
                               "SELECT_LOCATION_DROP_DOWN": "home-select-location",
+                              "SELECT_LOCATION_PLACE_HOLDER": "//select[@id='home-select-location']/option",
                               "SELECT_DATE_DROP_DOWN": "home-date",
+                              "SELECT_DATE_PLACE_HOLDER": "//select[@id='home-date']/option",
                               "SELECT_TIME_DROP_DOWN": "home-time",
+                              "SELECT_TIME_PLACE_HOLDER": "//select[@id='home-time']/option",
                               "FOOTER_FIRST_PART": "//ol/li[1]/span",
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
@@ -33,6 +37,7 @@
                                           "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
                                           "HISTORY": "//ul/li[@class='profile-item ng-binding ng-scope history']",
                                           "LOG_OUT": "//ul/li[@class='profile-item ng-binding ng-scope logout']"
+
                   }
 
                 },
@@ -45,10 +50,14 @@
                 },
 
                 "TEXTS": {
+                          "CONNECT_BUTTON_BEFORE_LOGIN": "Connect",
                           "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.ukk",
                           "FOOTER_FIRST_PART_TEXT": "FIND YOUR RESTAURANT",
                           "FOOTER_SECOND_PART_TEXT": "SELECT YOUR FOOD",
-                          "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY"
+                          "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY",
+                          "SELECT_LOCATION_PLACE_HOLDER_TEXT": "Please select a location",
+                          "SELECT_DATE_PLACE_HOLDER_TEXT": "Date",
+                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Time"
 
                 }
 
@@ -87,6 +96,14 @@
                             "LOCATORS": {},
                             "DATA":{}
   },
+
+
+
+  "LOGOUT_SCREEN": {
+                     "YES_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/button[1]",
+                     "NO_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/div"
+
+                     },
 
 
 

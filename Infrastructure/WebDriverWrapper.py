@@ -1,6 +1,5 @@
 import sys
 from multiprocessing import TimeoutError
-
 import logger
 from selenium import webdriver
 import urllib3
@@ -21,7 +20,7 @@ class Wrapper:
     def initDesktop(self, remote_url):
         urllib3.disable_warnings(urllib3.exceptions)
 
-        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome', "maxSessions": 10}
 
         self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
 
@@ -76,18 +75,18 @@ class Wrapper:
             elementFlag = True
 
         except TimeoutError:
-            logger.error('time out error')
+            logger.error(self, 'time out error')
 
         except NoSuchElementException as E:
             logger.error(self, 'element not found')
 
         except UnboundLocalError:
-            logger.error("element not assigned to any value yet")
+            logger.error(self, "element not assigned to any value yet")
 
         if elementFlag is True:
             return element
         else:
-            logger.error("element not assigned to any value yet")
+            logger.error(self, "element not assigned to any value yet")
 
 
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
@@ -129,7 +128,7 @@ class Wrapper:
             except Exception:
                 print("not displayed yet")
                 time.sleep(1)
-# remove waiting for next time
+
         return self.displayed
 
     def waitForInvisibilityOfElem(self, elementLocator):

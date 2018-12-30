@@ -13,6 +13,7 @@
                               "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
                               "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
                               "CONNECT_BTN": "login-btn",
+                              "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
                               "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
                               "START_ORDER_POPUP_TEXT_AREA": "//div[@class='popup-body']",
                               "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
@@ -43,7 +44,8 @@
                 },
 
                 "TEXTS": {
-                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.ukk",
+                          "CONNECT_BUTTON_BEFORE_LOGIN": "Connect",
+                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.uk",
                           "FOOTER_FIRST_PART_TEXT": "FIND YOUR RESTAURANT",
                           "FOOTER_SECOND_PART_TEXT": "SELECT YOUR FOOD",
                           "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY"
@@ -85,6 +87,14 @@
                             "LOCATORS": {},
                             "DATA":{}
   },
+
+
+
+   "LOGOUT_SCREEN": {
+                     "YES_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/button[1]",
+                     "NO_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/div"
+
+                     },
 
 
 

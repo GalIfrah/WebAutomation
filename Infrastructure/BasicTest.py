@@ -3,7 +3,7 @@ from Infrastructure.WebDriverWrapper import Wrapper
 
 class BasicTestClass:
     driver = Wrapper()
-    platform = None
+    platform = ''
 
     def setUp(self):
         if self.platform == "desktop":
