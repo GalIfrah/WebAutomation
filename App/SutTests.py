@@ -24,7 +24,7 @@ class Tests(BasicTestClass, unittest.TestCase):
         expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
         self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
                          ' EXPECTED: ' + expectedDefaultCardText)
-        # 'NOT_EQUALS'
+
 
 
 
