@@ -165,6 +165,8 @@
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
                               "SUBMIT_CC_BUTTON": "submit",
+                              "CARDS_SECTION": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul[@class='myc-modal-payment-list']",
+                              "USER_CARDS": "li",
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
@@ -179,6 +181,11 @@
                          "EXP_DATE" : "12/18",
                          "CVC" : "123",
                          "POSTCODE" : "12333"
+               },
+
+               "TEXTS": {
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/212"
+
                }
 
   },
