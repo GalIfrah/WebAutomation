@@ -171,6 +171,7 @@ class Account(GenericPO):
     def clickOnPaymentMethods():
         GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
                                           params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
+        time.sleep(1)
 
     @staticmethod
     def clickOnGiftCards():
@@ -336,9 +337,14 @@ class Wallet(GenericPO):
         time.sleep(5)
 
     @staticmethod
-    def closeWallet():
-        #       GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
-        GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
+    def getUserCardsList():
+
+        cardListElement = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CARDS_SECTION'],
+            LocatorsType=LocatorsTypes.XPATH)
+
+        cards = cardListElement.find_elements_by_tag_name(params['WALLET']['LOCATORS']['USER_CARDS'])
+
+        return cards
 
     @staticmethod
     def ClickOnDeleteCard():
@@ -355,6 +361,10 @@ class Wallet(GenericPO):
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_NO_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
+    @staticmethod
+    def closeWallet():
+        #       GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
+        GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
 
 
 
