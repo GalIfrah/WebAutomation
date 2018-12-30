@@ -7,6 +7,7 @@ from App.PageObjects import *
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
+
         HomePage.openSut()
 
         HomePage.clickOnCookPolicyBtn()
@@ -58,13 +59,32 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
         currentLoginButtonText = HomePage.getLoginButtonText()
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
+    def test_102_checkMigration(self):
+        pass
+
 
 class HomeScreenTests(BasicTestClass, unittest.TestCase):
+
+    def test_100_openSut(self):
+
+        HomePage.openSut()
+
+        currentAppLink = HomePage.getSutUrl()
+
+        if env == 'test':
+
+            expectedAppUrl = params['SUT']['test']
+
+        elif env == 'prod':
+
+            expectedAppUrl = params['SUT']['prod']
+
+        self.assertEqual(currentAppLink, expectedAppUrl, 'urls not equals')
 
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
                      reason="FEATURE_NOT_EXIST")
-    def test_100_openSut(self):
+    def test_101_checkBusinessLink(self):
 
         HomePage.openSut()
 
@@ -78,7 +98,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         self.assertEqual(currentAppLinkText, expectedAppLinkText, 'not match')
 
-    def test_101_getInputsPlaceHolders(self):
+    def test_102_getInputsPlaceHolders(self):
 
         HomePage.openSut()
 
@@ -91,7 +111,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         self.assertEqual(inputsPlaceHolders[2], params['HOME_PAGE']['TEXTS']['SELECT_TIME_PLACE_HOLDER_TEXT'],
                          'TIME_PLACE_HOLDERS_NOT_EQUALS')
 
-    def test_102_getInputsPlaceHolders2(self):
+    def test_103_getInputsPlaceHolders2(self):
 
         HomePage.openSut()
 
@@ -105,7 +125,18 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
                          'TIME_PLACE_HOLDERS_NOT_EQUALS')
 
 
-    def test_103_clickOnConnect(self):
+    def test_105_CheckInputsWithData(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+
+        HomePage.chooseLocation()
+
+        GenericPO.webDriver.saveScreenShot(1)
+
+
+    def test_106_clickOnConnect(self):
 
         HomePage.openSut()
 
@@ -118,7 +149,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         self.assertTrue(EnterPhonePage.getPhoneFieldElement().is_displayed(), "true")
 
 
-    def test_104_footerText(self):
+    def test_107_footerText(self):
 
         HomePage.openSut()
 
@@ -130,6 +161,90 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         self.assertEqual(CurrentFooterText, expectedFooterText, 'not match')
 
+
+class WalletTests(BasicTestClass, unittest.TestCase):
+
+    def test_100_openWallet(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+
+        Account.clickOnPaymentMethods()
+        # add validation
+
+    def test_101_addPaymentMethod_first(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+
+        Account.clickOnPaymentMethods()
+
+        # add first card
+
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        GenericPO.webDriver.saveScreenShot(5)
+
+        Wallet.ClickOnCcSubmit()
+
+        # add second card
+
+        # add logic for second card credentials
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        GenericPO.webDriver.saveScreenShot(5)
+
+        Wallet.ClickOnCcSubmit()
+
+    def test_103_getUserPayments(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+
+        Account.clickOnPaymentMethods()
+        # add validation
+
+    def test_104_validateDefaultCard(self):
+        pass
+
+    def test_105_deleteCard(self):
+        pass
+
+    def test_106_CheckInputsValidation(self):
+        pass
+
+    def test_107_checkUnsupportedCard(self):
+        pass
+
+    def test_108_openWalletFromCheckout(self):
+        pass
 
 
 """

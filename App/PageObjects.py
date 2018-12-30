@@ -24,8 +24,8 @@ class HomePage(GenericPO):
 
     @staticmethod
     def firstFooterttt():
-           text = params['HOME_PAGE']['TEXTS']['FOOTER_FIRST_PART_TEXT']
-           return text
+        text = params['HOME_PAGE']['TEXTS']['FOOTER_FIRST_PART_TEXT']
+        return text
 
     @staticmethod
     def openSut():
