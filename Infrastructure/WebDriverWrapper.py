@@ -1,6 +1,6 @@
 import sys
 from multiprocessing import TimeoutError
-from logger import logger
+from logger import error
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
@@ -15,6 +15,7 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class Wrapper:
+
     remoteWebDriver = None
 
     def initDesktop(self, remote_url):
@@ -75,18 +76,18 @@ class Wrapper:
             elementFlag = True
 
         except TimeoutError:
-            logger.error(self, 'time out error')
+            error(self, 'time out error')
 
         except NoSuchElementException as E:
-            logger.error(self, 'element not found')
+            error(self, 'element not found')
 
         except UnboundLocalError:
-            logger.error(self, "element not assigned to any value yet")
+            error(self, "element not assigned to any value yet")
 
         if elementFlag is True:
             return element
         else:
-            logger.error(self, "element not assigned to any value yet")
+            error(self, "element not assigned to any value yet")
 
 
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
