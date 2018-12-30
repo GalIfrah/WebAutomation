@@ -4,6 +4,31 @@ from App import PageObjects
 from App.PageObjects import *
 
 
+class Tests(BasicTestClass, unittest.TestCase):
+
+    def test_100_stamTest(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+
+        Account.clickOnPaymentMethods()
+
+        currentDefaultCardText = Wallet.getUserCardsList()[1].text
+        expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
+        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
+                         ' EXPECTED: ' + expectedDefaultCardText)
+        # 'NOT_EQUALS'
+
+
+
+
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -124,7 +149,6 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         self.assertEqual(inputsPlaceHolders[2], params['HOME_PAGE']['TEXTS']['SELECT_TIME_PLACE_HOLDER_TEXT'],
                          'TIME_PLACE_HOLDERS_NOT_EQUALS')
 
-
     def test_105_CheckInputsWithData(self):
 
         HomePage.openSut()
@@ -134,7 +158,6 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         HomePage.chooseLocation()
 
         GenericPO.webDriver.saveScreenShot(1)
-
 
     def test_106_clickOnConnect(self):
 
@@ -147,7 +170,6 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         HomePage.clickOnConnect()
 
         self.assertTrue(EnterPhonePage.getPhoneFieldElement().is_displayed(), "true")
-
 
     def test_107_footerText(self):
 
