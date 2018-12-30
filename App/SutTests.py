@@ -28,7 +28,6 @@ class Tests(BasicTestClass, unittest.TestCase):
 
 
 
-
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
