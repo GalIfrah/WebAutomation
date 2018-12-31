@@ -298,8 +298,17 @@ class Wallet(GenericPO):
 
     @staticmethod
     def clickOnAddNewCard():
-        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON'],
+
+        if len(Wallet.getUserCardsList()) >= 1 and Wallet.getUserCardsList()[0].text == params['WALLET']['TEXTS']['ADD_NEW_CARD_TEXT']:
+
+                    GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and Wallet.getUserCardsList()[0].text != params['WALLET']['TEXTS']['ADD_NEW_CARD_TEXT']:
+
+                    GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
 
     @staticmethod
     def enterCcNumber():
@@ -363,7 +372,6 @@ class Wallet(GenericPO):
 
     @staticmethod
     def closeWallet():
-        #       GenericPO.webDriver.waitForInvisabilityOfElem(params['WALLET']['LOCATORS']['WALLET_LOADER'])
         GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
 
 
