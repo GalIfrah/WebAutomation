@@ -20,8 +20,23 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Account.clickOnPaymentMethods()
 
-        currentDefaultCardText = Wallet.getUserCardsList()[1].text
+        Wallet.clickOnAddNewCard()
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
+        GenericPO.webDriver.saveScreenShot(5)
+
+        Wallet.ClickOnCcSubmit()
+
+        currentDefaultCardText = Wallet.getUserCardsList()[0].text
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
+
+                currentDefaultCardText = Wallet.getUserCardsList()[1].text
+
         expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
+
         self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
                          ' EXPECTED: ' + expectedDefaultCardText)
 
