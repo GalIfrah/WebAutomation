@@ -151,6 +151,7 @@
                "LOCATORS" : {
                               "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
+                              "ADD_NEW_CARD_BUTTON_HEADER": 0,
                               "CC_NUMBER_INPUT": "creditNumber",
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
@@ -175,8 +176,8 @@
                },
 
                "TEXTS": {
-                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/212"
-
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/212",
+                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD"
                }
 
   },
