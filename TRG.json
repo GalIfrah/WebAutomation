@@ -1,0 +1,242 @@
+{
+  "APP_NAME": "Franco",
+
+  "SUT": {
+          "test": "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#",
+          "prod": "https://order.meatliquor.com/"
+  },
+
+
+
+  "HOME_PAGE": {
+
+                "LOCATORS": {
+                              "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
+                              "BACK_TO_APP_HEADER_LINK": 0,
+                              "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
+                              "CONNECT_BTN": "login-btn",
+                              "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
+                              "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
+                              "START_ORDER_POPUP_TEXT_AREA": "//div[@class='popup-body']",
+                              "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
+                              "TERMS_AND_COND_LINK": "//span[@class='small ng-scope']/a[1]",
+                              "PRIVACY_POLICY_LINK": "//span[@class='small ng-scope']/a[2]",
+                              "SELECT_LOCATION_DROP_DOWN": "home-select-location",
+                              "SELECT_LOCATION_PLACE_HOLDER": "//select[@id='home-select-location']/option",
+                              "SELECT_DATE_DROP_DOWN": "home-date",
+                              "SELECT_DATE_PLACE_HOLDER": "//select[@id='home-date']/option",
+                              "SELECT_TIME_DROP_DOWN": "home-time",
+                              "SELECT_TIME_PLACE_HOLDER": "//select[@id='home-time']/option",
+                              "FOOTER_FIRST_PART": "//ol/li[1]/span",
+                              "FOOTER_SECOND_PART": "//ol/li[2]/span",
+                              "FOOTER_THIRD_PART": "//ol/li[3]/span",
+                              "ACCOUNT": {
+                                          "ACCOUNT_BUTTON": "//ul[@id='profile-menu']",
+                                          "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info']",
+                                          "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']",
+                                          "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
+                                          "HISTORY": "//ul/li[@class='profile-item ng-binding ng-scope history']",
+                                          "LOG_OUT": "//ul/li[@class='profile-item ng-binding ng-scope logout']"
+
+                  }
+
+                },
+
+                "DATA": {
+                         "FIRST_LOCATION": "MEATliquor W1",
+                         "SECOND_LOCATION": "MEATmarket Covent Garden",
+                         "DATE": "Tomorrow",
+                         "TIME": "14:20"
+                },
+
+                "TEXTS": {
+                          "CONNECT_BUTTON_BEFORE_LOGIN": "Connect",
+                          "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.ukk",
+                          "FOOTER_FIRST_PART_TEXT": "FIND YOUR RESTAURANT",
+                          "FOOTER_SECOND_PART_TEXT": "SELECT YOUR FOOD",
+                          "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY",
+                          "SELECT_LOCATION_PLACE_HOLDER_TEXT": "Please select a location",
+                          "SELECT_DATE_PLACE_HOLDER_TEXT": "Date",
+                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Time"
+
+                }
+
+  },
+
+
+
+  "PERSONAL_INFO_SCREEN": {
+
+                            "LOCATORS": {
+                                          "NAME_FIELD": "",
+                                          "DOB_FIELD": "",
+                                          "EMAIL_FIELD": ""
+                            },
+
+                            "DATA":{
+                                     "UPDATED_NAME": "test tester1",
+                                     "UPDATED_EMAIL": "updated_email@gmail.com",
+                                     "UPDATED_DOB": "11/12/2013"
+
+                            }
+  },
+
+
+
+  "HISTORY_SCREEN": {
+
+                            "LOCATORS": {},
+                            "DATA":{}
+  },
+
+
+
+  "GIFT_CARDS_SCREEN": {
+
+                            "LOCATORS": {},
+                            "DATA":{}
+  },
+
+
+
+  "LOGOUT_SCREEN": {
+                     "YES_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/button[1]",
+                     "NO_BTN": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[3]/div"
+
+                     },
+
+
+
+  "ENTER_PHONE_PAGE" :
+
+                       {"LOCATORS" : {"PHONE_FIELD" : "//input[@name='phone']",
+                                      "SUBMIT_BUTTON" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div[2]/form/div[1]/div[2]",
+                                      "ENTER_SMS_CODE" : "//form/div/div/input",
+                                      "SUBMIT_SMS_CODE" : "//form/div/div/div",
+                                      "ENTER_EMAIL_FIELD" : "//input[@type='email']"
+
+                       }, "DATA" : {"VALID_PHONE_NUMBER" : "+972542567405",
+                                    "INVALID_PHONE_NUMBER" : "+9725425675555",
+                                    "INVALID_SMS_CODE" : "000000"
+                                   }
+
+  },
+
+
+
+  "ENTER_EMAIL_PAGE": {
+
+                        "LOCATORS" : {"ENTER_EMAIL_FIELD": "//input[@type='email']",
+                                      "SUBMIT_EMAIL_BUTTON": "//div[@type='button']"
+                                   },
+
+                        "DATA" : {"EXIST_EMAIL" : "gal@gmail.com"
+
+                                 }
+  },
+
+
+
+  "FORM_PAGE": {
+                "LOCATORS" : {
+                               "FORM_EMAIL_FIELD": "",
+                               "FORM_FULL_NAME_FIELD": "//div[@class='col-12']/input[@placeholder='Full Name']",
+                               "FORM_PIN_FIELD": "//div[@class='relative-wrapper']/input[@placeholder='Choose your own 4 digit passcode']",
+                               "FORM_DATE_FIELD": "//div[@class='row form-element'][4]/div/input",
+                               "FORM_OPTIN_TRUE": "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div/form/div[5]/div/label",
+                               "FORM_SUBMIT_BUTTON": "//div[@class='continue-btn item-input-disable ng-binding']"
+                },
+
+                "DATA" : {"NAME" : "test tester",
+                          "PIN" : "1234",
+                          "DATE" : "01/02/2003"
+                }
+  },
+
+
+
+  "WALLET": {
+
+               "LOCATORS" : {
+                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[2]/div/iframe",
+                              "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div/div/div/ul/li[@class='myc-sliding-card myc-add-new-card']",
+                              "ADD_NEW_CARD_BUTTON_HEADER": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div/button",
+                              "CC_NUMBER_INPUT": "creditNumber",
+                              "EXP_DATE_INPUT": "fullYear",
+                              "CVC_INPUT": "cvc",
+                              "POSTCODE_INPUT": "postalCode",
+                              "SUBMIT_CC_BUTTON": "submit",
+                              "CARDS_SECTION": "//ul[@class='myc-sliding-cards-list myc-sliding-cards-list--centered']",
+                              "USER_CARDS": "li",
+                              "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
+                              "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
+                              "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
+                              "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
+                              "WALLET_LOADER": "//div[@class='myc-loading']"
+
+               },
+
+               "DATA" : {
+                         "VALID_CC_NUMBER" : "4111-1111-1111-1111",
+                         "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
+                         "EXP_DATE" : "12/18",
+                         "CVC" : "123",
+                         "POSTCODE" : "12333"
+               },
+
+               "TEXTS": {
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/212",
+                         "ADD_NEW_CARD_TEXT": "Add New Card"
+
+               }
+
+  },
+
+
+
+  "MENU": {
+            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
+            "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
+            "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
+            "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
+            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+
+          },
+
+
+
+  "CHECKOUT_SCREEN": {
+                       "LOCATORS": {
+                                     "SUBMIT_ORDER_BUTTON": "//div[@class='modal checkout-modal fade ng-scope ng-isolate-scope in']/div/div/div[3]/button",
+                                     "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
+                                     "ENTER_PIN_OK_BUTTON": "//div[@class='popup']/div[3]/button",
+                                     "ENTER_PIN_CANCEL_BUTTON": "",
+                                     "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]"
+
+                                   },
+
+
+                       "TEXTS": {
+                                  "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
+
+                                }
+  },
+
+
+
+  "CONFIRMATION_SCREEN": {
+                           "LOCATORS": {
+                                         "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
+                                         "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div"
+
+                           }
+
+
+  }
+
+
+
+
+}
+
+
