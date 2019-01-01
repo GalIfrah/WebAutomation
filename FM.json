@@ -159,6 +159,7 @@
                               "SUBMIT_CC_BUTTON": "submit",
                               "CARDS_SECTION": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul[@class='myc-modal-payment-list']",
                               "USER_CARDS": "li",
+                              "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-card is-default']/div[@class='myc-default']",
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
@@ -168,11 +169,21 @@
                },
 
                "DATA" : {
-                         "VALID_CC_NUMBER" : "4111-1111-1111-1111",
                          "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
-                         "EXP_DATE" : "12/18",
-                         "CVC" : "123",
-                         "POSTCODE" : "12333"
+                         "FIRST_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4111-1111-1111-1111",
+                                                 "EXP_DATE" : "12/20",
+                                                 "CVC" : "123",
+                                                 "POSTCODE" : "12333"
+               },
+
+                         "SECOND_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4012-0000-3333-0026",
+                                                 "EXP_DATE" : "12/19",
+                                                 "CVC" : "012",
+                                                 "POSTCODE" : "012"
+               }
+
                },
 
                "TEXTS": {
