@@ -145,7 +145,7 @@ class Wrapper:
                 return element
 
             except TimeoutException:
-                print("there is no popup")
+                print("ELEMENT_NOT_VISIBLE")
 
 
 
