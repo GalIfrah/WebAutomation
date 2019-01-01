@@ -1,4 +1,7 @@
 import unittest
+
+from selenium.common.exceptions import NoSuchElementException
+
 from Infrastructure.BasicTest import BasicTestClass
 from App import PageObjects
 from App.PageObjects import *
@@ -7,7 +10,6 @@ from App.PageObjects import *
 class Tests(BasicTestClass, unittest.TestCase):
 
     def test_100_stamTest(self):
-
         HomePage.openSut()
 
         HomePage.clickOnCookPolicyBtn()
@@ -20,27 +22,29 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Account.clickOnPaymentMethods()
 
-        Wallet.clickOnAddNewCard()
-        Wallet.enterCcNumber()
-        Wallet.enterExpDate()
-        Wallet.enterCvc()
-        Wallet.enterPostalCode()
-        GenericPO.webDriver.saveScreenShot(5)
+        numberOfCards = Wallet.getUserCardsList()
 
-        Wallet.ClickOnCcSubmit()
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0 and len(numberOfCards) > 1:
 
-        currentDefaultCardText = Wallet.getUserCardsList()[0].text
+            try:
+                defaultCardVmark = Wallet.getUserCardsList()[1].find_element_by_xpath(params['WALLET']['LOCATORS']
+                                                                                      ['DEFAULT_CARD_V_MARK'])
 
-        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
-
-                currentDefaultCardText = Wallet.getUserCardsList()[1].text
-
-        expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
-
-        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
-                         ' EXPECTED: ' + expectedDefaultCardText)
+            except NoSuchElementException:
+                self.fail('DEFAULT_CARD_V_MARK element not found')
 
 
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards[0].text != params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']:
+
+            try:
+                defaultCardVmark = Wallet.getUserCardsList()[0].find_element_by_xpath(params['WALLET']['LOCATORS']
+                                                                                   ['DEFAULT_CARD_V_MARK'])
+
+            except NoSuchElementException:
+                    self.fail('DEFAULT_CARD_V_MARK element not found')
+
+
+        self.assertIsNotNone(defaultCardVmark, "CARD_ISN'T_DEFAULT")
 
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
@@ -123,6 +127,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
                      reason="FEATURE_NOT_EXIST")
+
     def test_101_checkBusinessLink(self):
 
         HomePage.openSut()
@@ -213,7 +218,10 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.submitSmsCode()
 
         Account.clickOnPaymentMethods()
-        # add validation
+
+        walletSection = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
+
+        self.assertIsNotNone(walletSection)
 
     def test_101_addPaymentMethod_first(self):
 
@@ -230,27 +238,29 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         Account.clickOnPaymentMethods()
 
         # add first card
-
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
         Wallet.enterExpDate()
         Wallet.enterCvc()
         Wallet.enterPostalCode()
-        GenericPO.webDriver.saveScreenShot(5)
-
         Wallet.ClickOnCcSubmit()
 
         # add second card
-
-        # add logic for second card credentials
         Wallet.clickOnAddNewCard()
         Wallet.enterCcNumber()
         Wallet.enterExpDate()
         Wallet.enterCvc()
         Wallet.enterPostalCode()
-        GenericPO.webDriver.saveScreenShot(5)
-
         Wallet.ClickOnCcSubmit()
+
+        numberOfCards = len(Wallet.getUserCardsList())
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
+            self.assertEqual(numberOfCards, 2, 'not all cards added... missing ' + str(2 - numberOfCards) + "cards")
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
+            self.assertEqual(numberOfCards, 1, 'not all cards added... missing ' + str(1 - numberOfCards) + "cards")
+
 
     def test_103_getUserPayments(self):
 
@@ -265,10 +275,47 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         EnterPhonePage.submitSmsCode()
 
         Account.clickOnPaymentMethods()
-        # add validation
+
+        # validation for card
+        currentDefaultCardText = Wallet.getUserCardsList()[0].text
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
+            currentDefaultCardText = Wallet.getUserCardsList()[1].text
+
+        expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
+
+        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
+                         ' EXPECTED: ' + expectedDefaultCardText)
+
+
 
     def test_104_validateDefaultCard(self):
-        pass
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.clickOnSubmitBtn()
+        EnterPhonePage.enterSmsCode()
+        EnterPhonePage.submitSmsCode()
+
+        Account.clickOnPaymentMethods()
+
+        numberOfCards = len(Wallet.getUserCardsList())
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0 and numberOfCards > 1:
+
+            defaultCardVmark = Wallet.getUserCardsList()[1].Wallet.getDefaultCardVmark()
+
+            self.assertIsNotNone(defaultCardVmark, "CARD_ISN'T_DEFAULT")
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards >= 1:
+
+            defaultCardVmark = Wallet.getUserCardsList()[0].Wallet.getDefaultCardVmark()
+
+            self.assertIsNotNone(defaultCardVmark, "CARD_ISN'T_DEFAULT")
 
     def test_105_deleteCard(self):
         pass
@@ -284,6 +331,22 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
 
 """
+
+ Wallet.ClickOnCcSubmit()
+
+        currentDefaultCardText = Wallet.getUserCardsList()[0].text
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
+
+                currentDefaultCardText = Wallet.getUserCardsList()[1].text
+
+        expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
+
+        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, 'CURRENT: ' + currentDefaultCardText +
+                         ' EXPECTED: ' + expectedDefaultCardText)
+
+
+
+
 class FlowTests(BasicTestClass, unittest.TestCase):
 
     def test_100_sanity(self):

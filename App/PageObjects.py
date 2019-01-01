@@ -318,7 +318,7 @@ class Wallet(GenericPO):
 
             GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CC_NUMBER_INPUT'],
                                               LocatorsType=LocatorsTypes.ID).send_keys(
-                params['WALLET']['DATA']['VALID_CC_NUMBER'])
+                params['WALLET']['DATA']['FIRST_CARD_DETAILS']['VALID_CC_NUMBER'])
 
         except StaleElementReferenceException:
             print('stale element')
@@ -326,17 +326,17 @@ class Wallet(GenericPO):
     @staticmethod
     def enterExpDate():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['EXP_DATE_INPUT'],
-                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['EXP_DATE'])
+                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['FIRST_CARD_DETAILS']['EXP_DATE'])
 
     @staticmethod
     def enterCvc():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CVC_INPUT'],
-                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['CVC'])
+                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['FIRST_CARD_DETAILS']['CVC'])
 
     @staticmethod
     def enterPostalCode():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['POSTCODE_INPUT'],
-                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['POSTCODE'])
+                                          LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['FIRST_CARD_DETAILS']['POSTCODE'])
 
     @staticmethod
     def ClickOnCcSubmit():
@@ -369,6 +369,12 @@ class Wallet(GenericPO):
     def clickOnDeleteNo():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_NO_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getDefaultCardVmark():
+        element = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DEFAULT_CARD_V_MARK'],
+                                          LocatorsType=LocatorsTypes.XPATH)
+        return element
 
     @staticmethod
     def closeWallet():
