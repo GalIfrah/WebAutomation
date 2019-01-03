@@ -343,7 +343,7 @@ class Wallet(GenericPO):
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['SUBMIT_CC_BUTTON'],
                                           LocatorsType=LocatorsTypes.ID).click()
         GenericPO.webDriver.remoteWebDriver.switch_to.default_content()
-        time.sleep(5)
+        time.sleep(6)
 
     @staticmethod
     def getUserCardsList():
@@ -356,7 +356,21 @@ class Wallet(GenericPO):
         return cards
 
     @staticmethod
-    def ClickOnDeleteCard():
+    def getUserCardsNumber():
+
+        cardListElement = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CARDS_SECTION'],
+            LocatorsType=LocatorsTypes.XPATH)
+
+        cards = cardListElement.find_elements_by_tag_name(params['WALLET']['LOCATORS']['USER_CARDS'])
+
+        if cards[0].text == params['WALLET']['TEXTS']['ADD_NEW_CARD_TEXT']:
+            print('before')
+            del cards[0:1]
+            print('after: ' + str(len(cards)))
+        return len(cards)
+
+    @staticmethod
+    def deleteCard():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
@@ -380,6 +394,14 @@ class Wallet(GenericPO):
     def closeWallet():
         GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
 
+
+    @staticmethod
+    def enterCcDetails():
+
+        Wallet.enterCcNumber()
+        Wallet.enterExpDate()
+        Wallet.enterCvc()
+        Wallet.enterPostalCode()
 
 
 class Menu(GenericPO):
