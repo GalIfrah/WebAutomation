@@ -1,8 +1,8 @@
 {
-  "APP_NAME": "Franco",
+  "APP_NAME": "Meat",
 
   "SUT": {
-          "test": "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#",
+          "test": "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea",
           "prod": "https://order.meatliquor.com/"
   },
 
@@ -169,7 +169,7 @@
                               "CARDS_SECTION": "//ul[@class='myc-sliding-cards-list myc-sliding-cards-list--centered']",
                               "USER_CARDS": "li",
                               "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-sliding-card is-default']/div[@class='myc-sliding-card-default']",
-                              "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
+                              "DELETE_CARD_BUTTON": "//ul[@class='myc-sliding-cards-list myc-sliding-cards-list--centered']/li[1]/button",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
@@ -196,7 +196,7 @@
                },
 
                "TEXTS": {
-                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/212",
+                         "DEFAULT_CARD_TEXT": "xxxx-1111\n12/20",
                          "ADD_NEW_CARD_TEXT": "Add New Card"
 
                }
