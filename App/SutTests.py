@@ -7,27 +7,6 @@ from App import PageObjects
 from App.PageObjects import *
 
 
-class Tests(BasicTestClass, unittest.TestCase):
-
-    def test_100_openWallet(self):
-
-     HomePage.openSut()
-
-     HomePage.clickOnCookPolicyBtn()
-     HomePage.clickOnConnect()
-
-     EnterPhonePage.enterValidPhoneNumber()
-     EnterPhonePage.clickOnSubmitBtn()
-     EnterPhonePage.enterSmsCode()
-     EnterPhonePage.submitSmsCode()
-
-     Account.clickOnPaymentMethods()
-
-     walletSection = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
-
-     self.assertIsNotNone(walletSection)
-
-
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -104,7 +83,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
             expectedAppUrl = params['SUT']['prod']
 
 
-        self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS')
+        self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
 
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
@@ -368,7 +347,28 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         pass
 
 
+
 """
+class Tests(BasicTestClass, unittest.TestCase):
+
+     def test_100_openSut(self):
+
+        HomePage.openSut()
+
+        currentAppLink = HomePage.getSutUrl()
+
+        if env == 'test':
+
+            expectedAppUrl = params['SUT']['test']
+
+        elif env == 'prod':
+
+            expectedAppUrl = params['SUT']['prod']
+
+
+        self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
+
+
 class FlowTests(BasicTestClass, unittest.TestCase):
 
     def test_100_sanity(self):
