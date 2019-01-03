@@ -1,6 +1,6 @@
 import sys
 from multiprocessing import TimeoutError
-from logger import error
+from logger import logger
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
@@ -76,18 +76,18 @@ class Wrapper:
             elementFlag = True
 
         except TimeoutError:
-            error(self, 'time out error')
+            logger.error(self, 'time out error')
 
-        except NoSuchElementException as E:
-            error(self, 'element not found')
+        except NoSuchElementException:
+            logger.error(self, 'element not found')
 
         except UnboundLocalError:
-            error(self, "element not assigned to any value yet")
+            logger.error(self, "element not assigned to any value yet")
 
         if elementFlag is True:
             return element
         else:
-            error(self, "element not assigned to any value yet")
+            logger.error(self, "element not assigned to any value yet")
 
 
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
@@ -116,22 +116,6 @@ class Wrapper:
                 time.sleep(1)
 
 
-    def waitForElemToBeDisplayed(self, elementLocator):
-
-        self.displayed = False
-
-        for x in range(5):
-            try:
-                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
-                    self.displayed = True
-                    break
-
-            except Exception:
-                print("not displayed yet")
-                time.sleep(1)
-
-        return self.displayed
-
     def waitForInvisibilityOfElem(self, elementLocator):
             element = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
@@ -146,10 +130,6 @@ class Wrapper:
 
             except TimeoutException:
                 print("ELEMENT_NOT_VISIBLE")
-
-
-
-
 
 
     def switchToIframe(self, element):
@@ -186,6 +166,23 @@ class Wrapper:
 
 
 
+"""
+    def waitForElemToBeDisplayed(self, elementLocator):
+
+        self.displayed = False
+
+        for x in range(5):
+            try:
+                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
+                            self.displayed = True
+                            break
+
+            except Exception:
+                print("not displayed yet")
+                time.sleep(1)
+
+        return self.displayed
+"""
 
 
 
