@@ -7,6 +7,26 @@ from App import PageObjects
 from App.PageObjects import *
 
 
+class Tests(BasicTestClass, unittest.TestCase):
+
+    def test_100_openWallet(self):
+
+     HomePage.openSut()
+
+     HomePage.clickOnCookPolicyBtn()
+     HomePage.clickOnConnect()
+
+     EnterPhonePage.enterValidPhoneNumber()
+     EnterPhonePage.clickOnSubmitBtn()
+     EnterPhonePage.enterSmsCode()
+     EnterPhonePage.submitSmsCode()
+
+     Account.clickOnPaymentMethods()
+
+     walletSection = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
+
+     self.assertIsNotNone(walletSection)
+
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
@@ -83,7 +103,8 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
             expectedAppUrl = params['SUT']['prod']
 
-        self.assertEqual(currentAppLink, expectedAppUrl, 'urls not equals')
+
+        self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS')
 
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
@@ -128,7 +149,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
         self.assertEqual(inputsPlaceHolders[2], params['HOME_PAGE']['TEXTS']['SELECT_TIME_PLACE_HOLDER_TEXT'],
                          'TIME_PLACE_HOLDERS_NOT_EQUALS')
 
-    def test_105_CheckInputsWithData(self):
+    def test_104_CheckInputsWithData(self):
 
         HomePage.openSut()
 
@@ -138,7 +159,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         GenericPO.webDriver.saveScreenShot(1)
 
-    def test_106_clickOnConnect(self):
+    def test_105_clickOnConnect(self):
 
         HomePage.openSut()
 
@@ -150,7 +171,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         self.assertTrue(EnterPhonePage.getPhoneFieldElement().is_displayed(), "true")
 
-    def test_107_footerText(self):
+    def test_106_footerText(self):
 
         HomePage.openSut()
 
@@ -348,13 +369,6 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
 
 """
-
-class Tests(BasicTestClass, unittest.TestCase):
-
-    def test_100_stamTest(self):
-
-    
-
 class FlowTests(BasicTestClass, unittest.TestCase):
 
     def test_100_sanity(self):
