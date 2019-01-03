@@ -7,30 +7,17 @@ from App import PageObjects
 from App.PageObjects import *
 
 
+
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
 
         HomePage.openSut()
 
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
-
-        EnterEmailPage.enterUnExistEmail()
-        EnterEmailPage.submitEmail()
-
-        FormPage.enterFullName()
-        FormPage.enterPin()
-        FormPage.enterDate()
-        FormPage.chooseOptinTrue()
-        FormPage.submitForm()
+        Connect.register()
 
         currentLoginButtonText = HomePage.getLoginButtonText()
+
         beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
 
         self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
@@ -39,27 +26,19 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
     def test_101_login(self):
 
         # login
-        HomePage.openSut()
-
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
+        Connect.login()
 
         currentLoginButtonText = HomePage.getLoginButtonText()
+
         beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
 
         self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
 
         # logout
-
-        Account.clickOnLogOut()
-        Account.logOutYes()
+        Connect.logout()
 
         currentLoginButtonText = HomePage.getLoginButtonText()
+
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
     def test_102_checkMigration(self):
@@ -169,13 +148,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
+        Connect.login()
 
         Account.clickOnPaymentMethods()
 
@@ -187,13 +160,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
+        Connect.login()
 
         Account.clickOnPaymentMethods()
 
@@ -287,37 +254,22 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
+        HomePage.connect()
 
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
-
-        Account.clickOnPaymentMethods()
-
-        Wallet.clickOnAddNewCard()
-        Wallet.enterCcNumber()
-        Wallet.enterExpDate()
-        Wallet.enterCvc()
-        Wallet.enterPostalCode()
-        Wallet.ClickOnCcSubmit()
+        Wallet.addCreditCard()
 
         numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
 
-        Wallet.deleteCard()
+        Wallet.clickOnDeleteCardButton()
 
         Wallet.clickOnDeleteYes()
-
-        # add validation for popup text & view
 
         time.sleep(1)
         numOfCardsAfterDelete = Wallet.getUserCardsNumber()
 
         self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
 
-        # add validation for popup text & view
+        # add validation for success popup text & view
 
     def test_105_CheckInputsValidation(self):
         pass
@@ -351,22 +303,24 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 """
 class Tests(BasicTestClass, unittest.TestCase):
 
-     def test_100_openSut(self):
+     def test_100_enterAndDeleteCard(self):
 
         HomePage.openSut()
+        
+        HomePage.connect()
 
-        currentAppLink = HomePage.getSutUrl()
+        Wallet.addCreditCard()
 
-        if env == 'test':
+        numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
 
-            expectedAppUrl = params['SUT']['test']
+        Wallet.clickOnDeleteCardButton()
 
-        elif env == 'prod':
+        Wallet.clickOnDeleteYes()
 
-            expectedAppUrl = params['SUT']['prod']
+        time.sleep(1)
+        numOfCardsAfterDelete = Wallet.getUserCardsNumber()
 
-
-        self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
+        self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
 
 
 class FlowTests(BasicTestClass, unittest.TestCase):

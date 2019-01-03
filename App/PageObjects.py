@@ -20,7 +20,57 @@ class Params():
 """
 
 
+class Connect(GenericPO):
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def register():
+
+        Connect.login()
+
+        EnterEmailPage.enterUnExistEmail()
+
+        EnterEmailPage.submitEmail()
+
+        FormPage.enterFullName()
+
+        FormPage.enterPin()
+
+        FormPage.enterDate()
+
+        FormPage.chooseOptinTrue()
+
+        FormPage.submitForm()
+
+    @staticmethod
+    def login():
+
+        HomePage.clickOnCookPolicyBtn()
+
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+
+        EnterPhonePage.clickOnSubmitBtn()
+
+        EnterPhonePage.enterSmsCode()
+
+        EnterPhonePage.submitSmsCode()
+
+    @staticmethod
+    def logout():
+
+        Account.clickOnLogOut()
+
+        Account.logOutYes()
+
+
 class HomePage(GenericPO):
+
+    def __init__(self):
+        pass
 
     @staticmethod
     def firstFooterttt():
@@ -73,6 +123,21 @@ class HomePage(GenericPO):
     def clickOnConnect():
         GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['CONNECT_BTN'],
                                           LocatorsType=LocatorsTypes.ID).click()
+
+    @staticmethod
+    def connect():
+
+        HomePage.clickOnCookPolicyBtn()
+
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+
+        EnterPhonePage.clickOnSubmitBtn()
+
+        EnterPhonePage.enterSmsCode()
+
+        EnterPhonePage.submitSmsCode()
 
     @staticmethod
     def getLoginButtonText():
@@ -208,7 +273,6 @@ class Account(GenericPO):
 
 
 
-
 class AccountInformation(GenericPO):
 
     @staticmethod
@@ -216,7 +280,6 @@ class AccountInformation(GenericPO):
         text = GenericPO.webDriver.findElementBy("//*[@id='modal-body']/div/div[1]/div/input",
                                             LocatorsType=LocatorsTypes.XPATH).text
         return text
-
 
 
 
@@ -250,8 +313,6 @@ class EnterPhonePage(GenericPO):
         GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['SUBMIT_SMS_CODE'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         time.sleep(3)
-
-
 
 
 class EnterEmailPage(GenericPO):
@@ -380,9 +441,15 @@ class Wallet(GenericPO):
         return len(cards)
 
     @staticmethod
-    def deleteCard():
+    def clickOnDeleteCardButton():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getDeletePopupText():
+        text = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_POPUP'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return text
 
     @staticmethod
     def clickOnDeleteYes():
@@ -390,9 +457,21 @@ class Wallet(GenericPO):
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
+    def getDeleteYesButtonText():
+        text = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_YES_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return text
+
+    @staticmethod
     def clickOnDeleteNo():
         GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_NO_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getDeleteNoButtonText():
+        text = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['DELETE_CARD_NO_BUTTON'],
+                                                 LocatorsType=LocatorsTypes.XPATH).text
+        return text
 
     @staticmethod
     def getDefaultCardVmark():
@@ -409,9 +488,29 @@ class Wallet(GenericPO):
     def enterCcDetails():
 
         Wallet.enterCcNumber()
+
         Wallet.enterExpDate()
+
         Wallet.enterCvc()
+
         Wallet.enterPostalCode()
+
+    @staticmethod
+    def addCreditCard():
+
+        Account.clickOnPaymentMethods()
+
+        Wallet.clickOnAddNewCard()
+
+        Wallet.enterCcNumber()
+
+        Wallet.enterExpDate()
+
+        Wallet.enterCvc()
+
+        Wallet.enterPostalCode()
+
+        Wallet.ClickOnCcSubmit()
 
 
 class Menu(GenericPO):
