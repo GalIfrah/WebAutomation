@@ -38,7 +38,9 @@ class HomePage(GenericPO):
 
     @staticmethod
     def getSutUrl():
-        GenericPO.webDriver.getCurrentUrl()
+        text = GenericPO.webDriver.getCurrentUrl()
+
+        return text
 
     @staticmethod
     def clickOnCookPolicyBtn():
