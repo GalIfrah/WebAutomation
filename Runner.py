@@ -14,13 +14,13 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            self.name = sys.argv.pop(1)
-            self.env = sys.argv.pop(1)
-            self.platform = sys.argv.pop(1)
+            # self.name = sys.argv.pop(1)
+            # self.env = sys.argv.pop(1)
+            # self.platform = sys.argv.pop(1)
 
-            # self.name = "ML"
-            # self.env = "test"
-            # self.platform = "desktop"
+            self.name = "TRG"
+            self.env = "test"
+            self.platform = "desktop"
 
 
 
