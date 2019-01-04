@@ -75,19 +75,19 @@ class Wrapper:
 
             elementFlag = True
 
-        except TimeoutError:
-            logger.error(self, 'time out error')
+        except TimeoutError as E:
+            E.with_traceback(E.__context__)
 
-        except NoSuchElementException:
-            logger.error(self, 'element not found')
+        except NoSuchElementException as E:
+            E.with_traceback(E.__context__)
 
-        except UnboundLocalError:
-            logger.error(self, "element not assigned to any value yet")
+        except UnboundLocalError as E:
+            E.with_traceback(E.__context__)
 
         if elementFlag is True:
             return element
         else:
-            logger.error(self, "element not assigned to any value yet")
+            print("element not assigned to any value yet")
 
 
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
@@ -103,20 +103,20 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
-    def waitForElemToBeClickable(self, elementLocator):
+    def waitForElemToBeClickable(self, elementLocator, timeToWait):
 
         try:
-            WebDriverWait(self.remoteWebDriver, 10).until(
+            WebDriverWait(self.remoteWebDriver, timeToWait).until(
                 ec.element_to_be_clickable((By.XPATH, elementLocator))).click()
 
         except TimeoutException:
             print("ELEMENT_NOT_VISIBLE")
 
     def waitForInvisibilityOfElem(self, elementLocator):
-            element = WebDriverWait(self.remoteWebDriver, 5).until(
+            bool = WebDriverWait(self.remoteWebDriver, 3).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
-            return element
+            return bool
 
     def waitForVisibilityOfElem(self, elementLocator):
             try:
