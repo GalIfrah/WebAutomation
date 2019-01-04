@@ -43,6 +43,15 @@ class SUT:
         if self.name == 'ML':
             return
 
+        if self.name == 'NOVEL':
+            return
+
+        if self.name == 'BRAZ':
+            return
+
+        if self.name == 'BL':
+            return
+
         raise Exception('`' + self.name + '` is not a valid app name')
 
 
