@@ -606,4 +606,5 @@ class ConfirmationScreen(GenericPO):
                 print("still not found the url/popup")
 
                 time.sleep(1)
+                time.sleep(2)
 """
