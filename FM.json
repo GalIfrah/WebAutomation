@@ -56,7 +56,8 @@
                           "SELECT_TIME_PLACE_HOLDER_TEXT": "Collection time",
                           "START_ORDER_CHOOSE_LOCATION_POPUP_TEXT": "Please select a location",
                           "START_ORDER_TIME_EXCEEDED_POPUP_TEXT": "",
-                          "START_ORDER_NOT_ACCEPTING_POPUP_TEXT": "Ouch! This restaurant is currently not accepting online orders. Please call us on ."
+                          "START_ORDER_NOT_ACCEPTING_POPUP_TEXT": "Ouch! This restaurant is currently not accepting online orders. Please call us on .",
+                          "START_ORDER_SELECT_TIME_POPUP_TEXT": "Please Select Time"
 
 
                 }

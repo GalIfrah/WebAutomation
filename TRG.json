@@ -42,8 +42,8 @@
                 },
 
                 "DATA": {
-                         "FIRST_LOCATION": "MEATliquor W1",
-                         "SECOND_LOCATION": "MEATmarket Covent Garden",
+                         "FIRST_LOCATION": "Aireus Lab",
+                         "SECOND_LOCATION": "RealG3_real_6",
                          "DATE": "Tomorrow",
                          "TIME": "14:20"
                 },
@@ -56,7 +56,11 @@
                           "FOOTER_THIRD_PART_TEXT": "3. pick up & enjoy",
                           "SELECT_LOCATION_PLACE_HOLDER_TEXT": "Please select a location",
                           "SELECT_DATE_PLACE_HOLDER_TEXT": "Date",
-                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Time"
+                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Time",
+                          "START_ORDER_CHOOSE_LOCATION_POPUP_TEXT": "Please select a location",
+                          "START_ORDER_TIME_EXCEEDED_POPUP_TEXT": "",
+                          "START_ORDER_NOT_ACCEPTING_POPUP_TEXT": "This location is currently not accepting orders for pickup. Please dine in.",
+                          "START_ORDER_SELECT_TIME_POPUP_TEXT": "Please Select Time"
 
                 }
 
@@ -157,7 +161,7 @@
   "WALLET": {
 
                "LOCATORS" : {
-                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[2]/div/iframe",
+                              "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div/div/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div/div/div/ul/li[@class='myc-sliding-card myc-add-new-card']",
                               "ADD_NEW_CARD_BUTTON_HEADER": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div/button",
                               "CC_NUMBER_INPUT": "creditNumber",
@@ -176,11 +180,21 @@
                },
 
                "DATA" : {
-                         "VALID_CC_NUMBER" : "4111-1111-1111-1111",
                          "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
-                         "EXP_DATE" : "12/18",
-                         "CVC" : "123",
-                         "POSTCODE" : "12333"
+                         "FIRST_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4111-1111-1111-1111",
+                                                 "EXP_DATE" : "12/20",
+                                                 "CVC" : "123",
+                                                 "POSTCODE" : "12333"
+               },
+
+                         "SECOND_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4012-0000-3333-0026",
+                                                 "EXP_DATE" : "12/19",
+                                                 "CVC" : "012",
+                                                 "POSTCODE" : "012"
+               }
+
                },
 
                "TEXTS": {
@@ -194,7 +208,7 @@
 
 
   "MENU": {
-            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
+            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=1ed0827438f13115fd6dccc0d7d647ac#/store",
             "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
             "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
             "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
