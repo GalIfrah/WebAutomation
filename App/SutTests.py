@@ -10,14 +10,28 @@ from App.PageObjects import *
 
 class Tests(BasicTestClass, unittest.TestCase):
 
-    def test_100_footerText(self):
+    def test_100_openWallet(self):
+
 
         HomePage.openSut()
 
         Connect.login()
 
-        HomePage.startOrder()
+        Account.clickOnPaymentMethods()
 
+        # add first card
+        Wallet.addCreditCard()
+
+        numberOfCards = Wallet.getUserCardsNumber()
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
+            self.assertEqual(numberOfCards, 1, 'not all cards added... missing ' + str(1 - numberOfCards) + "cards")
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
+            self.assertEqual(numberOfCards, 1, 'not all cards added... missing ' + str(1 - numberOfCards) + "cards")
+
+
+"""
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
@@ -279,7 +293,6 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
 
 
-"""
 class Tests(BasicTestClass, unittest.TestCase):
 
      def test_100_enterAndDeleteCard(self):
