@@ -16,7 +16,7 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Connect.login()
 
-        HomePage.startOrder2()
+        HomePage.startOrder()
 
 
 class ConnectTests(BasicTestClass, unittest.TestCase):

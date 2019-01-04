@@ -142,7 +142,7 @@ class HomePage(GenericPO):
 
 
     @staticmethod
-    def startOrder2():
+    def startOrder():
 
         time.sleep(1)
 
