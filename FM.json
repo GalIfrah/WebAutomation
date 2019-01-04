@@ -1,7 +1,7 @@
 { "APP_NAME": "Franco",
 
-  "SUT": {"test": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
-          "prod": "https://order.francomanca.co.uk/"
+  "SUT": {"TEST": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
+          "PROD": "https://order.francomanca.co.uk/"
   },
 
 
@@ -11,7 +11,6 @@
                 "LOCATORS": {
                               "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
                               "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
-                              "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
                               "CONNECT_BTN": "login-btn",
                               "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
                               "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
@@ -20,8 +19,11 @@
                               "TERMS_AND_COND_LINK": "//span[@class='small ng-scope']/a[1]",
                               "PRIVACY_POLICY_LINK": "//span[@class='small ng-scope']/a[2]",
                               "SELECT_LOCATION_DROP_DOWN": "home-select-location",
+                              "SELECT_LOCATION_PLACE_HOLDER": "//select[@id='home-select-location']/option",
                               "SELECT_DATE_DROP_DOWN": "home-date",
+                              "SELECT_DATE_PLACE_HOLDER": "//select[@id='home-date']/option",
                               "SELECT_TIME_DROP_DOWN": "home-time",
+                              "SELECT_TIME_PLACE_HOLDER": "//select[@id='home-time']/option",
                               "FOOTER_FIRST_PART": "//ol/li[1]/span",
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
@@ -48,7 +50,14 @@
                           "BACK_TO_APP_HEADER_LINK_TEXT": "francomanca.co.uk",
                           "FOOTER_FIRST_PART_TEXT": "FIND YOUR RESTAURANT",
                           "FOOTER_SECOND_PART_TEXT": "SELECT YOUR FOOD",
-                          "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY"
+                          "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY",
+                          "SELECT_LOCATION_PLACE_HOLDER_TEXT": "Please select a location",
+                          "SELECT_DATE_PLACE_HOLDER_TEXT": "Date",
+                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Collection time",
+                          "START_ORDER_CHOOSE_LOCATION_POPUP_TEXT": "Please select a location",
+                          "START_ORDER_TIME_EXCEEDED_POPUP_TEXT": "",
+                          "START_ORDER_NOT_ACCEPTING_POPUP_TEXT": "Ouch! This restaurant is currently not accepting online orders. Please call us on ."
+
 
                 }
 
@@ -151,11 +160,16 @@
                "LOCATORS" : {
                               "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
+                              "ADD_NEW_CARD_BUTTON_HEADER": 0,
                               "CC_NUMBER_INPUT": "creditNumber",
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
                               "SUBMIT_CC_BUTTON": "submit",
+                              "CARDS_SECTION": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul[@class='myc-modal-payment-list']",
+                              "USER_CARDS": "li",
+                              "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-card is-default']/div[@class='myc-default']",
+                              "DELETE_CARD_POPUP": "//div[@class='myc-popup active']/div",
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
@@ -165,11 +179,26 @@
                },
 
                "DATA" : {
-                         "VALID_CC_NUMBER" : "4111-1111-1111-1111",
                          "INVALID-CC_NUMBER" : "6678-3241-4222-2333",
-                         "EXP_DATE" : "12/18",
-                         "CVC" : "123",
-                         "POSTCODE" : "12333"
+                         "FIRST_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4111-1111-1111-1111",
+                                                 "EXP_DATE" : "12/20",
+                                                 "CVC" : "123",
+                                                 "POSTCODE" : "12333"
+               },
+
+                         "SECOND_CARD_DETAILS": {
+                                                 "VALID_CC_NUMBER" : "4012-0000-3333-0026",
+                                                 "EXP_DATE" : "12/19",
+                                                 "CVC" : "012",
+                                                 "POSTCODE" : "012"
+               }
+
+               },
+
+               "TEXTS": {
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/21",
+                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD"
                }
 
   },
