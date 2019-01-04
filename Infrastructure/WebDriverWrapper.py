@@ -1,6 +1,6 @@
 import sys
 from multiprocessing import TimeoutError
-import logger
+from logger import logger
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
@@ -15,6 +15,7 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class Wrapper:
+
     remoteWebDriver = None
 
     def initDesktop(self, remote_url):
@@ -77,7 +78,7 @@ class Wrapper:
         except TimeoutError:
             logger.error(self, 'time out error')
 
-        except NoSuchElementException as E:
+        except NoSuchElementException:
             logger.error(self, 'element not found')
 
         except UnboundLocalError:
@@ -102,34 +103,14 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
-
-
     def waitForElemToBeClickable(self, elementLocator):
-        for x in range(5):
-            try:
-                self.remoteWebDriver.find_element_by_xpath(elementLocator).click()
-                break
 
-            except Exception:
-                print("not found yet")
-                time.sleep(1)
+        try:
+            WebDriverWait(self.remoteWebDriver, 10).until(
+                ec.element_to_be_clickable((By.XPATH, elementLocator))).click()
 
-
-    def waitForElemToBeDisplayed(self, elementLocator):
-
-        self.displayed = False
-
-        for x in range(5):
-            try:
-                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
-                    self.displayed = True
-                    break
-
-            except Exception:
-                print("not displayed yet")
-                time.sleep(1)
-
-        return self.displayed
+        except TimeoutException:
+            print("ELEMENT_NOT_VISIBLE")
 
     def waitForInvisibilityOfElem(self, elementLocator):
             element = WebDriverWait(self.remoteWebDriver, 5).until(
@@ -144,11 +125,7 @@ class Wrapper:
                 return element
 
             except TimeoutException:
-                print("there is no popup")
-
-
-
-
+                print("ELEMENT_NOT_VISIBLE")
 
 
     def switchToIframe(self, element):
@@ -185,6 +162,35 @@ class Wrapper:
 
 
 
+"""
+
+    def waitForElemToBeClickable(self, elementLocator):
+        for x in range(5):
+            try:
+                self.remoteWebDriver.find_element_by_xpath(elementLocator).click()
+                break
+
+            except Exception:
+                print("not found yet")
+                time.sleep(1)
+                
+                
+    def waitForElemToBeDisplayed(self, elementLocator):
+
+        self.displayed = False
+
+        for x in range(5):
+            try:
+                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
+                            self.displayed = True
+                            break
+
+            except Exception:
+                print("not displayed yet")
+                time.sleep(1)
+
+        return self.displayed
+"""
 
 
 
