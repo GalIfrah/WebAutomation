@@ -159,6 +159,7 @@
   "WALLET": {
 
                "LOCATORS" : {
+                              "WALLET_HEADER": "//div[@class='myc-wallet-inner myc-wallet-payment-modal'] /div/p[@class='myc-header']",
                               "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
                               "ADD_NEW_CARD_BUTTON_HEADER": 0,
@@ -166,7 +167,8 @@
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
-                              "SUBMIT_CC_BUTTON": "submit",
+                              "APPLY_BUTTON": "submit",
+                              "CANCEL_BUTTON": "cancel",
                               "CARDS_SECTION": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul[@class='myc-modal-payment-list']",
                               "USER_CARDS": "li",
                               "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-card is-default']/div[@class='myc-default']",
@@ -174,6 +176,8 @@
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
+                              "ACCEPTED_CARDS_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/div/span[@class='myc-sep-title']",
+                              "PCI_FOOTER_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/p[@class='myc-secured-pci']",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
                               "WALLET_LOADER": "//div[@class='myc-loading']"
 
@@ -198,8 +202,13 @@
                },
 
                "TEXTS": {
-                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/21",
-                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD"
+                         "WALLET_HEADER_TEXT": "MANAGE PAYMENT METHODS",
+                         "APPLY_BUTTON_TEXT": "APPLY",
+                         "CANCEL_BUTTON_TEXT": "CANCEL",
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/20",
+                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD",
+                         "ACCEPTED_CARDS_TEXT": "CARD ACCEPTED",
+                         "PCI_FOOTER_TEXT": "Our provider MyCheck is secured to PCI-DSS Level 1 compliance"
                }
 
   },
