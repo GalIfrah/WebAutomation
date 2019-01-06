@@ -14,13 +14,13 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            # self.name = sys.argv.pop(1)
-            # self.env = sys.argv.pop(1)
-            # self.platform = sys.argv.pop(1)
+            self.name = sys.argv.pop(1)
+            self.env = sys.argv.pop(1)
+            self.platform = sys.argv.pop(1)
 
-            self.name = "TRG"
-            self.env = "test"
-            self.platform = "desktop"
+            # self.name = "TRG"
+            # self.env = "test"
+            # self.platform = "desktop"
 
 
 
@@ -81,10 +81,8 @@ class SUT:
     def setConfig(self):
 
         import App.PageObjects
-
         with open(self.name + '.json') as data_file:
-            App.PageObjects.params = json.load(data_file)
-
+          App.PageObjects.params = json.load(data_file)
 
     def setPlatform(self):
         from Infrastructure.BasicTest import BasicTestClass
