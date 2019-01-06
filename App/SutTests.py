@@ -7,11 +7,9 @@ from App import PageObjects
 from App.PageObjects import *
 
 
-
 class Tests(BasicTestClass, unittest.TestCase):
 
-    def test_100_openWallet(self):
-
+    def test_100_checkCancelApplyButtonsText(self):
 
         HomePage.openSut()
 
@@ -19,19 +17,10 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Account.clickOnPaymentMethods()
 
-        # add first card
-        Wallet.addCreditCard()
+        pciFooterText = Wallet.getPciFooterText()
 
-        numberOfCards = Wallet.getUserCardsNumber()
+        self.assertEqual(pciFooterText, params['WALLET']['TEXTS']['PCI_FOOTER_TEXT'], "PCI_FOOTER_TEXT_IS_WRONG")
 
-        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
-            self.assertEqual(numberOfCards, 1, 'not all cards added... missing ' + str(1 - numberOfCards) + "cards")
-
-        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
-            self.assertEqual(numberOfCards, 1, 'not all cards added... missing ' + str(1 - numberOfCards) + "cards")
-
-
-"""
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
@@ -247,8 +236,10 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        HomePage.connect()
-
+        # Connect.login()
+        
+        Connect.register()
+        
         Wallet.addCreditCard()
 
         numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
@@ -265,135 +256,76 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         # add validation for success popup text & view
 
     def test_105_CheckInputsValidation(self):
+        # ask for value attributes
         pass
 
     def test_106_checkUnsupportedCard(self):
         pass
 
-    def test_107_openWalletFromCheckout(self):
-        pass
-
-    def test_108_checkWalletHeader(self):
-        pass
-
-    def test_109_checkWeAcceptText(self):
-        pass
-
-    def test_110_checkSupportedCards(self):
-        pass
-
-    def test_111_checkFooterText(self):
-        pass
-
-    def test_112_checkAddCardInputsTexts(self):
-        pass
-
-    def test_113_checkCancelApplyButtonsText(self):
-        pass
-
-
-
-class Tests(BasicTestClass, unittest.TestCase):
-
-     def test_100_enterAndDeleteCard(self):
+    def test_107_checkCancelApplyButtonsText(self):
 
         HomePage.openSut()
-        
-        HomePage.connect()
 
-        Wallet.addCreditCard()
-
-        numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
-
-        Wallet.clickOnDeleteCardButton()
-
-        Wallet.clickOnDeleteYes()
-
-        time.sleep(1)
-        numOfCardsAfterDelete = Wallet.getUserCardsNumber()
-
-        self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
-
-
-class FlowTests(BasicTestClass, unittest.TestCase):
-
-    def test_100_sanity(self):
-
-        HomePage.openSut()
-        GenericPO.webDriver.saveScreenShot(1)
-
-        HomePage.clickOnCookPolicyBtn()
-        HomePage.clickOnConnect()
-        GenericPO.webDriver.saveScreenShot(2)
-
-        EnterPhonePage.enterValidPhoneNumber()
-        EnterPhonePage.clickOnSubmitBtn()
-        EnterPhonePage.enterSmsCode()
-        EnterPhonePage.submitSmsCode()
-        GenericPO.webDriver.saveScreenShot(3)
-
-        EnterEmailPage.enterUnExistEmail()
-        EnterEmailPage.submitEmail()
-
-        FormPage.enterFullName()
-        FormPage.enterPin()
-        FormPage.enterDate()
-        FormPage.chooseOptinTrue()
-        FormPage.submitForm()
-        GenericPO.webDriver.saveScreenShot(4)
+        Connect.login()
 
         Account.clickOnPaymentMethods()
+
         Wallet.clickOnAddNewCard()
-        Wallet.enterCcNumber()
-        Wallet.enterExpDate()
-        Wallet.enterCvc()
-        Wallet.enterPostalCode()
-        GenericPO.webDriver.saveScreenShot(5)
 
-        Wallet.ClickOnCcSubmit()
-        GenericPO.webDriver.saveScreenShot(6)
-        Wallet.closeWallet()
+        Wallet.clickOnCcCancelButton()
 
-        GenericPO.webDriver.saveScreenShot(7)
-        HomePage.chooseLocation()
-        GenericPO.webDriver.saveScreenShot(8)
-        HomePage.startOrder()
-        GenericPO.webDriver.saveScreenShot(9)
+        self.assertFalse(Wallet.clickOnCcCancelButton(), "CANCEL_BUTTON_ISN'T_CLICKED")
 
-        Menu.chooseFirstCategory()
-        Menu.chooseFirstItem()
-        Menu.clickOnProceedToCheckout()
-        GenericPO.webDriver.saveScreenShot(10)
+    def test_108_checkCancelApplyButtonsText(self):
 
+        HomePage.openSut()
 
-        Checkout.clickOnSubmitOrder()
-        GenericPO.webDriver.saveScreenShot(11)
-        Checkout.enter4DigitsCode()
-        GenericPO.webDriver.saveScreenShot(12)
+        Connect.login()
 
+        Account.clickOnPaymentMethods()
 
-        Checkout.submit4digitsCode()
+        Wallet.clickOnAddNewCard()
 
-        if Checkout.getErrorPopup() is not None:
+        applyButtonText = Wallet.getCcApplyButtonText()
 
-            text = Checkout.getErrorPopup().text
+        self.assertEqual(applyButtonText, params['WALLET']['TEXTS']['APPLY_BUTTON_TEXT'], "BUTTON_TEXT_IS_WRONG")
 
-            GenericPO.webDriver.saveScreenShot(13)
+        cancelButtonText = Wallet.getCcCancelButtonText()
 
-            self.fail("CHECKOUT_ERROR: " + text)
+        self.assertEqual(cancelButtonText, params['WALLET']['TEXTS']['CANCEL_BUTTON_TEXT'], "BUTTON_TEXT_IS_WRONG")
 
-        confirmationText = params['CHECKOUT_SCREEN']['TEXTS']['CONFIRMATION_TEXT']
+    def test_109_checkWalletHeader(self):
 
-        self.assertEqual(ConfirmationScreen.getConfirmationText(),
-             confirmationText, "actual text is: " + ConfirmationScreen.getConfirmationText() +
-                         " and expected is: " + confirmationText)
+        HomePage.openSut()
 
+        Connect.login()
 
- 
+        Account.clickOnPaymentMethods()
 
+        walletHeader = Wallet.getWalletHeader()
 
+        self.assertEqual(walletHeader, params['WALLET']['TEXTS']['WALLET_HEADER_TEXT'], "WALLET_HEADERS_NOT_EQUALS")
 
-if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports'))
-"""
+    def test_110_checkWeAcceptText(self):
 
+        HomePage.openSut()
+
+        Connect.login()
+
+        Account.clickOnPaymentMethods()
+
+        weAcceptedCardText = Wallet.getWeAcceptCardsText()
+
+        self.assertEqual(weAcceptedCardText, params['WALLET']['TEXTS']['ACCEPTED_CARDS_TEXT'], "WE_ACCEPT_TEXT_IS_WRONG")
+
+    def test_111_checkSupportedCards(self):
+        pass
+
+    def test_112_checkFooterText(self):
+        pass
+
+    def test_113_checkAddCardInputsHeaders(self):
+        pass
+
+    def test_114_openWalletFromCheckout(self):
+        pass

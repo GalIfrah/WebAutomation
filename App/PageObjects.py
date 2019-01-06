@@ -1,13 +1,12 @@
-from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import StaleElementReferenceException, WebDriverException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
 
 from Utils.utils import ProjectUtils
 import time
-from App.Config import *
+
 
 params = None
-# Config = FmConfig
 # ProjectUtils.loadJson()
 env = ''
 
@@ -83,8 +82,6 @@ class HomePage(GenericPO):
     def clickOnCookPolicyBtn():
         GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['COOKIES_POLICY_BTN'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
-
-        # Config.COOKIES_POLICY_BTN
 
     @staticmethod
     def getCookPolicyTxt():
@@ -396,7 +393,6 @@ class Wallet(GenericPO):
 
     @staticmethod
     def clickOnAddNewCard():
-
         if len(Wallet.getUserCardsList()) >= 1 and Wallet.getUserCardsList()[0].text == params['WALLET']['TEXTS']['ADD_NEW_CARD_TEXT']:
 
                     GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON'],
@@ -407,6 +403,14 @@ class Wallet(GenericPO):
                     GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
+        # GenericPO.webDriver.switchToIframe(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath
+        #                                  (params['WALLET']['LOCATORS']['CC_VALUES_IFRAME']))
+
+    @staticmethod
+    def getWalletHeader():
+        walletHeader = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['WALLET_HEADER'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return walletHeader
 
     @staticmethod
     def enterCcNumber():
@@ -437,11 +441,45 @@ class Wallet(GenericPO):
                                           LocatorsType=LocatorsTypes.ID).send_keys(params['WALLET']['DATA']['FIRST_CARD_DETAILS']['POSTCODE'])
 
     @staticmethod
-    def ClickOnCcSubmit():
-        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['SUBMIT_CC_BUTTON'],
+    def clickOnCcApplyButton():
+        GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['APPLY_BUTTON'],
                                           LocatorsType=LocatorsTypes.ID).click()
         GenericPO.webDriver.remoteWebDriver.switch_to.default_content()
+
         time.sleep(6)
+
+    @staticmethod
+    def getCcApplyButtonText():
+        GenericPO.webDriver.switchToIframe(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath
+                                           (params['WALLET']['LOCATORS']['CC_VALUES_IFRAME']))
+
+        applyButtonText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['APPLY_BUTTON'],
+                                          LocatorsType=LocatorsTypes.ID).text
+        return applyButtonText
+
+    @staticmethod
+    def clickOnCcCancelButton():
+
+
+        try:
+            GenericPO.webDriver.switchToIframe(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath
+                                               (params['WALLET']['LOCATORS']['CC_VALUES_IFRAME']))
+
+            GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CANCEL_BUTTON'],
+                                          LocatorsType=LocatorsTypes.ID).click()
+            GenericPO.webDriver.remoteWebDriver.switch_to.default_content()
+
+        except WebDriverException:
+            return False
+
+    @staticmethod
+    def getCcCancelButtonText():
+        # GenericPO.webDriver.switchToIframe(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath
+        #                                  (params['WALLET']['LOCATORS']['CC_VALUES_IFRAME']))
+
+        cancelButtonText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CANCEL_BUTTON'],
+                                                            LocatorsType=LocatorsTypes.ID).text
+        return cancelButtonText
 
     @staticmethod
     def getUserCardsList():
@@ -507,6 +545,18 @@ class Wallet(GenericPO):
         return element
 
     @staticmethod
+    def getWeAcceptCardsText():
+        weAcceptCardsText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['ACCEPTED_CARDS_TEXT_AREA'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return weAcceptCardsText
+
+    @staticmethod
+    def getPciFooterText():
+        pciFooterText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['PCI_FOOTER_TEXT_AREA'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return pciFooterText
+
+    @staticmethod
     def closeWallet():
         GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'], 10)
 
@@ -525,7 +575,7 @@ class Wallet(GenericPO):
 
         Wallet.enterPostalCode()
 
-        Wallet.ClickOnCcSubmit()
+        Wallet.clickOnCcApplyButton()
 
 
 class Menu(GenericPO):
