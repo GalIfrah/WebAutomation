@@ -161,6 +161,7 @@
   "WALLET": {
 
                "LOCATORS" : {
+                              "WALLET_HEADER": "//div[@class='myc-wallet-inner myc-wallet-payment-modal'] /div/p[@class='myc-header']",
                               "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[2]/div/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div/div/div/ul/li[@class='myc-sliding-card myc-add-new-card']",
                               "ADD_NEW_CARD_BUTTON_HEADER": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div/button",
@@ -168,13 +169,16 @@
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
-                              "SUBMIT_CC_BUTTON": "submit",
+                              "APPLY_BUTTON": "submit",
+                              "CANCEL_BUTTON": "cancel",
                               "CARDS_SECTION": "//ul[@class='myc-sliding-cards-list myc-sliding-cards-list--centered']",
                               "USER_CARDS": "li",
                               "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-sliding-card is-default']/div[@class='myc-sliding-card-default']",
                               "DELETE_CARD_BUTTON": "//ul[@class='myc-sliding-cards-list myc-sliding-cards-list--centered']/li[1]/button",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
+                              "ACCEPTED_CARDS_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/div/span[@class='myc-sep-title']",
+                              "PCI_FOOTER_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/p[@class='myc-secured-pci']",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
                               "WALLET_LOADER": "//div[@class='myc-loading']"
 
@@ -199,8 +203,14 @@
                },
 
                "TEXTS": {
+                         "WALLET_HEADER_TEXT": "Payment Methods",
+                         "APPLY_BUTTON_TEXT": "APPLY",
+                         "CANCEL_BUTTON_TEXT": "CANCEL",
                          "DEFAULT_CARD_TEXT": "xxxx-1111\n12/20",
-                         "ADD_NEW_CARD_TEXT": "Add New Card"
+                         "ADD_NEW_CARD_TEXT": "Add New Card",
+                         "ACCEPTED_CARDS_TEXT": "We Accept",
+                         "PCI_FOOTER_TEXT": "WE ACCEPT UK CARDS ONLY"
+
 
                }
 
@@ -214,6 +224,7 @@
             "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
             "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
             "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+
 
           },
 
