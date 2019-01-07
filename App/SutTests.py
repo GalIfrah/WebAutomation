@@ -15,6 +15,16 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Connect.login()
 
+        HomePage.startOrder(1)
+
+        Menu.chooseFirstCategory()
+
+        Menu.chooseSecondItem()
+
+        Menu.clickOnProceedToCheckout()
+
+        Checkout.clickOnSubmitOrder()
+
         Account.clickOnPaymentMethods()
 
         pciFooterText = Wallet.getPciFooterText()

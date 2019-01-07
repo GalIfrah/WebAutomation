@@ -1,7 +1,7 @@
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
-
+from Infrastructure.BasicTest import BasicTestClass
 from Utils.utils import ProjectUtils
 import time
 
@@ -157,7 +157,7 @@ class HomePage(GenericPO):
 
         time.sleep(1)
 
-        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'], 5)
+        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
 
         if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
@@ -558,7 +558,7 @@ class Wallet(GenericPO):
 
     @staticmethod
     def closeWallet():
-        GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'], 10)
+        GenericPO.webDriver.waitForElemToBeClickable(params['WALLET']['LOCATORS']['WALLET_X_BUTTON'])
 
     @staticmethod
     def addCreditCard():
@@ -586,8 +586,8 @@ class Menu(GenericPO):
     @staticmethod
     def chooseFirstCategory():
 
-        if GenericPO.webDriver.findElementBy(params['MENU']['FIRST_ITEM'],
-                                             LocatorsType=LocatorsTypes.XPATH) is None:
+        # if GenericPO.webDriver.findElementBy(params['MENU']['FIRST_ITEM'],
+        #                                   LocatorsType=LocatorsTypes.XPATH) is None:
 
             GenericPO.webDriver.findElementBy(params['MENU']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
@@ -603,10 +603,23 @@ class Menu(GenericPO):
 
     @staticmethod
     def clickOnProceedToCheckout():
-        GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
-                                          LocatorsType=LocatorsTypes.XPATH).click()
 
+        if BasicTestClass.platform == "desktop":
 
+                GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
+                                              LocatorsType=LocatorsTypes.XPATH).click()
+
+        elif BasicTestClass.platform == "mobile":
+
+                GenericPO.webDriver.findElementBy("//div[@id='toast-container']",
+                                                  LocatorsType=LocatorsTypes.XPATH).click()
+                time.sleep(1)
+
+                GenericPO.webDriver.findElementBy(params['MENU']['MOBILE_CART_ICON'],
+                                                  LocatorsType=LocatorsTypes.XPATH).click()
+
+                GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
+                                              LocatorsType=LocatorsTypes.XPATH).click()
 
 
 class Checkout(GenericPO):
@@ -616,7 +629,8 @@ class Checkout(GenericPO):
 
     @staticmethod
     def clickOnSubmitOrder():
-        GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'], 10)
+        if GenericPO.webDriver.waitForInvisibilityOfElem("//div[@class='loading']") is True:
+           GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'])
 
     @staticmethod
     def enter4DigitsCode():
