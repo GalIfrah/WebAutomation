@@ -217,10 +217,11 @@
 
   "MENU": {
             "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
-            "FIRST_CATEGORY": "//div[@id='store-cg-title']/nav/ul/li[1]/a",
+            "FIRST_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a",
             "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
             "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
-            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
+            "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div"
 
           },
 
