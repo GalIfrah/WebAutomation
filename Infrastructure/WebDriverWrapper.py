@@ -21,11 +21,12 @@ class Wrapper:
     def initDesktop(self, remote_url):
         urllib3.disable_warnings(urllib3.exceptions)
 
-        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome', "maxSessions": 10}
+        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
 
         self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
 
         self.remoteWebDriver.maximize_window()
+
 
 
     def initMobile(self, remote_url, device_model):
@@ -41,6 +42,7 @@ class Wrapper:
         self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
                               desired_capabilities=chrome_options.to_capabilities())
 
+        self.remoteWebDriver.set_window_size(300, 800)
 
     def openSut(self, url):
         self.remoteWebDriver.get(url)
@@ -103,24 +105,24 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
-    def waitForElemToBeClickable(self, elementLocator, timeToWait):
+    def waitForElemToBeClickable(self, elementLocator):
 
         try:
-            WebDriverWait(self.remoteWebDriver, timeToWait).until(
+            WebDriverWait(self.remoteWebDriver, 10).until(
                 ec.element_to_be_clickable((By.XPATH, elementLocator))).click()
 
         except TimeoutException:
             print("ELEMENT_NOT_VISIBLE")
 
     def waitForInvisibilityOfElem(self, elementLocator):
-            bool = WebDriverWait(self.remoteWebDriver, 3).until(
+            bool = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return bool
 
     def waitForVisibilityOfElem(self, elementLocator):
             try:
-                element = WebDriverWait(self.remoteWebDriver, 10).until(
+                element = WebDriverWait(self.remoteWebDriver, 7).until(
                  ec.visibility_of_element_located((By.XPATH, elementLocator)))
                 return element
 
