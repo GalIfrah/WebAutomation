@@ -12,8 +12,8 @@ class BasicTestClass:
             BasicTestClass.driver.initDesktop('http://localhost:4444/wd/hub')
 
         if self.platform == "mobile":
-            print('init the remote webdriver')
-            self.driver.initMobile('http://localhost:4444/wd/hub', 'iPhone 5/SE')
+            print('init the mobile remote webdriver')
+            self.driver.initMobile('http://localhost:4444/wd/hub', 'iPhone X')
 
     def tearDown(self):
         print('test ended')
