@@ -1,6 +1,5 @@
 import sys
 import json
-import unittest
 import HtmlTestRunner
 
 
@@ -18,7 +17,7 @@ class SUT:
             self.env = sys.argv.pop(1)
             self.platform = sys.argv.pop(1)
 
-            # self.name = "ML"
+            # self.name = "TRG"
             # self.env = "test"
             # self.platform = "desktop"
 
@@ -41,6 +40,15 @@ class SUT:
             return
 
         if self.name == 'ML':
+            return
+
+        if self.name == 'NOVEL':
+            return
+
+        if self.name == 'BRAZ':
+            return
+
+        if self.name == 'BL':
             return
 
         raise Exception('`' + self.name + '` is not a valid app name')
@@ -72,10 +80,8 @@ class SUT:
     def setConfig(self):
 
         import App.PageObjects
-
         with open(self.name + '.json') as data_file:
-            App.PageObjects.params = json.load(data_file)
-
+          App.PageObjects.params = json.load(data_file)
 
     def setPlatform(self):
         from Infrastructure.BasicTest import BasicTestClass
@@ -86,9 +92,6 @@ class SUT:
 
         import App.PageObjects
         App.PageObjects.env = self.env
-
-
-# end of Environment class
 
 
 sut = SUT()

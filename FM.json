@@ -1,7 +1,7 @@
 { "APP_NAME": "Franco",
 
-  "SUT": {"test": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
-          "prod": "https://order.francomanca.co.uk/"
+  "SUT": {"TEST": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
+          "PROD": "https://order.francomanca.co.uk/"
   },
 
 
@@ -11,7 +11,6 @@
                 "LOCATORS": {
                               "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
                               "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
-                              "BACK_TO_APP_LOGO_LINK": "//a[@ng-if='homeUrl']",
                               "CONNECT_BTN": "login-btn",
                               "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
                               "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
@@ -54,7 +53,12 @@
                           "FOOTER_THIRD_PART_TEXT": "PICK UP & ENJOY",
                           "SELECT_LOCATION_PLACE_HOLDER_TEXT": "Please select a location",
                           "SELECT_DATE_PLACE_HOLDER_TEXT": "Date",
-                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Collection time"
+                          "SELECT_TIME_PLACE_HOLDER_TEXT": "Collection time",
+                          "START_ORDER_CHOOSE_LOCATION_POPUP_TEXT": "Please select a location",
+                          "START_ORDER_TIME_EXCEEDED_POPUP_TEXT": "",
+                          "START_ORDER_NOT_ACCEPTING_POPUP_TEXT": "Ouch! This restaurant is currently not accepting online orders. Please call us on .",
+                          "START_ORDER_SELECT_TIME_POPUP_TEXT": "Please Select Time"
+
 
                 }
 
@@ -155,6 +159,7 @@
   "WALLET": {
 
                "LOCATORS" : {
+                              "WALLET_HEADER": "//div[@class='myc-wallet-inner myc-wallet-payment-modal'] /div/p[@class='myc-header']",
                               "CC_VALUES_IFRAME": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[1]/div[1]/iframe",
                               "ADD_NEW_CARD_BUTTON": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul/li[@class='add-new-card']",
                               "ADD_NEW_CARD_BUTTON_HEADER": 0,
@@ -162,7 +167,8 @@
                               "EXP_DATE_INPUT": "fullYear",
                               "CVC_INPUT": "cvc",
                               "POSTCODE_INPUT": "postalCode",
-                              "SUBMIT_CC_BUTTON": "submit",
+                              "APPLY_BUTTON": "submit",
+                              "CANCEL_BUTTON": "cancel",
                               "CARDS_SECTION": "//div[@class='myc-wallet-inner myc-wallet-payment-modal']/div[2]/div[1]/div[2]/ul[@class='myc-modal-payment-list']",
                               "USER_CARDS": "li",
                               "DEFAULT_CARD_V_MARK": "//ul/li[@class='myc-card is-default']/div[@class='myc-default']",
@@ -170,6 +176,8 @@
                               "DELETE_CARD_BUTTON": "//div[@class='myc-modal-list-wrapper']/ul/li[2]/div/div[@class='delete-hidden-circle']",
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
+                              "ACCEPTED_CARDS_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/div/span[@class='myc-sep-title']",
+                              "PCI_FOOTER_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/p[@class='myc-secured-pci']",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
                               "WALLET_LOADER": "//div[@class='myc-loading']"
 
@@ -194,8 +202,13 @@
                },
 
                "TEXTS": {
-                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/21",
-                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD"
+                         "WALLET_HEADER_TEXT": "MANAGE PAYMENT METHODS",
+                         "APPLY_BUTTON_TEXT": "APPLY",
+                         "CANCEL_BUTTON_TEXT": "CANCEL",
+                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/20",
+                         "ADD_NEW_CARD_TEXT": "ADD NEW CARD",
+                         "ACCEPTED_CARDS_TEXT": "CARD ACCEPTED",
+                         "PCI_FOOTER_TEXT": "Our provider MyCheck is secured to PCI-DSS Level 1 compliance"
                }
 
   },
@@ -204,10 +217,11 @@
 
   "MENU": {
             "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
-            "FIRST_CATEGORY": "//div[@id='store-cg-title']/nav/ul/li[1]/a",
+            "FIRST_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a",
             "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
             "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
-            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
+            "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div"
 
           },
 
