@@ -1,8 +1,5 @@
 import unittest
-
 from selenium.common.exceptions import NoSuchElementException
-
-from Infrastructure.BasicTest import BasicTestClass
 from App import PageObjects
 from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
@@ -10,29 +7,21 @@ from Utils.ErrorHandler import ErrorsHandler
 
 class Tests(BasicTestClass, unittest.TestCase):
 
-    def test_100_checkCancelApplyButtonsText(self):
+      def test_100_countTestCases(self):
 
-        HomePage.openSut()
+          HomePage.openSut()
 
-        Connect.login()
+          Connect.login()
 
-        HomePage.startOrder(1)
+          Account.clickOnPaymentMethods()
 
-        Menu.chooseFirstCategory()
+          element = GenericPO.webDriver.remoteWebDriver.find_element_by_xpath('//*[@id="myc-wallet-modal-outer"]/div[1]/div[1]')
 
-        Menu.chooseSecondItem()
+          cssProperty = element.value_of_css_property('background-color')
 
-        Menu.clickOnProceedToCheckout()
+          self.assertEqual(cssProperty, '#444FDA', cssProperty)
 
-        Checkout.clickOnSubmitOrder()
-
-        Account.clickOnPaymentMethods()
-
-        pciFooterText = Wallet.getPciFooterText()
-
-        self.assertEqual(pciFooterText, params['WALLET']['TEXTS']['PCI_FOOTER_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
-
-
+"""
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -128,6 +117,22 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
         GenericPO.webDriver.saveScreenShot(1)
 
+    def test_104_checkLocationList(self):
+
+        HomePage.openSut()
+
+        Connect.login()
+
+        locationsList = HomePage.getLocationsList()
+
+        expectedLocationNumber = 0
+
+        for location in locationsList:
+
+            self.assertEqual(location.text, params['HOME_PAGE']['DATA']['FULL_LOCATIONS_NAMES'][expectedLocationNumber])
+
+            expectedLocationNumber += 1
+
     def test_104_clickOnConnect(self):
 
         HomePage.openSut()
@@ -155,11 +160,11 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
 class WalletTests(BasicTestClass, unittest.TestCase):
 
-    def test_100_openWallet(self):
+        def test_100_openWallet(self):
 
         HomePage.openSut()
 
-        Connect.login()
+        Connect.register()
 
         Account.clickOnPaymentMethods()
 
@@ -186,7 +191,6 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
             self.assertEqual(numberOfCards, 1, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS)
 
-
     def test_102_getUserPayments(self):
 
         HomePage.openSut()
@@ -203,9 +207,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
 
-        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, ErrorsHandler.TEXT_IS_WRONG)
-
-
+        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, ErrorsHandler.TEXT_IS_WRONG + " " + expectedDefaultCardText)
 
     def test_103_validateDefaultCard(self):
 
@@ -227,7 +229,6 @@ class WalletTests(BasicTestClass, unittest.TestCase):
             except NoSuchElementException:
                 self.fail(ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
-
         if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards[0].text != \
                 params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']:
 
@@ -240,40 +241,17 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         else:
             print('USER_HAS_NO_CARDS')
 
-        self.assertIsNotNone(defaultCardVmark, ErrorsHandler.CARD_ISNT_DEFAULT)
+        self.assertIsNotNone(defaultCardVmark, ErrorsHandler.CARD_IS_NOT_DEFAULT)
 
 
-    def test_104_deleteCard(self):
-
-        HomePage.openSut()
-
-        # Connect.login()
-        
-        Connect.register()
-        
-        Wallet.addCreditCard()
-
-        numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
-
-        Wallet.clickOnDeleteCardButton()
-
-        Wallet.clickOnDeleteYes()
-
-        time.sleep(1)
-        numOfCardsAfterDelete = Wallet.getUserCardsNumber()
-
-        self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
-
-        # add validation for success popup text & view
-
-    def test_105_CheckInputsValidation(self):
+    def test_104_CheckInputsValidation(self):
         # ask for value attributes
         pass
 
-    def test_106_checkUnsupportedCard(self):
+    def test_105_checkUnsupportedCard(self):
         pass
 
-    def test_107_checkCancelApplyButtonsText(self):
+    def test_106_checkCancelApplyButtonsText(self):
 
         HomePage.openSut()
 
@@ -287,7 +265,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         self.assertFalse(Wallet.clickOnCcCancelButton(), "CANCEL_BUTTON_ISN'T_CLICKED")
 
-    def test_108_checkCancelApplyButtonsText(self):
+    def test_107_checkCancelApplyButtonsText(self):
 
         HomePage.openSut()
 
@@ -304,6 +282,29 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         cancelButtonText = Wallet.getCcCancelButtonText()
 
         self.assertEqual(cancelButtonText, params['WALLET']['TEXTS']['CANCEL_BUTTON_TEXT'], "BUTTON_TEXT_IS_WRONG")
+
+    def test_108_deleteCard(self):
+
+        HomePage.openSut()
+
+        # Connect.login()
+
+        Connect.login()
+
+        Wallet.addCreditCard()
+
+        numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
+
+        Wallet.clickOnDeleteCardButton()
+
+        Wallet.clickOnDeleteYes()
+
+        time.sleep(1)
+        numOfCardsAfterDelete = Wallet.getUserCardsNumber()
+
+        self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
+
+        # add validation for success popup text & view
 
     def test_109_checkWalletHeader(self):
 
@@ -327,16 +328,53 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         weAcceptedCardText = Wallet.getWeAcceptCardsText()
 
-        self.assertEqual(weAcceptedCardText, params['WALLET']['TEXTS']['ACCEPTED_CARDS_TEXT'], "WE_ACCEPT_TEXT_IS_WRONG")
+        self.assertEqual(weAcceptedCardText, params['WALLET']['TEXTS']['ACCEPTED_CARDS_TEXT'],
+                         "WE_ACCEPT_TEXT_IS_WRONG")
 
-    def test_111_checkSupportedCards(self):
-        pass
+    def test_111_checkSupportedCardsImages(self):
+
+        HomePage.openSut()
+
+        Connect.login()
+
+        Account.clickOnPaymentMethods()
+
+        acceptedCards = GenericPO.webDriver.remoteWebDriver.find_elements_by_xpath(
+            params['WALLET']['LOCATORS']['WALLET_ACCEPTED_CARDS_AREA'])
+
+        acceptedCardsLen = len(acceptedCards)
+
+        self.assertEqual(acceptedCardsLen, 4, ErrorsHandler.MISSING_SUPPORTED_CARDS)
+
+        acceptedCardsUrl = []
+
+        words = ["visa", "amex", "maestro", "mastercard"]
+
+        for card in acceptedCards:
+            acceptedCardsUrl.append(card.get_attribute('src'))
+
+        i = 0
+
+        for word in words:
+            print(acceptedCardsUrl[i])
+            self.assertTrue(word in acceptedCardsUrl[i], 'word not exist')
+            i += 1
 
     def test_112_checkFooterText(self):
-        pass
+
+        HomePage.openSut()
+
+        Connect.login()
+
+        Account.clickOnPaymentMethods()
+
+        pciFooterText = Wallet.getPciFooterText()
+
+        self.assertEqual(pciFooterText, params['WALLET']['TEXTS']['PCI_FOOTER_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
 
     def test_113_checkAddCardInputsHeaders(self):
         pass
 
     def test_114_openWalletFromCheckout(self):
-        pass
+        pass        
+"""

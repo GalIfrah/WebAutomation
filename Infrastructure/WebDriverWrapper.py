@@ -121,6 +121,13 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
+    def getDropDownOptionsList(self, drop_down_locator):
+        selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
+
+        return selector.options
+
+
+
     def waitForElemToBeClickable(self, elementLocator):
 
         try:
