@@ -13,7 +13,7 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        Connect.login()
+        Connect.register()
 
         HomePage.startOrder(1)
 
