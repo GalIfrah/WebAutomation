@@ -39,8 +39,9 @@
                 },
 
                 "DATA": {
-                         "FIRST_LOCATION": "AireusTest",
+                         "FIRST_LOCATION_NOT_WORKING": "AireusTest",
                          "SECOND_LOCATION": "fm2",
+                         "FULL_LOCATIONS_NAMES": ["Please select a location", "AireusTest", "fm2"],
                          "DATE": "Today only",
                          "TIME": "14:20"
                 },
@@ -177,6 +178,7 @@
                               "DELETE_CARD_YES_BUTTON": "//div[@class='myc-popup active']/div/div/span[2]",
                               "DELETE_CARD_NO_BUTTON": "//div[@class='myc-popup active']/div/div/span[1]",
                               "ACCEPTED_CARDS_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/div/span[@class='myc-sep-title']",
+                              "WALLET_ACCEPTED_CARDS_AREA": "//*[@id='myc-wallet-modal-outer']/div[1]/div[2]/div[2]/div/div[2]/img",
                               "PCI_FOOTER_TEXT_AREA": "//div[@class='myc-wallet-modal-footer']/div/p[@class='myc-secured-pci']",
                               "WALLET_X_BUTTON": "//*[@id='myc-wallet-modal-outer']/div[1]/div[3]",
                               "WALLET_LOADER": "//div[@class='myc-loading']"

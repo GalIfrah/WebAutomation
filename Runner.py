@@ -17,7 +17,7 @@ class SUT:
             self.env = sys.argv.pop(1)
             self.platform = sys.argv.pop(1)
 
-            # self.name = "TRG"
+            # self.name = "FM"
             # self.env = "test"
             # self.platform = "desktop"
 
