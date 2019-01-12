@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8685fcb1-839c-46ae-888a-a8338578ad19" name="Default" comment="">
+    <list default="true" id="8685fcb1-839c-46ae-888a-a8338578ad19" name="Default" comment="Merge branch 'master' of https://github.com/GalIfrah/WebAutomation&#10;&#10;# Conflicts:&#10;#&#9;App/SutTests.py">
       <change afterPath="$PROJECT_DIR$/Utils/ErrorHandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/galif.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/galif.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
@@ -27,14 +27,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SutTests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SutTests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/SutTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+            <state relative-caret-position="357">
+              <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="18" selection-start-line="3" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -82,18 +91,6 @@
               <caret line="370" column="42" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="42" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -225,6 +222,7 @@
         <option value="$PROJECT_DIR$/ML.json" />
         <option value="$PROJECT_DIR$/App/PageObjects.py" />
         <option value="$PROJECT_DIR$/App/SutTests.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -719,7 +717,8 @@
     <MESSAGE value="adding test for all enter phone screen popups" />
     <MESSAGE value="add enter phone popups tests" />
     <MESSAGE value="new msg" />
-    <option name="LAST_COMMIT_MESSAGE" value="new msg" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/GalIfrah/WebAutomation&#10;&#10;# Conflicts:&#10;#&#9;App/SutTests.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/GalIfrah/WebAutomation&#10;&#10;# Conflicts:&#10;#&#9;App/SutTests.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -734,7 +733,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.ConnectTests_2019-01-05_12-47-55.html" />
     <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2019-01-05_13-02-31.html" />
     <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.WalletTests_2019-01-05_13-02-31.html" />
     <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.WalletTests_2019-01-05_13-12-09.html" />
@@ -969,11 +967,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/SutTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+        <state relative-caret-position="357">
+          <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" selection-start-line="3" selection-end-line="3" selection-end-column="19" />
         </state>
       </provider>
     </entry>
