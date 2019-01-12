@@ -2,6 +2,7 @@ from Infrastructure.WebDriverWrapper import Wrapper
 
 
 class BasicTestClass:
+
     driver = Wrapper()
     platform = ''
 
@@ -18,3 +19,4 @@ class BasicTestClass:
     def tearDown(self):
         print('test ended')
         print('**************************************')
+        # self.driver.closeCurrent()

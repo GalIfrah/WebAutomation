@@ -1,6 +1,6 @@
 import sys
 from multiprocessing import TimeoutError
-from logger import logger
+import logging
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
@@ -12,7 +12,8 @@ from Utils.TestName import TestsName
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-
+from selenium.webdriver.chrome.options import Options
+from Utils.ErrorHandler import ErrorsHandler
 
 class Wrapper:
 
@@ -33,16 +34,33 @@ class Wrapper:
 
         urllib3.disable_warnings(urllib3.exceptions)
 
-        mobile_emulation = {"deviceName": device_model}
+        #mobile_emulation = {"deviceName": device_model}
 
-        chrome_options = webdriver.ChromeOptions()
+        #chrome_options = webdriver.ChromeOptions()
 
-        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+        #chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-        self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
-                              desired_capabilities=chrome_options.to_capabilities())
 
-        self.remoteWebDriver.set_window_size(300, 800)
+
+        #mobile_emulation = {
+
+         #   "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
+
+          #  "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
+
+        # chrome_options = Options()
+
+        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+
+       # self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
+                              #desired_capabilities=chrome_options.to_capabilities())
+        urllib3.disable_warnings(urllib3.exceptions)
+
+        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+
+        self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
+        self.remoteWebDriver.set_window_size(260, 800)
 
     def openSut(self, url):
         self.remoteWebDriver.get(url)
@@ -57,7 +75,9 @@ class Wrapper:
 
 
     def findElementBy(self, value, LocatorsType):
-        elementFlag = False
+
+        elementAssigned = False
+
         self.remoteWebDriver.implicitly_wait(10)
         try:
             if LocatorsType == LocatorsTypes.XPATH:
@@ -75,21 +95,21 @@ class Wrapper:
             elif LocatorsType == LocatorsTypes.CSS_SELECTOR:
                 element = self.remoteWebDriver.find_element_by_css_selector(value)
 
-            elementFlag = True
+            elementAssigned = True
 
         except TimeoutError as E:
-            E.with_traceback(E.__context__)
+            logging.error(ErrorsHandler.TIMEOUT_ERROR)
 
         except NoSuchElementException as E:
-            E.with_traceback(E.__context__)
+            logging.error(ErrorsHandler.NO_SUCH_ELEMENT)
 
         except UnboundLocalError as E:
             E.with_traceback(E.__context__)
 
-        if elementFlag is True:
+        if elementAssigned is True:
             return element
         else:
-            print("element not assigned to any value yet")
+            print(ErrorsHandler.ELEMENT_NOT_ASSIGNED_YET)
 
 
     def hoverAndClick(self, firstElementLocator, secondElementLocator):
@@ -105,6 +125,13 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
+    def getDropDownOptionsList(self, drop_down_locator):
+        selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
+
+        return selector.options
+
+
+
     def waitForElemToBeClickable(self, elementLocator):
 
         try:
@@ -112,13 +139,13 @@ class Wrapper:
                 ec.element_to_be_clickable((By.XPATH, elementLocator))).click()
 
         except TimeoutException:
-            print("ELEMENT_NOT_VISIBLE")
+            print(ErrorsHandler.TIMEOUT_ERROR + " " + ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
     def waitForInvisibilityOfElem(self, elementLocator):
-            bool = WebDriverWait(self.remoteWebDriver, 5).until(
+            isVisible = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
-            return bool
+            return isVisible
 
     def waitForVisibilityOfElem(self, elementLocator):
             try:
@@ -127,8 +154,7 @@ class Wrapper:
                 return element
 
             except TimeoutException:
-                print("ELEMENT_NOT_VISIBLE")
-
+                print(ErrorsHandler.TIMEOUT_ERROR + " " + ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
     def switchToIframe(self, element):
         self.remoteWebDriver.switch_to.frame(element)

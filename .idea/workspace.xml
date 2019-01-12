@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8685fcb1-839c-46ae-888a-a8338578ad19" name="Default" comment="" />
+    <list default="true" id="8685fcb1-839c-46ae-888a-a8338578ad19" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Utils/ErrorHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/galif.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/galif.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/PageObjects.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/PageObjects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SutTests.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/SutTests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FM.json" beforeDir="false" afterPath="$PROJECT_DIR$/FM.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/BasicTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/BasicTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/GenericPageObject.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/GenericPageObject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ML.json" beforeDir="false" afterPath="$PROJECT_DIR$/ML.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/Runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRG.json" beforeDir="false" afterPath="$PROJECT_DIR$/TRG.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/utils.py" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,8 +30,8 @@
       <file leaf-file-name="SutTests.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/SutTests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2006">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="187">
+              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -24,71 +39,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ErrorHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/ErrorHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="34" column="20" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Runner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Runner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GenericPageObject.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Infrastructure/GenericPageObject.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="43" selection-start-column="43" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageObjects.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="92" column="102" selection-start-line="92" selection-start-column="102" selection-end-line="92" selection-end-column="102" />
-              <folding>
-                <element signature="e#0#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ML.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ML.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebDriverWrapper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FM.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FM.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestName.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/TestName.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="212">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -96,8 +60,71 @@
       <file leaf-file-name="BasicTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Infrastructure/BasicTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+            <state relative-caret-position="177">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ML.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ML.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageObjects.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="370" column="42" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TRG.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TRG.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="121" column="50" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FM.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FM.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebDriverWrapper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,23 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DELETE_CARD_YES_BUTTON</find>
-      <find>PRIVACY_POLICY</find>
-      <find>TERMS_AND_COND_BUTTON</find>
-      <find>account</find>
-      <find>errorTypefb</find>
-      <find>testcase_name</find>
-      <find>test_cases_list</find>
-      <find>errorMessage</find>
-      <find>image_location</find>
-      <find>error</find>
-      <find>results</find>
-      <find>tests_results</find>
-      <find>message</find>
-      <find>status</find>
-      <find>error_message</find>
-      <find>group2</find>
-      <find>choos</find>
       <find>screen</find>
       <find>//ul/li[@class='profile-item ng-binding ng-scope payment-methods']</find>
       <find>FIRST_CATEGORY</find>
@@ -137,6 +147,29 @@
       <find>//span[@class='small ng-scope']/a[1]</find>
       <find>pageobje</find>
       <find>//div[@class='continue ng-binding']</find>
+      <find>open</find>
+      <find>wallwt</find>
+      <find>connect</find>
+      <find>CARDS_SECTION</find>
+      <find>WALLET_HEADER_TEXT</find>
+      <find>clickoncc</find>
+      <find>APPLY_BUTTON_TEXT</find>
+      <find>start</find>
+      <find>choose</find>
+      <find>wallet</find>
+      <find>enter</find>
+      <find>ProjectUtils</find>
+      <find>['ENTER_PHONE_PAGE']['LOCATORS']['SUBMIT_SMS_CODE']</find>
+      <find>COOKIES</find>
+      <find>['ENTER_PHONE_PAGE']['LOCATORS']['ENTER_EMAIL_FIELD']</find>
+      <find>enter_sms</find>
+      <find>['ENTER_PHONE_PAGE']['LOCATORS']</find>
+      <find>//input[@type='email']</find>
+      <find>SCREEN_POPUP_BODY</find>
+      <find>SMS verification was sent.</find>
+      <find>RESEND_CODE_POPUP_TEXT</find>
+      <find>ENTER_SMS</find>
+      <find>account</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\galif\AppData\Local\Programs\Python\Python37-32\Lib\site-packages</dir>
@@ -175,22 +208,31 @@
         <option value="$PROJECT_DIR$/App2/PageObjects.py" />
         <option value="$PROJECT_DIR$/App2/SutTests.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/App/CONFIG.py" />
+        <option value="$PROJECT_DIR$/App/Config.py" />
+        <option value="$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-35-13.html" />
+        <option value="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" />
+        <option value="$PROJECT_DIR$/App/PageObjects/Account.py" />
+        <option value="$PROJECT_DIR$/App/PageObjects/AccountPo.py" />
+        <option value="$PROJECT_DIR$/Infrastructure/GenericPageObject.py" />
+        <option value="$PROJECT_DIR$/App/dsfsa.py" />
         <option value="$PROJECT_DIR$/Utils/utils.py" />
         <option value="$PROJECT_DIR$/Infrastructure/BasicTest.py" />
-        <option value="$PROJECT_DIR$/Runner.py" />
-        <option value="$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py" />
+        <option value="$PROJECT_DIR$/Utils/ErrorHandler.py" />
+        <option value="$PROJECT_DIR$/TRG.json" />
         <option value="$PROJECT_DIR$/FM.json" />
-        <option value="$PROJECT_DIR$/App/PageObjects.py" />
+        <option value="$PROJECT_DIR$/Runner.py" />
         <option value="$PROJECT_DIR$/ML.json" />
+        <option value="$PROJECT_DIR$/App/PageObjects.py" />
         <option value="$PROJECT_DIR$/App/SutTests.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="465" />
-    <option name="y" value="171" />
-    <option name="width" value="449" />
-    <option name="height" value="600" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="965" />
+    <option name="height" value="720" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -198,7 +240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,6 +271,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -237,13 +279,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
-      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\Utils" />
-      <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\Infrastructure" />
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\App" />
+      <recent name="C:\Users\galif\PycharmProjects\WebAutomation\Utils" />
       <recent name="C:\Users\galif\PycharmProjects\WebAutomation" />
     </key>
   </component>
@@ -278,6 +321,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="dsfsa" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WebAutomation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/dsfsa.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="Unittests for SutTests.ConnectTests.test_100_footerText" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="WebAutomation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -304,19 +365,6 @@
       <option name="_new_target" value="&quot;SutTests.HomeScreenTests&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests for SutTests.HomeScreenTests.test_100_openSut" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="WebAutomation" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;SutTests.HomeScreenTests.test_100_openSut&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
     <configuration name="Unittests for SutTests.Pilots.test_newTests" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="WebAutomation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -331,19 +379,19 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests for SutTests.HomeScreenTests.test_100_openSut" />
       <item itemvalue="Python tests.Unittests for SutTests.Pilots.test_newTests" />
       <item itemvalue="Python tests.Unittests for SutTests.ConnectTests.test_100_footerText" />
       <item itemvalue="Python.Runner" />
       <item itemvalue="Python tests.Unittests for SutTests.HomeScreenTests" />
+      <item itemvalue="Python.dsfsa" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Runner" />
+        <item itemvalue="Python.dsfsa" />
         <item itemvalue="Python tests.Unittests for SutTests.HomeScreenTests" />
         <item itemvalue="Python tests.Unittests for SutTests.ConnectTests.test_100_footerText" />
         <item itemvalue="Python tests.Unittests for SutTests.Pilots.test_newTests" />
-        <item itemvalue="Python tests.Unittests for SutTests.HomeScreenTests.test_100_openSut" />
       </list>
     </recent_temporary>
   </component>
@@ -456,7 +504,119 @@
       <option name="project" value="LOCAL" />
       <updated>1546178136685</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="trying new config format">
+      <created>1546615958967</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1546615958967</updated>
+    </task>
+    <task id="LOCAL-00016" summary="changing start order method">
+      <created>1546615988639</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1546615988639</updated>
+    </task>
+    <task id="LOCAL-00017" summary="nothing changed">
+      <created>1546616010186</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1546616010186</updated>
+    </task>
+    <task id="LOCAL-00018" summary="changing logging for find element method">
+      <created>1546616047206</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1546616047206</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add &amp; change keys for better compatibility">
+      <created>1546616102169</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1546616102169</updated>
+    </task>
+    <task id="LOCAL-00020" summary="changing for debugging">
+      <created>1546616127892</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1546616127892</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add keys for wallet">
+      <created>1546773315228</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1546773315228</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add keys for wallet">
+      <created>1546773328394</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1546773328394</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add keys for wallet">
+      <created>1546773338837</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1546773338837</updated>
+    </task>
+    <task id="LOCAL-00024" summary="nothing changed">
+      <created>1546773356120</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1546773356120</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add method for wallet">
+      <created>1546773412773</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546773412773</updated>
+    </task>
+    <task id="LOCAL-00026" summary="change the wait to be clickable method">
+      <created>1546848943011</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546848943011</updated>
+    </task>
+    <task id="LOCAL-00027" summary="none">
+      <created>1546848961765</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1546848961765</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add changes for mobile behaviour">
+      <created>1546848994341</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1546848994341</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add keys for mobile cart icon and behaviour">
+      <created>1546849026214</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1546849026214</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add keys for mobile cart icon and behaviour">
+      <created>1547152563615</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1547152563615</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -492,45 +652,44 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.15201586" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23463318" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50165236" side_tool="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44547257" weight="0.53418803" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44547257" visible="true" weight="0.24501425" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49834764" visible="true" weight="0.37464386" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4900285" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49834764" weight="0.45584047" />
       <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4900285" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.13945803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44547257" weight="0.53418803" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4900285" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4990086" visible="true" weight="0.34615386" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5009914" side_tool="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49966952" weight="0.32905984" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49966952" weight="0.32905984" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32905984" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -545,7 +704,22 @@
     <MESSAGE value="dashboard improvement" />
     <MESSAGE value="changing locators to json" />
     <MESSAGE value="change Runner.py for skipping&#10;add more home screens tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="change Runner.py for skipping&#10;add more home screens tests" />
+    <MESSAGE value="trying new config format" />
+    <MESSAGE value="changing start order method" />
+    <MESSAGE value="changing logging for find element method" />
+    <MESSAGE value="add &amp; change keys for better compatibility" />
+    <MESSAGE value="changing for debugging" />
+    <MESSAGE value="add keys for wallet" />
+    <MESSAGE value="nothing changed" />
+    <MESSAGE value="add method for wallet" />
+    <MESSAGE value="change the wait to be clickable method" />
+    <MESSAGE value="none" />
+    <MESSAGE value="add changes for mobile behaviour" />
+    <MESSAGE value="add keys for mobile cart icon and behaviour" />
+    <MESSAGE value="adding test for all enter phone screen popups" />
+    <MESSAGE value="add enter phone popups tests" />
+    <MESSAGE value="new msg" />
+    <option name="LAST_COMMIT_MESSAGE" value="new msg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -556,180 +730,247 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="71" />
+      <option name="time" value="90" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests_2018-12-25_21-40-18.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_21-46-45.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_21-56-17.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-01-10.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-25_22-06-57.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-26_12-00-34.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-26_12-00-34.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.FlowTests2_2018-12-26_15-39-14.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-26_15-39-14.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot4.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot6.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot8.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot9.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot10.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot12.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot11.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot13.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_101_clickOnConnect_screenShot1.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_openSut_screenShot1.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot1.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot2.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot3.png" />
-    <entry file="file://$PROJECT_DIR$/Reports/ScreenShotstest_100_sanity_screenShot5.png" />
-    <entry file="file://$PROJECT_DIR$/Test.py" />
-    <entry file="file://$PROJECT_DIR$/App/FM.json" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.ConnectTests_2018-12-27_17-54-29.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.ConnectTests_2018-12-27_18-30-54.html" />
-    <entry file="file://$PROJECT_DIR$/Reports/screenShots/test_100_sanity_screenShot1.png" />
-    <entry file="file://$PROJECT_DIR$/App/SutTests2.py" />
-    <entry file="file://$PROJECT_DIR$/App2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App2/SutTests2.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.ConnectTests_2019-01-05_12-47-55.html" />
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2019-01-05_13-02-31.html" />
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.WalletTests_2019-01-05_13-02-31.html" />
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.WalletTests_2019-01-05_13-12-09.html" />
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.WalletTests_2019-01-05_13-23-59.html" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/selenium/webdriver/support/expected_conditions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3468">
+          <caret line="208" column="8" selection-start-line="208" selection-start-column="8" selection-end-line="208" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App2/SutTests.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/pip/_vendor/distlib/compat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="96" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="36" selection-end-column="96" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="43">
+          <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-10_22-48-11.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-10_23-11-20.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/App2/PageObjects.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-10_23-14-52.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-10-18.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/Config.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-13-06.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="170" column="17" lean-forward="true" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-19-29.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-23-39.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-32-37.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-35-13.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-40-34.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/selenium/common/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/unittest/case.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-45-21.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_11-57-25.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="68">
+          <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-09-38.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/ML.json">
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-12-12.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-13-59.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-16-06.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-28-13.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-391670947/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-858">
+          <caret line="837" column="6" selection-start-line="837" selection-start-column="6" selection-end-line="837" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-30-57.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-31-26.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-37-03.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-43-00.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-44-37.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/PageObjects/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/PageObjects/Account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/dsfsa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_12-46-51.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1173" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Infrastructure/GenericPageObject.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.Tests_2019-01-11_14-08-30.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/selenium/webdriver/remote/webelement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="324" column="43" selection-start-line="324" selection-start-column="43" selection-end-line="324" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/selenium/webdriver/remote/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="179">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/GenericPageObject.py">
+    <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" selection-start-column="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/TestName.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-29_15-30-01.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+        <state relative-caret-position="103">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.ConnectTests_2018-12-29_15-30-01.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Infrastructure/BasicTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="177">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/WebDriverWrapper.py">
+    <entry file="file://$PROJECT_DIR$/Utils/ErrorHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        <state relative-caret-position="110">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Runner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FM.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="440">
+          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ML.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+        <state relative-caret-position="236">
+          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TRG.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="121" column="50" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/PageObjects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="92" column="102" selection-start-line="92" selection-start-column="102" selection-end-line="92" selection-end-column="102" />
+        <state relative-caret-position="185">
+          <caret line="370" column="42" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="42" />
           <folding>
-            <element signature="e#0#69#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Reports/Reports/Test_App.SutTests.HomeScreenTests_2018-12-29_18-08-48.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/SutTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2006">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="187">
+          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

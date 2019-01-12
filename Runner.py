@@ -1,6 +1,5 @@
 import sys
 import json
-import unittest
 import HtmlTestRunner
 
 
@@ -14,13 +13,13 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            self.name = sys.argv.pop(1)
-            self.env = sys.argv.pop(1)
-            self.platform = sys.argv.pop(1)
+            # self.name = sys.argv.pop(1)
+            # self.env = sys.argv.pop(1)
+            # self.platform = sys.argv.pop(1)
 
-            # self.name = "TRG"
-            # self.env = "test"
-            # self.platform = "desktop"
+            self.name = "TRG"
+            self.env = "test"
+            self.platform = "desktop"
 
 
 
@@ -93,9 +92,6 @@ class SUT:
 
         import App.PageObjects
         App.PageObjects.env = self.env
-
-
-# end of Environment class
 
 
 sut = SUT()
