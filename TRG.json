@@ -208,7 +208,8 @@
                                                  "EXP_DATE" : "12/19",
                                                  "CVC" : "012",
                                                  "POSTCODE" : "012"
-               }
+               },
+                         "ACCEPTED_CARDS": ["visa", "amex", "maestro", "mastercard"]
 
                },
 

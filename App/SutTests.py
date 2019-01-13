@@ -1,33 +1,31 @@
 import unittest
+from App import PageObjects
 from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
 
 
+
 class Tests(BasicTestClass, unittest.TestCase):
 
- def test_102_wrongSmsCode(self):
+    def test_101_login(self):
 
-     HomePage.openSut()
+        # login
+        Connect.login()
 
-     HomePage.clickOnCookPolicyBtn()
+        currentLoginButtonText = HomePage.getLoginButtonText()
 
-     HomePage.clickOnConnect()
+        beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
 
-     EnterPhonePage.enterValidPhoneNumber()
+        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
 
-     EnterPhonePage.submitPhoneNumber()
+        # logout
+        Connect.logout()
 
-     EnterPhonePage.clickOnResendCode()
+        currentLoginButtonText = HomePage.getLoginButtonText()
 
-     resendSmsPopUp = EnterPhonePage.getPopup()
+        self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
-     self.assertIsNotNone(resendSmsPopUp, ErrorsHandler.MISSING_POPUP)
 
-     resendSmsPopUpText = EnterPhonePage.getPopupText()
-
-     self.assertEqual(resendSmsPopUpText, params['ENTER_PHONE_PAGE']['TEXTS']['RESEND_CODE_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
-
-"""    
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -187,7 +185,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
             expectedLocationNumber += 1
 
-    def test_104_clickOnConnect(self):
+    def test_104_connectButton(self):
 
         HomePage.openSut()
 
@@ -218,7 +216,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
         HomePage.openSut()
 
-        Connect.register()
+        Connect.login()
 
         Account.clickOnPaymentMethods()
 
@@ -431,4 +429,4 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
     def test_114_openWalletFromCheckout(self):
         pass
-"""
+

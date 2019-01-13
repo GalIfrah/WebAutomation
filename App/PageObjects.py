@@ -43,6 +43,8 @@ class Connect(GenericPO):
     @staticmethod
     def login():
 
+        HomePage.openSut()
+
         HomePage.clickOnCookPolicyBtn()
 
         HomePage.clickOnConnect()
@@ -723,36 +725,3 @@ class ConfirmationScreen(GenericPO):
         # remove the sleep
 
 
-"""
-@staticmethod
-    def startOrder():
-        time.sleep(1)
-        GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
-
-        for x in range(5):
-            try:
-
-                if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
-
-                    break
-
-                elif GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_TEXT_AREA'],
-                                                       LocatorsType=LocatorsTypes.XPATH).is_displayed():
-
-                    GenericPO.webDriver.findElementBy(params['HOME_PAGE']['LOCATORS']['START_ORDER_POPUP_BUTTON'],
-                                                      LocatorsType=LocatorsTypes.XPATH).click()
-
-                    GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
-                                                           params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
-
-                    GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
-
-                    break
-
-            except Exception:
-
-                print("still not found the url/popup")
-
-                time.sleep(1)
-                time.sleep(2)
-"""
