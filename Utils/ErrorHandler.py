@@ -26,9 +26,13 @@ class ErrorsHandler(object):
     MISSING_CARDS = ' cards are missing'
     CARD_IS_NOT_DEFAULT = 'this card doesnt contain the "V" mark or the locator on config was changed, please check the screen shot for that test'
     MISSING_SUPPORTED_CARDS = 'number of card is lower then the on expected... please check to screen shot for that issue'
+    WALLET_IS_NOT_VISIBLE = "wallet doesn't open "
 
     # CHECKOUT ERRORS
 
+    # VALIDATION POPUPS ERRORS
+    MISSING_POPUP = "popup is missing"
+    WRONG_POPUP_TEXT = TEXT_IS_WRONG
 
     # ELEMENTS ERRORS
     NO_SUCH_ELEMENT = 'no such element... the element you was trying to reach is ether missing or the locator on config is wrong, please check the screen shot for that test'

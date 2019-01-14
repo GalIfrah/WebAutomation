@@ -29,6 +29,13 @@ class ProjectUtils:
 
         return randEmail
 
+    @staticmethod
+    def createRandomSmsCode():
+
+        randSms = ''.join(random.choice('0123456789') for i in range(6))
+
+        return randSms
+
 
     @staticmethod
     def imagesComparator(image1, image2):
