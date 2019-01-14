@@ -1,6 +1,6 @@
 import sys
 from multiprocessing import TimeoutError
-from logger import logger
+import logging
 from selenium import webdriver
 import urllib3
 from selenium.webdriver.common.action_chains import ActionChains
@@ -42,21 +42,25 @@ class Wrapper:
 
 
 
-        mobile_emulation = {
+        #mobile_emulation = {
 
-            "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
+         #   "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
 
-            "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
+          #  "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
 
-        chrome_options = Options()
+        # chrome_options = Options()
 
-        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
 
-        self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
-                              desired_capabilities=chrome_options.to_capabilities())
+       # self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
+                              #desired_capabilities=chrome_options.to_capabilities())
+        urllib3.disable_warnings(urllib3.exceptions)
 
-#        self.remoteWebDriver.set_window_size(300, 800)
+        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+
+        self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
+        self.remoteWebDriver.set_window_size(260, 800)
 
     def openSut(self, url):
         self.remoteWebDriver.get(url)
@@ -94,10 +98,10 @@ class Wrapper:
             elementAssigned = True
 
         except TimeoutError as E:
-            ErrorsHandler.TIMEOUT_ERROR
+            logging.error(ErrorsHandler.TIMEOUT_ERROR)
 
         except NoSuchElementException as E:
-            ErrorsHandler.NO_SUCH_ELEMENT
+            logging.error(ErrorsHandler.NO_SUCH_ELEMENT)
 
         except UnboundLocalError as E:
             E.with_traceback(E.__context__)
@@ -121,11 +125,11 @@ class Wrapper:
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
+
     def getDropDownOptionsList(self, drop_down_locator):
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
 
         return selector.options
-
 
 
     def waitForElemToBeClickable(self, elementLocator):
@@ -137,11 +141,13 @@ class Wrapper:
         except TimeoutException:
             print(ErrorsHandler.TIMEOUT_ERROR + " " + ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
+
     def waitForInvisibilityOfElem(self, elementLocator):
             isVisible = WebDriverWait(self.remoteWebDriver, 5).until(
                 ec.invisibility_of_element_located((By.XPATH, elementLocator)))
 
             return isVisible
+
 
     def waitForVisibilityOfElem(self, elementLocator):
             try:
@@ -151,6 +157,7 @@ class Wrapper:
 
             except TimeoutException:
                 print(ErrorsHandler.TIMEOUT_ERROR + " " + ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
 
     def switchToIframe(self, element):
         self.remoteWebDriver.switch_to.frame(element)
@@ -183,38 +190,3 @@ class Wrapper:
                 'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\ScreenShots' + filename)
 
         return TestsName.test_name
-
-
-
-"""
-
-    def waitForElemToBeClickable(self, elementLocator):
-        for x in range(5):
-            try:
-                self.remoteWebDriver.find_element_by_xpath(elementLocator).click()
-                break
-
-            except Exception:
-                print("not found yet")
-                time.sleep(1)
-                
-                
-    def waitForElemToBeDisplayed(self, elementLocator):
-
-        self.displayed = False
-
-        for x in range(5):
-            try:
-                if self.remoteWebDriver.find_element_by_xpath(elementLocator).is_displayed() is True:
-                            self.displayed = True
-                            break
-
-            except Exception:
-                print("not displayed yet")
-                time.sleep(1)
-
-        return self.displayed
-"""
-
-
-

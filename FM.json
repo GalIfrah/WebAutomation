@@ -113,14 +113,23 @@
 
                        {"LOCATORS" : {"PHONE_FIELD" : "//input[@name='phone']",
                                       "SUBMIT_BUTTON" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div[2]/form/div[1]/div[2]",
-                                      "ENTER_SMS_CODE" : "//form/div/div/input",
+                                      "ENTER_SMS_CODE" : "//form[@name='verifyCodeForm']/div/div/input[@maxlength='6']",
                                       "SUBMIT_SMS_CODE" : "//form/div/div/div",
-                                      "ENTER_EMAIL_FIELD" : "//input[@type='email']"
+                                      "SCREEN_POPUP": "//div[@class='popup']",
+                                      "SCREEN_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']",
+                                      "SCREEN_POPUP_OK": "//div[@class='popup']/div[@class='popup-buttons']/button",
+                                      "RESEND_CODE": "//div[@class='resend-code row']/a"
 
-                       }, "DATA" : {"VALID_PHONE_NUMBER" : "+972542567405",
+                       }, "DATA" : {
+                                    "VALID_PHONE_NUMBER" : "+972542567405",
                                     "INVALID_PHONE_NUMBER" : "+9725425675555",
                                     "INVALID_SMS_CODE" : "000000"
-                                   }
+                                   },
+                       "TEXTS" : {
+                                     "INVALID_PHONE_POPUP_TEXT": "Please enter a valid phone number",
+                                     "WRONG_SMS_POPUP_TEXT": "Invalid verification code",
+                                     "RESEND_CODE_POPUP_TEXT": "SMS verification was sent."
+                       }
 
   },
 
@@ -199,7 +208,8 @@
                                                  "EXP_DATE" : "12/19",
                                                  "CVC" : "012",
                                                  "POSTCODE" : "012"
-               }
+               },
+                         "ACCEPTED_CARDS": ["visa", "amex", "maestro", "mastercard"]
 
                },
 
@@ -218,12 +228,32 @@
 
 
   "MENU": {
-            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
-            "FIRST_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a",
-            "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
-            "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
-            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
-            "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div"
+            "LOCATORS": {
+                         "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
+                         "PIZZA_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a[text()='Pizzas']",
+                         "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
+                         "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
+                         "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                         "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
+                         "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div",
+                         "SCREEN_POPUP": "//div[@class='popup']",
+                         "SCREEN_POPUP_HEADER": "//div[@class='popup']/div[@class='popup-head']",
+                         "SCREEN_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']",
+                         "SCREEN_POPUP_OK": "//div[@class='popup']/div[@class='popup-buttons']/button"
+            },
+
+            "TEXTS": {
+                      "MORE_THEN_6_POP_UP_TEXT": "For more than 6 Pizzas, please ring the restaurant directly!",
+                      "ALCOHOL_RESTRICTION_HEADER_TEXT": "Are you over 18?",
+                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it"
+            },
+
+            "DATA": {
+                     "AMOUNT_LIMIT": 1,
+                     "AMOUNT_LIMIT_NUMBER": 6,
+                     "AGE_LIMIT": 1,
+                     "AGE_RESTRICTED_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li/a[text()='Wine & Beer']"
+            }
 
           },
 
@@ -262,5 +292,3 @@
 
 
 }
-
-
