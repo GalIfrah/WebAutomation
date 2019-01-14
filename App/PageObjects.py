@@ -634,7 +634,12 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseFirstCategory():
-        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['PIZZA_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def chooseSecondCategory():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['BITES_CATEGORY'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def chooseRestrictedAgeCategory():

@@ -231,6 +231,8 @@
             "LOCATORS": {
                          "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
                          "PIZZA_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a[text()='Pizzas']",
+                         "BITES_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2]/a[text()='Bites']",
+                         "BITES_CATEGORY_ACTIVE": "//*[@id='store-cg-title'']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
                          "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
                          "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",

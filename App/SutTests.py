@@ -13,9 +13,13 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         HomePage.startOrder(1)
 
-        Menu.clickOnEditItem()
+        Menu.chooseSecondCategory()
 
-        Menu.chooseModifier()
+        self.assertTrue(
+           GenericPO.webDriver.remoteWebDriver.find_element_by_xpath("//*[@id='store-cg-title'']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']" is not None
+                                                                     )
+
+        )
 
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
@@ -423,8 +427,15 @@ class WalletTests(BasicTestClass, unittest.TestCase):
 
 class WalletTests(BasicTestClass, unittest.TestCase):
 
+    def test_100_chooseFirstCategory(self):
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        Menu.chooseFirstCategory()
+
     @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
-    def test_100_checkAgeRestriction(self):
+    def test_101_checkAgeRestriction(self):
         Connect.login()
 
         HomePage.startOrder(1)
@@ -447,7 +458,7 @@ class WalletTests(BasicTestClass, unittest.TestCase):
             '//a/dl/dt[text()="No Logo Pale Ale"]').is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
     @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
-    def test_100_checkOrderItemLimit(self):
+    def test_102_checkOrderItemLimit(self):
 
         Connect.login()
 
