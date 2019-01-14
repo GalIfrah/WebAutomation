@@ -1,27 +1,23 @@
 import unittest
-from selenium.common.exceptions import NoSuchElementException
 from App import PageObjects
 from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
 
 
+
 class Tests(BasicTestClass, unittest.TestCase):
 
-      def test_100_countTestCases(self):
 
-          HomePage.openSut()
+    def test_100_checkAgeRestriction(self):
+        Connect.login()
 
-          Connect.login()
+        HomePage.startOrder(1)
 
-          Account.clickOnPaymentMethods()
+        Menu.clickOnEditItem()
 
-          element = GenericPO.webDriver.remoteWebDriver.find_element_by_xpath('//*[@id="myc-wallet-modal-outer"]/div[1]/div[1]')
+        Menu.chooseModifier()
 
-          cssProperty = element.value_of_css_property('background-color')
 
-          self.assertEqual(cssProperty, '#444FDA', cssProperty)
-
-"""
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -56,7 +52,55 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
 
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
-    def test_102_checkMigration(self):
+    def test_102_wrongSmsCode(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+
+        EnterPhonePage.submitPhoneNumber()
+
+        EnterPhonePage.enterWrongSmsCode()
+
+        EnterPhonePage.submitSmsCode()
+
+        wrongSmsPopUp = EnterPhonePage.getPopup()
+
+        self.assertIsNotNone(wrongSmsPopUp, ErrorsHandler.MISSING_POPUP)
+
+        popupText = EnterPhonePage.getPopupText()
+
+        self.assertEqual(popupText, params['ENTER_PHONE_PAGE']['TEXTS']['WRONG_SMS_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
+
+    def test_103_resendCode(self):
+
+        HomePage.openSut()
+
+        HomePage.clickOnCookPolicyBtn()
+
+        HomePage.clickOnConnect()
+
+        EnterPhonePage.enterValidPhoneNumber()
+
+        EnterPhonePage.submitPhoneNumber()
+
+        EnterPhonePage.clickOnResendCode()
+
+        resendSmsPopUp = EnterPhonePage.getPopup()
+
+        self.assertIsNotNone(resendSmsPopUp, ErrorsHandler.MISSING_POPUP)
+
+        resendSmsPopUpText = EnterPhonePage.getPopupText()
+
+        self.assertEqual(resendSmsPopUpText, params['ENTER_PHONE_PAGE']['TEXTS']['RESEND_CODE_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
+
+        # add ok clicking & enter the new code with the wrong sms before
+
+    def test_104_checkMigration(self):
         pass
 
 
@@ -76,9 +120,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
             expectedAppUrl = params['SUT']['PROD']
 
-
         self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
-
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
                      reason="FEATURE_NOT_EXIST")
@@ -133,7 +175,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
             expectedLocationNumber += 1
 
-    def test_104_clickOnConnect(self):
+    def test_104_connectButton(self):
 
         HomePage.openSut()
 
@@ -160,11 +202,11 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
 class WalletTests(BasicTestClass, unittest.TestCase):
 
-        def test_100_openWallet(self):
+    def test_100_openWallet(self):
 
         HomePage.openSut()
 
-        Connect.register()
+        Connect.login()
 
         Account.clickOnPaymentMethods()
 
@@ -376,5 +418,44 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         pass
 
     def test_114_openWalletFromCheckout(self):
-        pass        
-"""
+        pass
+
+
+class WalletTests(BasicTestClass, unittest.TestCase):
+
+    @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
+    def test_100_checkAgeRestriction(self):
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        Menu.chooseRestrictedAgeCategory()
+
+        popupHeaderText = Menu.getPopupHeaderText()
+
+        self.assertEqual(popupHeaderText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_HEADER_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        popupBodyText = Menu.getPopupText()
+
+        self.assertEqual(popupBodyText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_BODY_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        Menu.clickOnPopupOkBtn()
+
+        self.assertTrue(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath(
+            '//a/dl/dt[text()="No Logo Pale Ale"]').is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
+    @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
+    def test_100_checkOrderItemLimit(self):
+
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        for i in range(params['MENU']['DATA']['AMOUNT_LIMIT'] + 1):
+          Menu.chooseSecondItem()
+
+        moreThenSixText = Menu.getPopupText()
+
+        self.assertEqual(moreThenSixText, params['MENU']['TEXTS']['MORE_THEN_6_POP_UP_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
