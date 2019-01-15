@@ -231,12 +231,31 @@
 
 
   "MENU": {
-            "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
-            "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
-            "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
-            "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
-            "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']"
+            "LOCATORS": {
+                         "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
+                         "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
+                         "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
+                         "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
+                         "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                         "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
+                         "SCREEN_POPUP": "//div[@class='popup']",
+                         "SCREEN_POPUP_HEADER": "//div[@class='popup']/div[@class='popup-head']",
+                         "SCREEN_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']",
+                         "SCREEN_POPUP_OK": "//div[@class='popup']/div[@class='popup-buttons']/button"
+            },
 
+            "TEXTS": {
+                      "MORE_THEN_6_POP_UP_TEXT": "For more than 6 Pizzas, please ring the restaurant directly!",
+                      "ALCOHOL_RESTRICTION_HEADER_TEXT": "Are you over 18?",
+                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it"
+            },
+
+            "DATA": {
+                     "AMOUNT_LIMIT": 0,
+                     "AMOUNT_LIMIT_NUMBER": 6,
+                     "AGE_LIMIT": 0,
+                     "AGE_RESTRICTED_CATEGORY": ""
+            }
 
           },
 

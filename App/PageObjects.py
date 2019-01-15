@@ -170,7 +170,7 @@ class HomePage(GenericPO):
         GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
 
-        if GenericPO.webDriver.getCurrentUrl() == params['MENU']['MENU_URL']:
+        if GenericPO.webDriver.getCurrentUrl() == params['MENU']['LOCATORS']['MENU_URL']:
                 pass
 
         elif HomePage.getStartOrderPopup() is not None:
@@ -634,28 +634,44 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseFirstCategory():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['PIZZA_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
-        # if GenericPO.webDriver.findElementBy(params['MENU']['FIRST_ITEM'],
-        #                                   LocatorsType=LocatorsTypes.XPATH) is None:
+    @staticmethod
+    def chooseSecondCategory():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['BITES_CATEGORY'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
 
-            GenericPO.webDriver.findElementBy(params['MENU']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
+    @staticmethod
+    def chooseRestrictedAgeCategory():
+        GenericPO.webDriver.findElementBy(params['MENU']['DATA']['AGE_RESTRICTED_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def firstCategoryText():
-        text = GenericPO.webDriver.findElementBy(params['MENU']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).text
+        text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).text
         return text
 
     @staticmethod
     def chooseSecondItem():
-        GenericPO.webDriver.findElementBy(params['MENU']['SECOND_ITEM'],
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_ITEM'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def clickOnEditItem():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['EDIT_ITEM_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def chooseModifier():
+        time.sleep(1)
+        GenericPO.webDriver.findElementBy(
+            "//div/div[@class='modal-dialog ']/div/div[3]/div[2]/div/ul/li/div/label[@title='Standard']", LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def clickOnProceedToCheckout():
 
         if BasicTestClass.platform == "desktop":
 
-                GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
+                GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['PROCEED_TO_CHECKOUT_BUTTON'],
                                               LocatorsType=LocatorsTypes.XPATH).click()
 
         elif BasicTestClass.platform == "mobile":
@@ -664,11 +680,37 @@ class Menu(GenericPO):
                                                   LocatorsType=LocatorsTypes.XPATH).click()
                 time.sleep(1)
 
-                GenericPO.webDriver.findElementBy(params['MENU']['MOBILE_CART_ICON'],
+                GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['MOBILE_CART_ICON'],
                                                   LocatorsType=LocatorsTypes.XPATH).click()
 
-                GenericPO.webDriver.findElementBy(params['MENU']['PROCEED_TO_CHECKOUT_BUTTON'],
+                GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['PROCEED_TO_CHECKOUT_BUTTON'],
                                               LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getPopup():
+        screenPopup = GenericPO.webDriver.waitForVisibilityOfElem(
+            params['MENU']['LOCATORS']['SCREEN_POPUP'])
+
+        return screenPopup
+
+    @staticmethod
+    def getPopupHeaderText():
+        screenPopupHeaderText = GenericPO.webDriver.waitForVisibilityOfElem(
+            params['MENU']['LOCATORS']['SCREEN_POPUP_HEADER']).text
+
+        return screenPopupHeaderText
+
+    @staticmethod
+    def getPopupText():
+        screenPopupText = GenericPO.webDriver.waitForVisibilityOfElem(
+            params['MENU']['LOCATORS']['SCREEN_POPUP_BODY']).text
+
+        return screenPopupText
+
+    @staticmethod
+    def clickOnPopupOkBtn():
+        GenericPO.webDriver.findElementBy(
+            params['MENU']['LOCATORS']['SCREEN_POPUP_OK'], LocatorsType=LocatorsTypes.XPATH).click()
 
 
 class Checkout(GenericPO):

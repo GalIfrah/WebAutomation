@@ -7,23 +7,19 @@ from Utils.ErrorHandler import ErrorsHandler
 
 class Tests(BasicTestClass, unittest.TestCase):
 
-    def test_101_login(self):
 
-        # login
+    def test_100_checkAgeRestriction(self):
         Connect.login()
 
-        currentLoginButtonText = HomePage.getLoginButtonText()
+        HomePage.startOrder(1)
 
-        beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
+        Menu.chooseSecondCategory()
 
-        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
+        self.assertTrue(
+           GenericPO.webDriver.remoteWebDriver.find_element_by_xpath("//*[@id='store-cg-title'']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']" is not None
+                                                                     )
 
-        # logout
-        Connect.logout()
-
-        currentLoginButtonText = HomePage.getLoginButtonText()
-
-        self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
+        )
 
 
 class ConnectTests(BasicTestClass, unittest.TestCase):
@@ -61,7 +57,7 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
     def test_102_wrongSmsCode(self):
-        
+
         HomePage.openSut()
 
         HomePage.clickOnCookPolicyBtn()
@@ -83,9 +79,9 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
         popupText = EnterPhonePage.getPopupText()
 
         self.assertEqual(popupText, params['ENTER_PHONE_PAGE']['TEXTS']['WRONG_SMS_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
-    
+
     def test_103_resendCode(self):
-        
+
         HomePage.openSut()
 
         HomePage.clickOnCookPolicyBtn()
@@ -105,9 +101,9 @@ class ConnectTests(BasicTestClass, unittest.TestCase):
         resendSmsPopUpText = EnterPhonePage.getPopupText()
 
         self.assertEqual(resendSmsPopUpText, params['ENTER_PHONE_PAGE']['TEXTS']['RESEND_CODE_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
-    
+
         # add ok clicking & enter the new code with the wrong sms before
-        
+
     def test_104_checkMigration(self):
         pass
 
@@ -128,9 +124,7 @@ class HomeScreenTests(BasicTestClass, unittest.TestCase):
 
             expectedAppUrl = params['SUT']['PROD']
 
-
         self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
-
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
                      reason="FEATURE_NOT_EXIST")
@@ -430,3 +424,49 @@ class WalletTests(BasicTestClass, unittest.TestCase):
     def test_114_openWalletFromCheckout(self):
         pass
 
+
+class WalletTests(BasicTestClass, unittest.TestCase):
+
+    def test_100_chooseFirstCategory(self):
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        Menu.chooseFirstCategory()
+
+    @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
+    def test_101_checkAgeRestriction(self):
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        Menu.chooseRestrictedAgeCategory()
+
+        popupHeaderText = Menu.getPopupHeaderText()
+
+        self.assertEqual(popupHeaderText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_HEADER_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        popupBodyText = Menu.getPopupText()
+
+        self.assertEqual(popupBodyText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_BODY_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        Menu.clickOnPopupOkBtn()
+
+        self.assertTrue(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath(
+            '//a/dl/dt[text()="No Logo Pale Ale"]').is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
+    @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
+    def test_102_checkOrderItemLimit(self):
+
+        Connect.login()
+
+        HomePage.startOrder(1)
+
+        for i in range(params['MENU']['DATA']['AMOUNT_LIMIT'] + 1):
+          Menu.chooseSecondItem()
+
+        moreThenSixText = Menu.getPopupText()
+
+        self.assertEqual(moreThenSixText, params['MENU']['TEXTS']['MORE_THEN_6_POP_UP_TEXT'], ErrorsHandler.TEXT_IS_WRONG)

@@ -19,4 +19,4 @@ class BasicTestClass:
     def tearDown(self):
         print('test ended')
         print('**************************************')
-        self.driver.closeCurrent()
+        # self.driver.closeCurrent()
