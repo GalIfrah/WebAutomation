@@ -11,7 +11,6 @@ import time
 import logging
 
 params = None
-# ProjectUtils.loadJson()
 env = ''
 
 
@@ -633,12 +632,21 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseFirstCategory():
-        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['PIZZA_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def chooseSecondCategory():
-        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['BITES_CATEGORY'],
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_CATEGORY'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def checkIfCategoryChosen():
+        isChosen = False
+
+        if GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_CATEGORY_ACTIVE'], LocatorsType=LocatorsTypes.XPATH).is_displayed():
+            isChosen = True
+
+        return isChosen
 
     @staticmethod
     def chooseRestrictedAgeCategory():

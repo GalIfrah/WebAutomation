@@ -230,9 +230,9 @@
   "MENU": {
             "LOCATORS": {
                          "MENU_URL" : "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#/store",
-                         "PIZZA_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a[text()='Pizzas']",
-                         "BITES_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2]/a[text()='Bites']",
-                         "BITES_CATEGORY_ACTIVE": "//*[@id='store-cg-title'']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
+                         "FIRST_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a[text()='Pizzas']",
+                         "SECOND_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2]/a[text()='Bites']",
+                         "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
                          "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
                          "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
@@ -254,7 +254,8 @@
                      "AMOUNT_LIMIT": 1,
                      "AMOUNT_LIMIT_NUMBER": 6,
                      "AGE_LIMIT": 1,
-                     "AGE_RESTRICTED_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li/a[text()='Wine & Beer']"
+                     "AGE_RESTRICTED_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li/a[text()='Wine & Beer']",
+                     "AGE_PASSING_INDICATOR": "//a/dl/dt[text()='No Logo Pale Ale']"
             }
 
           },

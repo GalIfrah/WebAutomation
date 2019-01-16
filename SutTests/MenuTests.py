@@ -1,18 +1,21 @@
 from TestsClassesInit import *
 
 
-
 class MenuTestsClass(BasicTestClass, unittest.TestCase):
 
-    def test_100_chooseFirstCategory(self):
+    def test_100_chooseCategory(self):
+
         Connect.login()
 
         HomePage.startOrder(1)
 
-        Menu.chooseFirstCategory()
+        Menu.chooseSecondCategory()
+
+        self.assertTrue(Menu.checkIfCategoryChosen() is True, ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
     @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
     def test_101_checkAgeRestriction(self):
+
         Connect.login()
 
         HomePage.startOrder(1)
@@ -32,7 +35,7 @@ class MenuTestsClass(BasicTestClass, unittest.TestCase):
         Menu.clickOnPopupOkBtn()
 
         self.assertTrue(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath(
-            '//a/dl/dt[text()="No Logo Pale Ale"]').is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
+            params['MENU']['DATA']['AGE_PASSING_INDICATOR']).is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
     @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason="FEATURE_NOT_EXIST")
     def test_102_checkOrderItemLimit(self):
@@ -47,4 +50,3 @@ class MenuTestsClass(BasicTestClass, unittest.TestCase):
         moreThenSixText = Menu.getPopupText()
 
         self.assertEqual(moreThenSixText, params['MENU']['TEXTS']['MORE_THEN_6_POP_UP_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
-

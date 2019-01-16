@@ -5,13 +5,11 @@ from TestsClassesInit import *
 
 class Tests(BasicTestClass, unittest.TestCase):
 
-    def test_101_login(self):
-
-        # login
+    def test_100_chooseFirstCategory(self):
         Connect.login()
 
-        currentLoginButtonText = HomePage.getLoginButtonText()
+        HomePage.startOrder(1)
 
-        beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
+        Menu.chooseSecondCategory()
 
-        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
+        self.assertTrue(Menu.checkIfCategoryChosen() is True, ErrorsHandler.ELEMENT_NOT_VISIBLE)
