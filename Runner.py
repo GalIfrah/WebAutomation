@@ -80,7 +80,7 @@ class SUT:
     def setConfig(self):
 
         import App.PageObjects
-        with open(self.name + '.json') as data_file:
+        with open("AppsConfigurations\\" + self.name + '.json') as data_file:
           App.PageObjects.params = json.load(data_file)
 
     def setPlatform(self):
