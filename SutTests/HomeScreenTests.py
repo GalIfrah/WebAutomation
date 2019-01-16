@@ -1,10 +1,8 @@
-import unittest
-from App import PageObjects
-from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from TestsClassesInit import *
 
 
-class HomeScreen(BasicTestClass, unittest.TestCase):
+
+class HomeScreenTestsClass(BasicTestClass, unittest.TestCase):
 
     def test_100_openSut(self):
 

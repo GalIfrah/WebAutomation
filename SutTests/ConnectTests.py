@@ -1,10 +1,7 @@
-import unittest
-from App import PageObjects
-from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from TestsClassesInit import *
 
 
-class Connect(BasicTestClass, unittest.TestCase):
+class ConnectTestsClass(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
 

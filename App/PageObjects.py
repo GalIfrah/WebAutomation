@@ -1,4 +1,3 @@
-import sys
 import traceback
 
 from pip._vendor.distlib.compat import raw_input

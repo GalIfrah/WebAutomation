@@ -1,6 +1,6 @@
-import sys
 import json
 import HtmlTestRunner
+import sys
 
 
 class SUT:
@@ -17,7 +17,7 @@ class SUT:
             self.env = sys.argv.pop(1)
             self.platform = sys.argv.pop(1)
 
-            # self.name = "TRG"
+            # self.name = "FM"
             # self.env = "test"
             # self.platform = "desktop"
 
@@ -96,7 +96,10 @@ class SUT:
 
 sut = SUT()
 
-from App.SutTests import *
+from SutTests.TestsClassesInit import *
+
+
+
 
 
 
@@ -106,4 +109,4 @@ print("===================================")
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports'))
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports/reports'))

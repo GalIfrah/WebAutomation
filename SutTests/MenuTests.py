@@ -1,10 +1,8 @@
-import unittest
-from App import PageObjects
-from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from TestsClassesInit import *
 
 
-class Menu(BasicTestClass, unittest.TestCase):
+
+class MenuTestsClass(BasicTestClass, unittest.TestCase):
 
     def test_100_chooseFirstCategory(self):
         Connect.login()

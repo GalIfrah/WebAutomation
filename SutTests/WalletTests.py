@@ -1,10 +1,7 @@
-import unittest
-from App import PageObjects
-from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from TestsClassesInit import *
 
 
-class Wallet(BasicTestClass, unittest.TestCase):
+class WalletTestsClass(BasicTestClass, unittest.TestCase):
 
     def test_100_openWallet(self):
 

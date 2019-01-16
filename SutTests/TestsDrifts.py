@@ -1,7 +1,5 @@
-import unittest
-from App import PageObjects
-from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from TestsClassesInit import *
+
 
 
 
