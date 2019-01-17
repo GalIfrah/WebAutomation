@@ -1,6 +1,4 @@
-from SutTests.TestsClassesInit import *
-
-
+from TestsClassesInit import *
 
 
 class Tests(BasicTestClass, unittest.TestCase):

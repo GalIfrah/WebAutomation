@@ -1,8 +1,8 @@
-from SutTests.TestsClassesInit import *
-
+from TestsClassesInit import *
 
 
 class HomeScreenTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_openSut(self):
 

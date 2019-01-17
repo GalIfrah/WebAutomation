@@ -1,7 +1,8 @@
-from SutTests.TestsClassesInit import *
+from TestsClassesInit import *
 
 
 class ConnectTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_registration(self):
 
@@ -35,29 +36,6 @@ class ConnectTestsClass(BasicTestClass, unittest.TestCase):
 
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
-    def test_102_wrongSmsCode(self):
-
-        HomePage.openSut()
-
-        HomePage.clickOnCookPolicyBtn()
-
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-
-        EnterPhonePage.submitPhoneNumber()
-
-        EnterPhonePage.enterWrongSmsCode()
-
-        EnterPhonePage.submitSmsCode()
-
-        wrongSmsPopUp = EnterPhonePage.getPopup()
-
-        self.assertIsNotNone(wrongSmsPopUp, ErrorsHandler.MISSING_POPUP)
-
-        popupText = EnterPhonePage.getPopupText()
-
-        self.assertEqual(popupText, params['ENTER_PHONE_PAGE']['TEXTS']['WRONG_SMS_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
 
 
 
