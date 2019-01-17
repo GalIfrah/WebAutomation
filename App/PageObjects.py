@@ -1,4 +1,3 @@
-import sys
 import traceback
 
 from pip._vendor.distlib.compat import raw_input
@@ -12,7 +11,6 @@ import time
 import logging
 
 params = None
-# ProjectUtils.loadJson()
 env = ''
 
 
@@ -174,9 +172,8 @@ class HomePage(GenericPO):
                 pass
 
         elif HomePage.getStartOrderPopup() is not None:
-                popupText = HomePage.getStartOrderPopup().text
 
-                if popupText == params['HOME_PAGE']['TEXTS']['START_ORDER_CHOOSE_LOCATION_POPUP_TEXT']:
+                if HomePage.getStartOrderPopup().text == params['HOME_PAGE']['TEXTS']['START_ORDER_CHOOSE_LOCATION_POPUP_TEXT']:
 
                         HomePage.clickOnStartOrderPopupButton()
 
@@ -184,21 +181,23 @@ class HomePage(GenericPO):
 
                         HomePage.startOrder(1)
 
-                elif popupText == params['HOME_PAGE']['TEXTS']['START_ORDER_TIME_EXCEEDED_POPUP_TEXT']:
+                elif HomePage.getStartOrderPopup().text == params['HOME_PAGE']['TEXTS']['START_ORDER_TIME_EXCEEDED_POPUP_TEXT']:
 
                         HomePage.clickOnStartOrderPopupButton()
 
                         HomePage.startOrder(2)
 
-                elif popupText == params['HOME_PAGE']['TEXTS']['START_ORDER_NOT_ACCEPTING_POPUP_TEXT']:
+                elif HomePage.getStartOrderPopup().text == params['HOME_PAGE']['TEXTS']['START_ORDER_NOT_ACCEPTING_POPUP_TEXT']:
 
                         HomePage.clickOnStartOrderPopupButton()
 
                         HomePage.startOrder(2)
 
-                elif popupText == params['HOME_PAGE']['TEXTS']['START_ORDER_SELECT_TIME_POPUP_TEXT']:
+                elif HomePage.getStartOrderPopup().text == params['HOME_PAGE']['TEXTS']['START_ORDER_SELECT_TIME_POPUP_TEXT']:
 
                         HomePage.clickOnStartOrderPopupButton()
+
+                        HomePage.chooseLocation()
 
                         HomePage.startOrder(2)
 
@@ -252,21 +251,21 @@ class Account(GenericPO):
     @staticmethod
     def clickOnPaymentMethods():
         try:
-            GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+         GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
+                                           params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
+         time.sleep(1)
+
+         walletSection = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
+
+
+         if walletSection is None:
+
+             GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
                                               params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
-            time.sleep(1)
-
-            walletSection = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
-
-
-            if walletSection is None:
-
-                    GenericPO.webDriver.hoverAndClick(params['HOME_PAGE']['LOCATORS']['ACCOUNT']['ACCOUNT_BUTTON'],
-                                                  params['HOME_PAGE']['LOCATORS']['ACCOUNT']['PAYMENT_METHODS_BUTTON'])
-                    time.sleep(1)
+             time.sleep(1)
 
         except NoSuchElementException:
-                logging.error(traceback.format_exc())
+            logging.error(traceback.format_exc())
 
     @staticmethod
     def clickOnGiftCards():
@@ -518,6 +517,9 @@ class Wallet(GenericPO):
 
     @staticmethod
     def getCcCancelButtonText():
+        # GenericPO.webDriver.switchToIframe(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath
+        #                                  (params['WALLET']['LOCATORS']['CC_VALUES_IFRAME']))
+
         cancelButtonText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['CANCEL_BUTTON'],
                                                             LocatorsType=LocatorsTypes.ID).text
         return cancelButtonText
@@ -630,8 +632,7 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseFirstCategory():
-        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'],
-                                          LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def chooseSecondCategory():
@@ -639,25 +640,21 @@ class Menu(GenericPO):
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
-    def checkIfCategoryIsActive():
-        categoryActive = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_CATEGORY_ACTIVE'],
-                                          LocatorsType=LocatorsTypes.XPATH)
-        isActive = False
+    def checkIfCategoryChosen():
+        isChosen = False
 
-        if categoryActive.is_displayed():
-            isActive = True
+        if GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_CATEGORY_ACTIVE'], LocatorsType=LocatorsTypes.XPATH).is_displayed():
+            isChosen = True
 
-        return isActive
+        return isChosen
 
     @staticmethod
     def chooseRestrictedAgeCategory():
-        GenericPO.webDriver.findElementBy(params['MENU']['DATA']['AGE_RESTRICTED_CATEGORY'],
-                                          LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['MENU']['DATA']['AGE_RESTRICTED_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def firstCategoryText():
-        text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'],
-                                                 LocatorsType=LocatorsTypes.XPATH).text
+        text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).text
         return text
 
     @staticmethod

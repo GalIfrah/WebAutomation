@@ -36,6 +36,12 @@ class ProjectUtils:
 
         return randSms
 
+    @staticmethod
+    def createRandomScreenShotNumber():
+
+        screenShotNumber = ''.join(random.choice('0123456789') for i in range(3))
+
+        return screenShotNumber
 
     @staticmethod
     def imagesComparator(image1, image2):

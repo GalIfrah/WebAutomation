@@ -173,20 +173,19 @@ class Wrapper:
         self.remoteWebDriver.refresh()
 
 
-    def saveScreenShot(self, i):
+    def saveScreenShot(self, i, testName):
         time.sleep(1)
 
-        TestsName.test_name = sys._getframe(1).f_code.co_name
-
+        filename = testName + '_screenShot.png'
 
         if i == 0:
-            filename = TestsName.test_name + '_screenShot.png'
+
             self.remoteWebDriver.save_screenshot(
-                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\ScreenShots/' + filename)
+                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
 
         elif i != 0:
-            filename = TestsName.test_name + '_screenShot' + str(i) + '.png'
-            self.remoteWebDriver.save_screenshot(
-                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\ScreenShots' + filename)
 
-        return TestsName.test_name
+            self.remoteWebDriver.save_screenshot(
+                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
+
+        return testName
