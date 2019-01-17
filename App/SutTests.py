@@ -15,13 +15,9 @@ class Tests(BasicTestClass, unittest.TestCase):
 
         Menu.chooseSecondCategory()
 
-        self.assertTrue(
-           GenericPO.webDriver.remoteWebDriver.find_element_by_xpath("//*[@id='store-cg-title'']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']" is not None
-                                                                     )
+        self.assertTrue(Menu.checkIfCategoryIsActive(), 'not appears')
 
-        )
-
-
+"""
 class ConnectTests(BasicTestClass, unittest.TestCase):
 
     def test_100_registration(self):
@@ -470,3 +466,4 @@ class WalletTests(BasicTestClass, unittest.TestCase):
         moreThenSixText = Menu.getPopupText()
 
         self.assertEqual(moreThenSixText, params['MENU']['TEXTS']['MORE_THEN_6_POP_UP_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
+"""

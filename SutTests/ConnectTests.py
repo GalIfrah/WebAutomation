@@ -1,4 +1,4 @@
-from TestsClassesInit import *
+from SutTests.TestsClassesInit import *
 
 
 class ConnectTestsClass(BasicTestClass, unittest.TestCase):
@@ -13,7 +13,7 @@ class ConnectTestsClass(BasicTestClass, unittest.TestCase):
 
         beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
 
-        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, ErrorsHandler.LOGIN_ERROR[1] + " " +
+        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, ErrorsHandler.LOGIN_ERROR + " " +
                         currentLoginButtonText)
 
 
@@ -59,29 +59,7 @@ class ConnectTestsClass(BasicTestClass, unittest.TestCase):
 
         self.assertEqual(popupText, params['ENTER_PHONE_PAGE']['TEXTS']['WRONG_SMS_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
 
-    def test_103_resendCode(self):
 
-        HomePage.openSut()
-
-        HomePage.clickOnCookPolicyBtn()
-
-        HomePage.clickOnConnect()
-
-        EnterPhonePage.enterValidPhoneNumber()
-
-        EnterPhonePage.submitPhoneNumber()
-
-        EnterPhonePage.clickOnResendCode()
-
-        resendSmsPopUp = EnterPhonePage.getPopup()
-
-        self.assertIsNotNone(resendSmsPopUp, ErrorsHandler.MISSING_POPUP)
-
-        resendSmsPopUpText = EnterPhonePage.getPopupText()
-
-        self.assertEqual(resendSmsPopUpText, params['ENTER_PHONE_PAGE']['TEXTS']['RESEND_CODE_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
-
-        # add ok clicking & enter the new code with the wrong sms before
 
     def test_104_checkMigration(self):
         pass
