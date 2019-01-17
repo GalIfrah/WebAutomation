@@ -254,7 +254,8 @@
                      "AMOUNT_LIMIT": 0,
                      "AMOUNT_LIMIT_NUMBER": 6,
                      "AGE_LIMIT": 0,
-                     "AGE_RESTRICTED_CATEGORY": ""
+                     "AGE_RESTRICTED_CATEGORY": "",
+                     "AGE_PASSING_INDICATOR": ""
             }
 
           },
