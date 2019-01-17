@@ -233,9 +233,11 @@
   "MENU": {
             "LOCATORS": {
                          "MENU_URL" : "https://order-test.mycheckapp.com/?appId=93e27184fb507b95ec16734c8708a0ea#/store",
-                         "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li[1]/a ",
+                         "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Beef']",
                          "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
                          "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
+                         "SECOND_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Chicken']",
+                         "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
                          "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
                          "SCREEN_POPUP": "//div[@class='popup']",
