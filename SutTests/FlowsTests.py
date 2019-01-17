@@ -1,6 +1,8 @@
+from TestsClassesInit import *
 
 
-class FlowsTestsClass:
+class FlowsTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_sanity(self):
         pass

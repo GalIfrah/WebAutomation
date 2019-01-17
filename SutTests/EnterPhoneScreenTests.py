@@ -1,7 +1,8 @@
-from SutTests.TestsClassesInit import *
+from TestsClassesInit import *
 
 
-class EnterPhoneTestsClass:
+class EnterPhoneTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_wrongSmsCode(self):
 
@@ -50,5 +51,4 @@ class EnterPhoneTestsClass:
 
         self.assertEqual(resendSmsPopUpText, params['ENTER_PHONE_PAGE']['TEXTS']['RESEND_CODE_POPUP_TEXT'], ErrorsHandler.WRONG_POPUP_TEXT)
 
-        # add ok clicking & enter the new code with the wrong sms before
 

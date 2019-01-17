@@ -1,7 +1,8 @@
-from SutTests.TestsClassesInit import *
+from TestsClassesInit import *
 
 
 class MenuTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_chooseCategory(self):
 

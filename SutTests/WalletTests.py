@@ -1,7 +1,8 @@
-from SutTests.TestsClassesInit import *
+from TestsClassesInit import *
 
 
 class WalletTestsClass(BasicTestClass, unittest.TestCase):
+
 
     def test_100_openWallet(self):
 
@@ -129,8 +130,6 @@ class WalletTestsClass(BasicTestClass, unittest.TestCase):
     def test_108_deleteCard(self):
 
         HomePage.openSut()
-
-        # Connect.login()
 
         Connect.login()
 
