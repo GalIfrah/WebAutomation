@@ -1,4 +1,4 @@
-from TestsClassesInit import *
+from SutTests.TestsClassesInit import *
 
 
 class HomeScreenTestsClass(BasicTestClass, unittest.TestCase):
@@ -21,7 +21,7 @@ class HomeScreenTestsClass(BasicTestClass, unittest.TestCase):
         self.assertEqual(currentAppLink, expectedAppUrl, 'URLS_NOT_EQUALS' + "   " + currentAppLink)
 
     @unittest.skipIf(PageObjects.params['HOME_PAGE']['LOCATORS']['BACK_TO_APP_HEADER_LINK'] == 0,
-                     reason="FEATURE_NOT_EXIST")
+                     reason=ErrorsHandler.FEATURE_NOT_EXIST_ON_APP)
     def test_101_checkBusinessLink(self):
 
         HomePage.openSut()

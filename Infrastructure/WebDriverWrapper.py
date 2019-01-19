@@ -122,6 +122,7 @@ class Wrapper:
 
 
     def selectFromDropDown(self, drop_down_locator, option_text):
+        time.sleep(1)
         selector = Select(self.remoteWebDriver.find_element_by_id(drop_down_locator))
         selector.select_by_visible_text(option_text)
 
@@ -181,11 +182,11 @@ class Wrapper:
         if i == 0:
 
             self.remoteWebDriver.save_screenshot(
-                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
+                'C:\\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
 
         elif i != 0:
 
             self.remoteWebDriver.save_screenshot(
-                'C:\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
+                'C:\\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
 
         return testName

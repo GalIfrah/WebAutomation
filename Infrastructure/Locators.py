@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class LocatorsTypes(Enum):
+
     ID = 'id'
     XPATH = 'xpath'
     NAME = 'name'

@@ -233,9 +233,21 @@
                          "FIRST_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[1]/a[text()='Pizzas']",
                          "SECOND_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2]/a[text()='Bites']",
                          "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
-                         "FIRST_ITEM" : "//dt[@title='Tomato, Garlic, Oregano & Basil']",
-                         "SECOND_ITEM" : "//dt[@title='Tomato, Mozzarella, Basil']",
+                         "MODIFIER_MODAL": "//div[@class='modal-body item-page has-footer ng-scope']",
+                         "MODIFIER_MODAL_HEADER": "//div[@class='modal-body item-page has-footer ng-scope']/div[@class='item-header text-display']/article/section/div[@class='name ng-binding']",
+                         "FIRST_CATEGORY_MODIFIERS": "//ul[@data-name='Options ']/li",
+                         "SECOND_CATEGORY_MODIFIERS": "//ul[@data-name='Extras (Choose max. 3)']/li",
+                         "ACTIVE_MODIFIER": "//ul[@data-name='Extras (Choose max. 3)']/li/div/input[@class='ng-untouched ng-valid ng-scope ng-not-empty ng-dirty ng-valid-parse']",
+                         "CLOSE_MODIFIER_X_BUTTON": "/html/body/div[1]/div/div/div[2]",
+                         "FIRST_ITEM": "//dt[@title='Tomato, Garlic, Oregano & Basil']",
+                         "SECOND_ITEM": "//dt[@title='Tomato, Mozzarella, Basil']",
+                         "CART_SECOND_ITEM_TEXT": "//table[@class='cart ng-scope']/tbody/tr[1]/td[2]/dl/dt",
+                         "UP_SALE_ITEM": "//dt[@title='Roasted Courgettes, Goat and Sheep Ricotta, Franco & Cantarelli Grana & Mozzarella (No Tomato Base)']",
+                         "UP_SALE_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']/div/p",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                         "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                         "EDIT_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Edit item']",
+                         "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
                          "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
                          "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div",
                          "SCREEN_POPUP": "//div[@class='popup']",
@@ -247,7 +259,8 @@
             "TEXTS": {
                       "MORE_THEN_6_POP_UP_TEXT": "For more than 6 Pizzas, please ring the restaurant directly!",
                       "ALCOHOL_RESTRICTION_HEADER_TEXT": "Are you over 18?",
-                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it"
+                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it",
+                      "UP_SALE_POPUP_TEXT": "Some people prefer this pizza with our tomato sauce.\nAdd Tomato?"
             },
 
             "DATA": {
@@ -255,7 +268,11 @@
                      "AMOUNT_LIMIT_NUMBER": 6,
                      "AGE_LIMIT": 1,
                      "AGE_RESTRICTED_CATEGORY": "//*[@id='store-cg-title']/div[2]/nav/ul/li/a[text()='Wine & Beer']",
-                     "AGE_PASSING_INDICATOR": "//a/dl/dt[text()='No Logo Pale Ale']"
+                     "AGE_PASSING_INDICATOR": "//a/dl/dt[text()='No Logo Pale Ale']",
+                     "MODIFIERS": 1,
+                     "FIRST_CATEGORY_MODIFIERS_LIMIT": 1,
+                     "SECOND_CATEGORY_MODIFIERS_LIMIT": 3
+
             }
 
           },
@@ -265,15 +282,15 @@
   "CHECKOUT_SCREEN": {
                        "LOCATORS": {
                                      "SUBMIT_ORDER_BUTTON": "//div[@class='modal checkout-modal fade ng-scope ng-isolate-scope in']/div/div/div[3]/button",
+                                     "CHECKOUT_POPUP": "//div[@class='popup']/div[2]",
                                      "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
-                                     "ENTER_PIN_OK_BUTTON": "//div[@class='popup']/div[3]/button",
-                                     "ENTER_PIN_CANCEL_BUTTON": "",
-                                     "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]"
-
+                                     "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
+                                     "ENTER_PIN_CANCEL_BUTTON": ""
                                    },
 
 
                        "TEXTS": {
+                                  "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
                                 }
@@ -286,8 +303,12 @@
                                          "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
                                          "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div"
 
-                           }
+                           },
 
+                           "TEXTS": {
+                                      "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
+
+                           }
 
   }
 

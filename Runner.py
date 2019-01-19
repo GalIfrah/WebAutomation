@@ -13,13 +13,13 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            self.name = sys.argv.pop(1)
-            self.env = sys.argv.pop(1)
-            self.platform = sys.argv.pop(1)
+            # self.name = sys.argv.pop(1)
+            # self.env = sys.argv.pop(1)
+            # self.platform = sys.argv.pop(1)
 
-            # self.name = "FM"
-            # self.env = "test"
-            # self.platform = "desktop"
+            self.name = "FM"
+            self.env = "test"
+            self.platform = "desktop"
 
 
 
@@ -98,7 +98,8 @@ sut = SUT()
 
 
 
-from SutTests.TestsClassesInit import *
+# from SutTests.TestsClassesInit import *
+from SutTests.BetaTests import *
 
 
 

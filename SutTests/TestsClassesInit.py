@@ -4,10 +4,12 @@ from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
 
 
-from ConnectTests import ConnectTestsClass
-from WalletTests import WalletTestsClass
-from TestsDrifts import Tests
-from HomeScreenTests import HomeScreenTestsClass
-from MenuTests import MenuTestsClass
-from EnterPhoneScreenTests import EnterPhoneTestsClass
-from FlowsTests import FlowsTestsClass
+# Test Classes
+
+from SutTests.BetaTests import BetaTestsClass
+from SutTests.ConnectTests import ConnectTestsClass
+from SutTests.WalletTests import WalletTestsClass
+from SutTests.HomeScreenTests import HomeScreenTestsClass
+from SutTests.MenuTests import MenuTestsClass
+from SutTests.EnterPhoneScreenTests import EnterPhoneTestsClass
+from SutTests.FlowsTests import FlowsTestsClass

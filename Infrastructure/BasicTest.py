@@ -27,4 +27,4 @@ class BasicTestClass:
         self.driver.saveScreenShot(0, self.testName)
         print('test ended')
         print('**************************************')
-        self.driver.closeCurrent()
+        # self.driver.closeCurrent()

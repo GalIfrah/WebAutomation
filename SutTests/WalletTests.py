@@ -1,4 +1,4 @@
-from TestsClassesInit import *
+from SutTests.TestsClassesInit import *
 
 
 class WalletTestsClass(BasicTestClass, unittest.TestCase):

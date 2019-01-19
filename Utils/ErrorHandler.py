@@ -7,6 +7,7 @@ class ErrorsHandler(object):
     # GENERAL ERRORS
     SUCCESS = 'success'
     TIMEOUT_ERROR = 'time out error'
+    FEATURE_NOT_EXIST_ON_APP = "the specific feature doesn't exist on current app"
 
 
     # TEXT ERRORS
@@ -28,6 +29,10 @@ class ErrorsHandler(object):
     MISSING_SUPPORTED_CARDS = 'number of card is lower then the on expected... please check to screen shot for that issue'
     WALLET_IS_NOT_VISIBLE = "wallet doesn't open "
 
+    # MENU ERRORS
+    CART_DOES_NOT_EMPTY = "the cart item list doesn't empty"
+    CART_EMPTY = "the cart item list empty"
+
     # CHECKOUT ERRORS
 
     # VALIDATION POPUPS ERRORS
@@ -37,7 +42,7 @@ class ErrorsHandler(object):
     # ELEMENTS ERRORS
     NO_SUCH_ELEMENT = 'no such element... the element you was trying to reach is ether missing or the locator on config is wrong, please check the screen shot for that test'
     ELEMENT_NOT_VISIBLE = 'element is not visible... the element you was trying to assert is ether missing or the locator on config is wrong, please check the screen shot for that test'
-    ELEMENT_EXIST = 'the element is exist'
+    ELEMENT_EXIST = "the element is exist... it shouldn't not be"
     ELEMENT_IS_NONE = 'element is none... or that it not exist or the config locator is wrong'
     ELEMENT_NOT_ASSIGNED_YET = 'the element you trying to get access to is not assign to any value yet, probably locator on config is wrong, please check the screen shot for that test '
 

@@ -1,4 +1,4 @@
-from TestsClassesInit import *
+from SutTests.TestsClassesInit import *
 
 
 class ConnectTestsClass(BasicTestClass, unittest.TestCase):
@@ -17,8 +17,18 @@ class ConnectTestsClass(BasicTestClass, unittest.TestCase):
         self.assertTrue(currentLoginButtonText != beforeLoginButtonText, ErrorsHandler.LOGIN_ERROR + " " +
                         currentLoginButtonText)
 
-
     def test_101_login(self):
+
+        # login
+        Connect.login()
+
+        currentLoginButtonText = HomePage.getLoginButtonText()
+
+        beforeLoginButtonText = params['HOME_PAGE']['TEXTS']['CONNECT_BUTTON_BEFORE_LOGIN']
+
+        self.assertTrue(currentLoginButtonText != beforeLoginButtonText, currentLoginButtonText)
+
+    def test_102_logout(self):
 
         # login
         Connect.login()
@@ -36,8 +46,5 @@ class ConnectTestsClass(BasicTestClass, unittest.TestCase):
 
         self.assertTrue(currentLoginButtonText == beforeLoginButtonText, currentLoginButtonText)
 
-
-
-
-    def test_104_checkMigration(self):
+    def test_103_checkMigration(self):
         pass

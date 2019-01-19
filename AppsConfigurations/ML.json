@@ -236,9 +236,18 @@
                          "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Beef']",
                          "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
                          "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
+                         "UP_SALE_ITEM": 0,
+                         "UP_SALE_POPUP_BODY": "",
                          "SECOND_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Chicken']",
                          "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
+                         "MODIFIER_MODAL_HEADER": "//div[@class='modal-body item-page has-footer ng-scope']/div[@class='item-header text-display']/article/section/div[@class='name ng-binding']",
+                         "FIRST_CATEGORY_MODIFIERS": "//ul[@data-name='Select Cooking Temperature (Optional)']/li",
+                         "SECOND_CATEGORY_MODIFIERS": "//ul[@data-name='Extras (Optional)']/li",
+                         "ACTIVE_MODIFIER": "//ul[@data-name='Extras (Optional)']/li/div/input[@class='ng-untouched ng-valid ng-scope ng-not-empty ng-dirty ng-valid-parse']",
+                         "CLOSE_MODIFIER_X_BUTTON": "/html/body/div[1]/div/div/div[2]",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                         "EDIT_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Edit item']",
+                         "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
                          "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
                          "SCREEN_POPUP": "//div[@class='popup']",
                          "SCREEN_POPUP_HEADER": "//div[@class='popup']/div[@class='popup-head']",
@@ -249,7 +258,8 @@
             "TEXTS": {
                       "MORE_THEN_6_POP_UP_TEXT": "For more than 6 Pizzas, please ring the restaurant directly!",
                       "ALCOHOL_RESTRICTION_HEADER_TEXT": "Are you over 18?",
-                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it"
+                      "ALCOHOL_RESTRICTION_BODY_TEXT": "If you are lucky enough to look under 25 please bring ID as we may need to ask to see it",
+                      "UP_SALE_POPUP_TEXT": "Some people prefer this pizza with our tomato sauce.\nAdd Tomato?"
             },
 
             "DATA": {
@@ -257,7 +267,10 @@
                      "AMOUNT_LIMIT_NUMBER": 6,
                      "AGE_LIMIT": 0,
                      "AGE_RESTRICTED_CATEGORY": "",
-                     "AGE_PASSING_INDICATOR": ""
+                     "AGE_PASSING_INDICATOR": "",
+                     "MODIFIERS": 1,
+                     "FIRST_CATEGORY_MODIFIERS_LIMIT": 2,
+                     "SECOND_CATEGORY_MODIFIERS_LIMIT": 2
             }
 
           },
@@ -276,6 +289,7 @@
 
 
                        "TEXTS": {
+                                  "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
                                 }

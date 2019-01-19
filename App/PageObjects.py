@@ -2,6 +2,8 @@ import traceback
 
 from pip._vendor.distlib.compat import raw_input
 from selenium.common.exceptions import StaleElementReferenceException, WebDriverException, NoSuchElementException
+from selenium.webdriver.common.by import By
+
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
 from Infrastructure.BasicTest import BasicTestClass
@@ -154,16 +156,16 @@ class HomePage(GenericPO):
 
     @staticmethod
     def startOrder(testLocationNumber):
-
+        # if GenericPO.webDriver.waitForInvisibilityOfElem("//div[@class='loading']") is True:
         if testLocationNumber == 1:
                 GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
                                                params['HOME_PAGE']['DATA']['FIRST_LOCATION_NOT_WORKING'])
 
         if testLocationNumber == 2:
-            GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
+                GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
                                                    params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
 
-        time.sleep(1)
+        time.sleep(2)
 
         GenericPO.webDriver.waitForElemToBeClickable(params['HOME_PAGE']['LOCATORS']['START_ORDER_BUTTON'])
 
@@ -653,6 +655,10 @@ class Menu(GenericPO):
         GenericPO.webDriver.findElementBy(params['MENU']['DATA']['AGE_RESTRICTED_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
+    def chooseUpSaleItem():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['UP_SALE_ITEM'], LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
     def firstCategoryText():
         text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['FIRST_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).text
         return text
@@ -663,15 +669,72 @@ class Menu(GenericPO):
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
+    def getSecondItemText():
+        text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_ITEM'],
+                                                 LocatorsType=LocatorsTypes.XPATH).text
+        return text
+
+    @staticmethod
+    def getCartSecondItemText():
+        text = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['CART_SECOND_ITEM_TEXT'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return text
+
+    @staticmethod
     def clickOnEditItem():
         GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['EDIT_ITEM_BUTTON'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
-    def chooseModifier():
+    def clickOnEditItemFromCart():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['EDIT_ITEM_FROM_CART'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getModifiersModal():
+        modifierModal = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['MODIFIER_MODAL'],
+                                                       LocatorsType=LocatorsTypes.XPATH)
+        return modifierModal
+
+    @staticmethod
+    def getModifiersModalHeaderText():
+        headerText = GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['MODIFIER_MODAL_HEADER'],
+                                          LocatorsType=LocatorsTypes.XPATH).text
+        return headerText
+
+    @staticmethod
+    def closeModifiersWindow():
         time.sleep(1)
-        GenericPO.webDriver.findElementBy(
-            "//div/div[@class='modal-dialog ']/div/div[3]/div[2]/div/ul/li/div/label[@title='Standard']", LocatorsType=LocatorsTypes.XPATH).click()
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['CLOSE_MODIFIER_X_BUTTON'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def deleteItemFromCart():
+        GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['DELETE_ITEM_FROM_CART'],
+                                          LocatorsType=LocatorsTypes.XPATH).click()
+
+    @staticmethod
+    def getCartItemsList():
+        cartItemsList = GenericPO.webDriver.remoteWebDriver.find_elements_by_xpath(params['MENU']['LOCATORS']['CART_ITEMS_CONTAINER'])
+
+        return cartItemsList
+
+    @staticmethod
+    def getModifiersBySection():
+        time.sleep(1)
+
+        modifiersList = GenericPO.webDriver.remoteWebDriver.find_elements(by=By.XPATH, value=params['MENU']['LOCATORS']['SECOND_CATEGORY_MODIFIERS'])
+
+        return modifiersList
+
+    @staticmethod
+    def checkModifierActivity(element):
+        isActive = False
+
+        if element.find_element_by_xpath(params['MENU']['LOCATORS']['ACTIVE_MODIFIER']) is not None:
+            isActive = True
+
+        return isActive
 
     @staticmethod
     def clickOnProceedToCheckout():
@@ -708,11 +771,18 @@ class Menu(GenericPO):
         return screenPopupHeaderText
 
     @staticmethod
-    def getPopupText():
+    def getUpSalePopupText():
         screenPopupText = GenericPO.webDriver.waitForVisibilityOfElem(
             params['MENU']['LOCATORS']['SCREEN_POPUP_BODY']).text
 
         return screenPopupText
+
+    @staticmethod
+    def getUpSalePopupText():
+        upSalePopupText = GenericPO.webDriver.waitForVisibilityOfElem(
+            params['MENU']['LOCATORS']['UP_SALE_POPUP_BODY']).text
+
+        return upSalePopupText
 
     @staticmethod
     def clickOnPopupOkBtn():
@@ -728,7 +798,7 @@ class Checkout(GenericPO):
     @staticmethod
     def clickOnSubmitOrder():
         if GenericPO.webDriver.waitForInvisibilityOfElem("//div[@class='loading']") is True:
-           GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'])
+                GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'])
 
     @staticmethod
     def enter4DigitsCode():
@@ -738,19 +808,23 @@ class Checkout(GenericPO):
 
     @staticmethod
     def submit4digitsCode():
-        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['ENTER_PIN_OK_BUTTON'],
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['POPUP_OK_BTN'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
         time.sleep(2)
 
     @staticmethod
     def getErrorPopup():
-        exist = GenericPO.webDriver.waitForVisibilityOfElem(params['CHECKOUT_SCREEN']['LOCATORS']['ERROR_POPUP'])
-        return exist
+        popUpElement = GenericPO.webDriver.waitForVisibilityOfElem(params['CHECKOUT_SCREEN']['LOCATORS']['CHECKOUT_POPUP'])
+        return popUpElement
+
+    @staticmethod
+    def clickOnPopUpOkBtn():
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['POPUP_OK_BTN'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod
     def getErrorPopupText():
-        text = GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['ERROR_POPUP'],
-                                                 LocatorsType=LocatorsTypes.XPATH).text
+        text = GenericPO.webDriver.waitForVisibilityOfElem(params['CHECKOUT_SCREEN']['LOCATORS']['CHECKOUT_POPUP']).text
+
         return text
 
 
