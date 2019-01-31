@@ -1,4 +1,8 @@
-from SutTests.TestsClassesInit import *
+# from SutTests.TestsClassesInit import *
+import unittest
+from App import PageObjects
+from App.PageObjects import *
+from Utils.ErrorHandler import ErrorsHandler
 
 
 class WalletTestsClass(BasicTestClass, unittest.TestCase):
@@ -51,7 +55,7 @@ class WalletTestsClass(BasicTestClass, unittest.TestCase):
 
         expectedDefaultCardText = params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']
 
-        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, ErrorsHandler.TEXT_IS_WRONG + " " + expectedDefaultCardText)
+        self.assertEqual(currentDefaultCardText, expectedDefaultCardText, ErrorsHandler.TEXT_IS_WRONG)
 
     def test_103_validateDefaultCard(self):
 
@@ -73,7 +77,7 @@ class WalletTestsClass(BasicTestClass, unittest.TestCase):
             except NoSuchElementException:
                 self.fail(ErrorsHandler.ELEMENT_NOT_VISIBLE)
 
-        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards[0].text != \
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards[0].text == \
                 params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']:
 
             try:
@@ -95,7 +99,7 @@ class WalletTestsClass(BasicTestClass, unittest.TestCase):
     def test_105_checkUnsupportedCard(self):
         pass
 
-    def test_106_checkCancelApplyButtonsText(self):
+    def test_106_checkCancelCcEntering(self):
 
         HomePage.openSut()
 

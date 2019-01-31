@@ -30,7 +30,7 @@
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
                               "ACCOUNT": {
-                                          "ACCOUNT_BUTTON": "//ul[@id='profile-menu']",
+                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']/span",
                                           "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info']",
                                           "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']",
                                           "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
@@ -88,7 +88,11 @@
 
   "HISTORY_SCREEN": {
 
-                            "LOCATORS": {},
+                            "LOCATORS": {
+                                          "HISTORY_ORDERS_LIST": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']",
+                                          "FIRST_ORDER_PRICE": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']/td[3]"
+                            },
+
                             "DATA":{}
   },
 
@@ -113,7 +117,7 @@
   "ENTER_PHONE_PAGE" :
 
                        {"LOCATORS" : {"PHONE_FIELD" : "//input[@name='phone']",
-                                      "SUBMIT_BUTTON" : "/html/body/div[1]/div/div/div/div/div[2]/div/ng-include/div/div[2]/form/div[1]/div[2]",
+                                      "SUBMIT_BUTTON" : "//div[@class='submit-btn']",
                                       "ENTER_SMS_CODE" : "//form[@name='verifyCodeForm']/div/div/input[@maxlength='6']",
                                       "SUBMIT_SMS_CODE" : "//form/div/div/div",
                                       "SCREEN_POPUP": "//div[@class='popup']",
@@ -217,7 +221,7 @@
                          "WALLET_HEADER_TEXT": "PAYMENT METHODS",
                          "APPLY_BUTTON_TEXT": "APPLY",
                          "CANCEL_BUTTON_TEXT": "CANCEL",
-                         "DEFAULT_CARD_TEXT": "XXXX-1111\n12/20",
+                         "DEFAULT_CARD_TEXT": "xxxx-1111\n12/19",
                          "ADD_NEW_CARD_TEXT": "Add New Card",
                          "ACCEPTED_CARDS_TEXT": "We Accept",
                          "PCI_FOOTER_TEXT": "We are secure with PCI-DSS level 1"
@@ -232,22 +236,27 @@
   "MENU": {
            "LOCATORS": {
                         "MENU_URL" : "https://order-test.mycheckapp.com/?appId=1ed0827438f13115fd6dccc0d7d647ac#/store",
-                        "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Olympian boxes £3.54']",
+                        "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[1]",
                         "FIRST_ITEM" : "//dt[@title='Hera-Chicken gf']",
-                        "SECOND_ITEM" : "//dt[@title='Apollo-Falafel v']",
+                        "SECOND_ITEM" : "//*[@id='store-cg-body']/section/div/div/div[2]/ul[2]/li[2]/a/dl/dt",
+                        "CART_SECOND_ITEM_TEXT": "//table[@class='cart ng-scope']/tbody/tr[1]/td[2]/dl/dt",
                         "UP_SALE_ITEM": 0,
                         "UP_SALE_POPUP_BODY": "",
                         "SECOND_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Classic Box']",
                         "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
-                        "MODIFIER_MODAL_HEADER": "//div[@class='modal-body item-page has-footer ng-scope']/div[@class='item-header text-display']/article/section/div[@class='name ng-binding']",
+                        "MODIFIER_MODAL": "//div[@class='modal-body item-page has-footer ng-scope']",
+                         "MODIFIER_MODAL_HEADER": "//div[@class='modal-body item-page has-footer ng-scope']/div[@class='item-header text-display']/article/section/div[@class='name ng-binding']",
                         "FIRST_CATEGORY_MODIFIERS": "",
                         "SECOND_CATEGORY_MODIFIERS": "",
                         "ACTIVE_MODIFIER": "",
                         "CLOSE_MODIFIER_X_BUTTON": "/html/body/div[1]/div/div/div[2]",
                         "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                        "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                        "CART_TOTAL": "//*[@id='cart-page']/div[3]/div[1]/dl[5]/dd",
                         "EDIT_ITEM_FROM_CART": 0,
                         "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
                         "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
+                         "MOBILE_CART_ICON": "//*[@id='store-cg-body']/section/div/div/div[1]/div",
                         "SCREEN_POPUP": "//div[@class='popup']",
                         "SCREEN_POPUP_HEADER": "//div[@class='popup']/div[@class='popup-head']",
                         "SCREEN_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']",
@@ -282,7 +291,9 @@
                                      "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
                                      "ENTER_PIN_OK_BUTTON": "//div[@class='popup']/div[3]/button",
                                      "ENTER_PIN_CANCEL_BUTTON": "",
-                                     "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]"
+                                     "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
+                                     "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]" ,
+                                     "CHECKOUT_POPUP": "//div[@class='popup']/div[2]"
 
                                    },
 
@@ -291,15 +302,32 @@
                                   "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
-                                }
+                                },
+
+                       "DATA": {
+                                "4_DIGIT_EXIST": 0
+                       }
   },
 
 
 
   "CONFIRMATION_SCREEN": {
                            "LOCATORS": {
-                                         "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
-                                         "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div"
+                             "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
+                             "DONE_BUTTON": "//div[@class='modal-content']/div[2]/div/div",
+                             "SUBTOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div/div[2]",
+                             "TOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div[4]/div/div[2]"
+                           },
+
+                           "TEXTS": {
+                                      "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
+
+                           },
+
+                           "DATA": {
+                                    "CURRENCY": "£"
+
+                           }
 
                            }
 
@@ -309,6 +337,6 @@
 
 
 
-}
+
 
 

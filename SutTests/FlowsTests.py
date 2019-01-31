@@ -1,37 +1,64 @@
-from SutTests.TestsClassesInit import *
+# from SutTests.TestsClassesInit import *
+import unittest
+from builtins import print
+
+from App import PageObjects
+from App.PageObjects import *
+from Utils.ErrorHandler import ErrorsHandler
 
 
 class FlowsTestsClass(BasicTestClass, unittest.TestCase):
+    testName = BasicTestClass.testName
 
 
     def test_100_sanity(self):
 
-            Connect.register()
+            Connect.login()
 
-            Wallet.addCreditCard()
-
-            Wallet.closeWallet()
+            # Wallet.addCreditCard()
+            #
+            # Wallet.closeWallet()
 
             HomePage.startOrder(2)
 
+            GenericPO.webDriver.saveScreenShot(1, self.testName)
+
+            Menu.chooseFirstCategory()
+
             Menu.chooseSecondItem()
+
+            Menu.moveToCart()
+
+            cartTotal = Menu.getTotalPrice()
 
             Menu.clickOnProceedToCheckout()
 
-            if Checkout.getErrorPopup().is_displayed() and Checkout.getErrorPopupText() == params['CHECKOUT_SCREEN']['TEXTS']['EXCEEDED_PICKUP_TIME_TEXT']:
-                Checkout.clickOnPopUpOkBtn()
+            if Checkout.getErrorPopup() is not None:
+
+                   if params['CHECKOUT_SCREEN']['TEXTS']['EXCEEDED_PICKUP_TIME_TEXT'] in Checkout.getErrorPopupText():
+
+                          Checkout.clickOnPopUpOkBtn()
 
             Checkout.clickOnSubmitOrder()
 
-            Checkout.enter4DigitsCode()
+            Checkout.Pass4DigitsPin()
 
-            Checkout.submit4digitsCode()
+            confirmationHeaderText = ConfirmationScreen.getConfirmationText()
 
-            confiramtionText = ConfirmationScreen.getConfirmationText()
-            self.assertEqual()
+            self.assertEqual(confirmationHeaderText, params['CONFIRMATION_SCREEN']['TEXTS']['CONFIRMATION_TEXT'])
 
-    def test_101_walletFlow(self):
-        pass
 
-    def test_102_(self):
-        pass
+            confirmationTotalPrice = ConfirmationScreen.getTotalPrice()
+
+            self.assertEqual(cartTotal, confirmationTotalPrice, ErrorsHandler.TOTAL_PRICE_ERROR)
+
+            ConfirmationScreen.clickOnDone()
+
+            GenericPO.webDriver.remoteWebDriver.back()
+
+            Account.clickOnHistory()
+
+            historyOrderPrice = History.getHistoryFirstOrderPrice()
+
+            self.assertEqual(historyOrderPrice, confirmationTotalPrice, ErrorsHandler.WRONG_HISTORY_TOTAL)
+

@@ -1,8 +1,13 @@
-from SutTests.TestsClassesInit import *
+# from SutTests.TestsClassesInit import *
+import unittest
+from builtins import print
+
+from App import PageObjects
+from App.PageObjects import *
+from Utils.ErrorHandler import ErrorsHandler
 
 
 class MenuTestsClass(BasicTestClass, unittest.TestCase):
-
 
     def test_100_chooseCategory(self):
 
@@ -45,7 +50,7 @@ class MenuTestsClass(BasicTestClass, unittest.TestCase):
 
         HomePage.startOrder(2)
 
-        for i in range(params['MENU']['DATA']['AMOUNT_LIMIT'] + 1):
+        for i in range(params['MENU']['DATA']['AMOUNT_LIMIT_NUMBER'] + 1):
                 Menu.chooseSecondItem()
 
         moreThenSixText = Menu.getPopupText()
@@ -62,7 +67,7 @@ class MenuTestsClass(BasicTestClass, unittest.TestCase):
 
         Menu.chooseUpSaleItem()
 
-        upSaleText = Menu.getPopupText()
+        upSaleText = Menu.getUpSalePopupText()
 
         self.assertEqual(upSaleText, params['MENU']['TEXTS']['UP_SALE_POPUP_TEXT'], ErrorsHandler.TEXT_IS_WRONG)
 
@@ -146,3 +151,4 @@ class MenuTestsClass(BasicTestClass, unittest.TestCase):
         cartItemsNumberAfterADelete = len(Menu.getCartItemsList())
 
         self.assertTrue(cartItemsNumberAfterADelete == 0, ErrorsHandler.CART_DOES_NOT_EMPTY)
+

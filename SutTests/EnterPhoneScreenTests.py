@@ -1,4 +1,8 @@
-from SutTests.TestsClassesInit import *
+# from SutTests.TestsClassesInit import *
+import unittest
+from App import PageObjects
+from App.PageObjects import *
+from Utils.ErrorHandler import ErrorsHandler
 
 
 class EnterPhoneTestsClass(BasicTestClass, unittest.TestCase):
@@ -21,6 +25,8 @@ class EnterPhoneTestsClass(BasicTestClass, unittest.TestCase):
         EnterPhonePage.submitSmsCode()
 
         wrongSmsPopUp = EnterPhonePage.getPopup()
+
+        GenericPO.webDriver.saveScreenShot(1, testName=self.testName)
 
         self.assertIsNotNone(wrongSmsPopUp, ErrorsHandler.MISSING_POPUP)
 

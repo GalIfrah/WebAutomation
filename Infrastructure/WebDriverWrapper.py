@@ -8,7 +8,6 @@ import time
 from Infrastructure.Locators import LocatorsTypes
 from selenium.common.exceptions import (NoSuchElementException, TimeoutException)
 from selenium.webdriver.support.ui import Select
-from Utils.TestName import TestsName
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -34,37 +33,22 @@ class Wrapper:
 
         urllib3.disable_warnings(urllib3.exceptions)
 
-        #mobile_emulation = {"deviceName": device_model}
+        mobile_emulation = {"deviceName": "Nexus 5"}
 
-        #chrome_options = webdriver.ChromeOptions()
+        chrome_options = webdriver.ChromeOptions()
 
-        #chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-
-
-        #mobile_emulation = {
-
-         #   "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
-
-          #  "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
-
-        # chrome_options = Options()
-
-        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-
-
-       # self.remoteWebDriver = webdriver.Remote(command_executor=remote_url,
-                              #desired_capabilities=chrome_options.to_capabilities())
-        urllib3.disable_warnings(urllib3.exceptions)
-
-        desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
-
-        self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
-        self.remoteWebDriver.set_window_size(260, 800)
+        self.remoteWebDriver = webdriver.Remote(remote_url, desired_capabilities = chrome_options.to_capabilities())
+        # urllib3.disable_warnings(urllib3.exceptions)
+        #
+        # desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+        #
+        # self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
+        # self.remoteWebDriver.set_window_size(260, 800)
 
     def openSut(self, url):
         self.remoteWebDriver.get(url)
-
 
     def closeCurrent(self):
         self.remoteWebDriver.close()
@@ -78,24 +62,22 @@ class Wrapper:
 
         elementAssigned = False
 
-        self.remoteWebDriver.implicitly_wait(10)
         try:
             if LocatorsType == LocatorsTypes.XPATH:
-                element = self.remoteWebDriver.find_element_by_xpath(value)
+
+                element = WebDriverWait(self.remoteWebDriver, 15).until(
+                    ec.visibility_of_element_located((By.XPATH, value)))
 
             elif LocatorsType == LocatorsTypes.ID:
-                element = self.remoteWebDriver.find_element_by_id(value)
 
-            elif LocatorsType == LocatorsTypes.CLASS_NAME:
-                element = self.remoteWebDriver.find_element_by_class_name(value)
+                element = WebDriverWait(self.remoteWebDriver, 15).until(
+                   ec.visibility_of_element_located((By.ID, value)))
 
-            elif LocatorsType == LocatorsTypes.NAME:
-                element = self.remoteWebDriver.find_element_by_name(value)
+            if element is not None:
+                elementAssigned = True
 
-            elif LocatorsType == LocatorsTypes.CSS_SELECTOR:
-                element = self.remoteWebDriver.find_element_by_css_selector(value)
-
-            elementAssigned = True
+        except TimeoutException as E:
+            logging.error(ErrorsHandler.TIMEOUT_ERROR)
 
         except TimeoutError as E:
             logging.error(ErrorsHandler.TIMEOUT_ERROR)
@@ -154,6 +136,7 @@ class Wrapper:
             try:
                 element = WebDriverWait(self.remoteWebDriver, 7).until(
                  ec.visibility_of_element_located((By.XPATH, elementLocator)))
+
                 return element
 
             except TimeoutException:
@@ -177,16 +160,20 @@ class Wrapper:
     def saveScreenShot(self, i, testName):
         time.sleep(1)
 
-        filename = testName + '_screenShot.png'
-
         if i == 0:
 
+            filename = testName + '_screenShot.png'
+
             self.remoteWebDriver.save_screenshot(
-                'C:\\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
+
+                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\screenShots\\' + filename)
 
         elif i != 0:
 
+            filename = testName + '_screenShot' + str(i) + '.png'
+
             self.remoteWebDriver.save_screenshot(
-                'C:\\Users\MyCheck\PycharmProjects\WebAutomation\Reports\ScreenShots\\' + filename)
+
+                'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\screenShots\\' + filename)
 
         return testName

@@ -8,7 +8,7 @@ class SUT:
     config = None
     platform = None
     env = None
-
+    reportType = None
 
     def __init__(self):
 
@@ -16,13 +16,12 @@ class SUT:
             # self.name = sys.argv.pop(1)
             # self.env = sys.argv.pop(1)
             # self.platform = sys.argv.pop(1)
+            # self.reportType = sys.argv.pop(1)
 
-            self.name = "FM"
+            self.name = "TRG"
             self.env = "test"
-            self.platform = "desktop"
-
-
-
+            self.platform = "mobile"
+            self.reportType = "png"
 
         self.validateApp()
         self.validatePlatform()
@@ -30,7 +29,7 @@ class SUT:
         self.setConfig()
         self.setPlatform()
         self.setEnv()
-
+        self.setReports()
 
     def validateApp(self):
         if self.name == 'FM':
@@ -53,7 +52,6 @@ class SUT:
 
         raise Exception('`' + self.name + '` is not a valid app name')
 
-
     def validatePlatform(self):
         if self.platform == 'mobile':
             return
@@ -62,7 +60,6 @@ class SUT:
             return
 
         raise Exception('`' + self.platform + '` is not a valid platform')
-
 
     def validateEnv(self):
         if self.env == 'test':
@@ -76,38 +73,55 @@ class SUT:
 
         raise Exception('`' + self.env + '` is not a valid environment')
 
-
     def setConfig(self):
 
         import App.PageObjects
         with open("AppsConfigurations\\" + self.name + '.json') as data_file:
-          App.PageObjects.params = json.load(data_file)
+            App.PageObjects.params = json.load(data_file)
 
     def setPlatform(self):
         from Infrastructure.BasicTest import BasicTestClass
         BasicTestClass.platform = self.platform
-
 
     def setEnv(self):
 
         import App.PageObjects
         App.PageObjects.env = self.env
 
+    def setReports(self):
+
+        from Infrastructure.BasicTest import BasicTestClass
+        BasicTestClass.reporterType = self.reportType
+
+        from Utils import EmailService
+        EmailService.appName = self.name
+
 
 sut = SUT()
 
-
-
 # from SutTests.TestsClassesInit import *
-from SutTests.BetaTests import *
-
-
+from SutTests.FlowsTests import *
+# from SutTests.BetaTests import *
+# from SutTests.ConnectTests import *
+# from SutTests.WalletTests import *
+# from SutTests.EnterPhoneScreenTests import *
+# from SutTests.MenuTests import *
 
 
 print("===================================")
 print('Running on ' + sut.name + '_' + sut.platform + ' App')
 print("===================================")
 
-
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='Reports/reports'))
+    from Utils import EmailService
+try:
+
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='htmlReports'))
+
+except:
+
+    time.sleep(3)
+    EmailService.emailReporting(sut.reportType)
+
+
+

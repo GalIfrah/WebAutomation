@@ -48,4 +48,10 @@ class ErrorsHandler(object):
 
     # CHECKOUT ERRORS
     GENERAL_CHECKOUT_ERROR = 'there was an error during checkout, please see the error msg text on the html reporting'
+    TOTAL_PRICE_ERROR = 'the cart total not equal to the one on confirmation'
 
+    # HISTORY ERRORS
+    WRONG_HISTORY_TOTAL = 'history record paid value is wrong'
+
+    # CONFIRMATION SCREEN
+    CONFIRMATION_MISSING = 'confirmation screen is missing check the screen shot for that test please'

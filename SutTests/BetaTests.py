@@ -1,14 +1,48 @@
-#from SutTests.TestsClassesInit import *
-
-
+# from SutTests.TestsClassesInit import *
 import unittest
 from App import PageObjects
 from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
 
 
+
 class BetaTestsClass(BasicTestClass, unittest.TestCase):
 
+    def test_103_validateDefaultCard(self):
+
+        HomePage.openSut()
+
+        Connect.login()
+
+        Account.clickOnPaymentMethods()
+
+        numberOfCards = Wallet.getUserCardsList()
+
+        defaultCardVmark = None
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0 and len(numberOfCards) > 1:
+
+            try:
+                defaultCardVmark = Wallet.getUserCardsList()[1].find_element_by_xpath(params['WALLET']['LOCATORS']
+                                                                                      ['DEFAULT_CARD_V_MARK'])
+            except NoSuchElementException:
+                self.fail(ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
+        if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0 and numberOfCards[0].text == \
+                params['WALLET']['TEXTS']['DEFAULT_CARD_TEXT']:
+
+            try:
+                defaultCardVmark = Wallet.getUserCardsList()[0].find_element_by_xpath(params['WALLET']['LOCATORS']
+                                                                                      ['DEFAULT_CARD_V_MARK'])
+            except NoSuchElementException:
+                self.fail(ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
+        else:
+            print('USER_HAS_NO_CARDS')
+
+        self.assertIsNotNone(defaultCardVmark, ErrorsHandler.CARD_IS_NOT_DEFAULT)
+
+        """
     def test_100_edit_deleteItemFromCart(self):
 
         HomePage.openSut()
@@ -29,7 +63,6 @@ class BetaTestsClass(BasicTestClass, unittest.TestCase):
         self.assertTrue(cartItemsNumberAfterADelete == 0, ErrorsHandler.CART_DOES_NOT_EMPTY)
 
 
-"""
         HomePage.openSut()
 
         HomePage.startOrder(2)

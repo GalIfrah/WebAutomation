@@ -1,4 +1,4 @@
-{ "APP_NAME": "Franco",
+{ "APP_NAME": "Franco Manca",
 
   "SUT": {"TEST": "https://order-test.mycheckapp.com/?appId=ad53e060a6305eafda0d59f5120e7a60#",
           "PROD": "https://order.francomanca.co.uk/"
@@ -12,7 +12,7 @@
                               "COOKIES_POLICY_BTN": "//div[@class='continue ng-binding']",
                               "BACK_TO_APP_HEADER_LINK": "//div[@class='back-to-site-msg ng-binding']/a[@href='http://www.francomanca.co.uk/']",
                               "CONNECT_BTN": "login-btn",
-                              "CONNECT_BTN_TEXT_AREA": "//div[@id='login-btn']/span",
+                              "CONNECT_BTN_TEXT_AREA": "//div[@class='has-menu']",
                               "START_ORDER_BUTTON": "//div/button[@class='button button-block start-order ng-binding']",
                               "START_ORDER_POPUP_TEXT_AREA": "//div[@class='popup-body']",
                               "START_ORDER_POPUP_BUTTON": "//div/button[@class='button ng-binding app-bg-color no-border']",
@@ -28,7 +28,7 @@
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
                               "ACCOUNT": {
-                                          "ACCOUNT_BUTTON": "//ul[@id='profile-menu']",
+                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']/span",
                                           "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info']",
                                           "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']",
                                           "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
@@ -43,6 +43,7 @@
                          "SECOND_LOCATION": "fm2",
                          "FULL_LOCATIONS_NAMES": ["Please select a location", "AireusTest", "fm2"],
                          "DATE": "Today only",
+                         "TOMORROW": "Tomorrow",
                          "TIME": "14:20"
                 },
 
@@ -87,7 +88,11 @@
 
   "HISTORY_SCREEN": {
 
-                            "LOCATORS": {},
+                            "LOCATORS": {
+                                         "HISTORY_ORDERS_LIST": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']",
+                                         "FIRST_ORDER_PRICE": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']/td[3]"
+                            },
+
                             "DATA":{}
   },
 
@@ -246,6 +251,7 @@
                          "UP_SALE_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']/div/p",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
                          "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                         "CART_TOTAL": "//*[@id='cart-page']/div[3]/div[1]/dl[5]/dd",
                          "EDIT_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Edit item']",
                          "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
                          "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
@@ -286,6 +292,7 @@
                                      "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
                                      "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
                                      "ENTER_PIN_CANCEL_BUTTON": ""
+
                                    },
 
 
@@ -293,7 +300,11 @@
                                   "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
-                                }
+                                },
+
+                       "DATA": {
+                                "4_DIGIT_EXIST": 1
+                       }
   },
 
 
@@ -301,12 +312,19 @@
   "CONFIRMATION_SCREEN": {
                            "LOCATORS": {
                                          "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
-                                         "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div"
+                                         "DONE_BUTTON": "/html/body/div[1]/div/div/div[2]/div/div[@class='col-1-1 button app-bg-color button-next ng-binding']",
+                                         "SUBTOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div/div[2]",
+                                         "TOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div[4]/div/div[2]"
 
                            },
 
                            "TEXTS": {
                                       "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
+
+                           },
+
+                           "DATA": {
+                                    "CURRENCY": "£"
 
                            }
 

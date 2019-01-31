@@ -88,7 +88,11 @@
 
   "HISTORY_SCREEN": {
 
-                            "LOCATORS": {},
+                            "LOCATORS": {
+                                          "HISTORY_ORDERS_LIST": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']",
+                                          "FIRST_ORDER_PRICE": "//table/tbody/tr[@ng-repeat='order in OrderList.Orders']/td[3]"
+
+                            },
                             "DATA":{}
   },
 
@@ -236,16 +240,20 @@
                          "FIRST_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Beef']",
                          "FIRST_ITEM" : "//dt[@title='Dead Hippie']",
                          "SECOND_ITEM" : "//dt[@title='Cheeseburger']",
+                         "CART_SECOND_ITEM_TEXT": "//table[@class='cart ng-scope']/tbody/tr[1]/td[2]/dl/dt",
                          "UP_SALE_ITEM": 0,
                          "UP_SALE_POPUP_BODY": "",
                          "SECOND_CATEGORY": "//div[@id='store-cg-title']/div/nav/ul/li/a[text()='Chicken']",
                          "SECOND_CATEGORY_ACTIVE": "//*[@id='store-cg-title']/div[2]/nav/ul/li[2][@class='category-item ng-scope active']",
+                         "MODIFIER_MODAL": "//div[@class='modal-body item-page has-footer ng-scope']",
                          "MODIFIER_MODAL_HEADER": "//div[@class='modal-body item-page has-footer ng-scope']/div[@class='item-header text-display']/article/section/div[@class='name ng-binding']",
                          "FIRST_CATEGORY_MODIFIERS": "//ul[@data-name='Select Cooking Temperature (Optional)']/li",
                          "SECOND_CATEGORY_MODIFIERS": "//ul[@data-name='Extras (Optional)']/li",
                          "ACTIVE_MODIFIER": "//ul[@data-name='Extras (Optional)']/li/div/input[@class='ng-untouched ng-valid ng-scope ng-not-empty ng-dirty ng-valid-parse']",
                          "CLOSE_MODIFIER_X_BUTTON": "/html/body/div[1]/div/div/div[2]",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
+                         "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                         "CART_TOTAL": "//*[@id='cart-page']/div[3]/div[1]/dl[5]/dd",
                          "EDIT_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Edit item']",
                          "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
                          "PROCEED_TO_CHECKOUT_BUTTON" : "//button[@class='button button-block ng-binding']",
@@ -283,16 +291,21 @@
                                      "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
                                      "ENTER_PIN_OK_BUTTON": "//div[@class='popup']/div[3]/button",
                                      "ENTER_PIN_CANCEL_BUTTON": "",
-                                     "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]"
+                                     "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
+                                     "CHECKOUT_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]"
 
                                    },
 
 
                        "TEXTS": {
-                                  "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
+                                  "EXCEEDED_PICKUP_TIME_TEXT": "The collection time is no longer available.",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
-                                }
+                                },
+
+                       "DATA": {
+                                "4_DIGIT_EXIST": 1
+                       }
   },
 
 
@@ -300,7 +313,9 @@
   "CONFIRMATION_SCREEN": {
                            "LOCATORS": {
                                          "CONFIRMATION_TEXT_AREA": "//*[@id='confirmation-page']/div/header-widget/div[1]",
-                                         "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div"
+                                         "DONE_BUTTON": "//*[@id='confirmation-page']/div/footer-widget/div/div",
+                                         "SUBTOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div/div[2]",
+                                         "TOTAL": "//*[@id='confirmation-page']/div/ion-content/div[@class='content-group padding payment-details-content']/div[4]/div/div[2]"
 
                            }
 
