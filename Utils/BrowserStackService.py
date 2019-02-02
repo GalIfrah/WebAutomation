@@ -17,4 +17,4 @@ class browserStack:
         data = '{"status":"' + newStatus + '", "reason":"' + reason + '"}'
 
         response = requests.put('https://api.browserstack.com/automate/sessions/' + sessionId + '.json',
-                                headers=headers, data=data, auth=('galifrah3', '1qj7e4pdqqHiK941sDej'))
+                                headers=headers, data=data, auth=('galifrah4', 'N4XNKDnwH5ipipycghhp'))

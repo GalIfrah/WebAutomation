@@ -7,8 +7,10 @@ from App.PageObjects import *
 from Utils.ErrorHandler import ErrorsHandler
 import requests
 
-class DemoTestsClass(BasicTestClass, unittest.TestCase):
 
+
+
+class DemoTestsClass(BasicTestClass, unittest.TestCase):
 
 
     def test_100_addPaymentMethod_first(self):
@@ -25,7 +27,7 @@ class DemoTestsClass(BasicTestClass, unittest.TestCase):
             try:
 
                 if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
-                    self.assertEqual(numberOfCards, 2, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS) # 1
+                    self.assertEqual(numberOfCards, 1, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS) # 1
 
                 if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
                     self.assertEqual(numberOfCards, 1, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS)
@@ -33,9 +35,58 @@ class DemoTestsClass(BasicTestClass, unittest.TestCase):
             except AssertionError:
 
                 browserStack.changeTestStatus(self, "Error", ErrorsHandler.MISSING_CARDS)
-    """
-    
-    def test_101_validateDefaultCard(self):
+
+
+    @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason=ErrorsHandler.FEATURE_NOT_EXIST_ON_APP)
+    def test_101_checkOrderItemLimit(self):
+
+        HomePage.openSut()
+
+        HomePage.startOrder(2)
+
+        Menu.chooseFirstCategory()
+
+        for i in range(params['MENU']['DATA']['AMOUNT_LIMIT_NUMBER'] + 1):
+
+            Menu.chooseSecondItem()
+
+            if i <= params['MENU']['DATA']['AMOUNT_LIMIT_NUMBER'] - 1:
+             Menu.clickOnMenuToast()
+
+        moreThenSixPopUpText = Menu.getPopupText()
+
+        self.assertEqual(moreThenSixPopUpText, params['MENU']['TEXTS']['MORE_THEN_6_POP_UP_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+
+
+    @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0,
+                     reason=ErrorsHandler.FEATURE_NOT_EXIST_ON_APP + ' ' + BasicTestClass.appName)
+    def test_102_checkAgeRestriction(self):
+
+        HomePage.openSut()
+
+        HomePage.startOrder(2)
+
+        Menu.chooseRestrictedAgeCategory()
+
+        popupHeaderText = Menu.getPopupHeaderText()
+
+        self.assertEqual(popupHeaderText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_HEADER_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        popupBodyText = Menu.getPopupText()
+
+        self.assertEqual(popupBodyText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_BODY_TEXT'],
+                         ErrorsHandler.TEXT_IS_WRONG)
+
+        Menu.clickOnPopupOkBtn()
+
+        self.assertTrue(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath(
+            params['MENU']['DATA']['AGE_PASSING_INDICATOR']).is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
+
+
+    def test_103_validateDefaultCard(self):
 
             HomePage.openSut()
 
@@ -70,27 +121,11 @@ class DemoTestsClass(BasicTestClass, unittest.TestCase):
             self.assertIsNotNone(defaultCardVmark, ErrorsHandler.CARD_IS_NOT_DEFAULT)
 
 
-    def test_102_deleteCard(self):
 
-            HomePage.openSut()
+class DemoTestsClass2(BasicTestClass, unittest.TestCase):
 
-            Connect.login()
 
-            Wallet.addCreditCard()
-
-            numOfCardsBeforeDelete = Wallet.getUserCardsNumber()
-
-            Wallet.clickOnDeleteCardButton()
-
-            Wallet.clickOnDeleteYes()
-
-            time.sleep(1)
-            numOfCardsAfterDelete = Wallet.getUserCardsNumber()
-
-            self.assertGreater(numOfCardsBeforeDelete, numOfCardsAfterDelete, 'CARD_NOT_DELETED')
-        
-
-    def test_103_sanity(self):
+    def test_100_sanity(self):
 
             Connect.login()
 
@@ -112,11 +147,15 @@ class DemoTestsClass(BasicTestClass, unittest.TestCase):
 
             Menu.clickOnProceedToCheckout()
 
+
             if Checkout.getErrorPopup() is not None:
 
-                   if params['CHECKOUT_SCREEN']['TEXTS']['EXCEEDED_PICKUP_TIME_TEXT'] in Checkout.getErrorPopupText():
+                   errorPopUpText = Checkout.getErrorPopupText()
+
+                   if params['CHECKOUT_SCREEN']['TEXTS']['EXCEEDED_PICKUP_TIME_TEXT'] in errorPopUpText:
 
                           Checkout.clickOnPopUpOkBtn()
+
 
             Checkout.clickOnSubmitOrder()
 
@@ -141,35 +180,9 @@ class DemoTestsClass(BasicTestClass, unittest.TestCase):
 
             self.assertEqual(historyOrderPrice, confirmationTotalPrice, ErrorsHandler.WRONG_HISTORY_TOTAL)
 
+            # try:
+            #     self.assertEqual(historyOrderPrice, confirmationTotalPrice, ErrorsHandler.WRONG_HISTORY_TOTAL)
+            #
+            # except AssertionError:
+            #     browserStack.changeTestStatus(self, "Error", ErrorsHandler.WRONG_HISTORY_TOTAL)
 
-    @unittest.skipIf(params['MENU']['DATA']['AGE_LIMIT'] == 0, reason=ErrorsHandler.FEATURE_NOT_EXIST_ON_APP + ' ' + BasicTestClass.appName)
-    def test_104_checkAgeRestriction(self):
-
-        HomePage.openSut()
-
-        HomePage.startOrder(2)
-
-        Menu.chooseRestrictedAgeCategory()
-
-        popupHeaderText = Menu.getPopupHeaderText()
-
-        self.assertEqual(popupHeaderText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_HEADER_TEXT'],
-                         ErrorsHandler.TEXT_IS_WRONG)
-
-        popupBodyText = Menu.getPopupText()
-
-        self.assertEqual(popupBodyText, params['MENU']['TEXTS']['ALCOHOL_RESTRICTION_BODY_TEXT'],
-                         ErrorsHandler.TEXT_IS_WRONG)
-
-        Menu.clickOnPopupOkBtn()
-
-        self.assertTrue(GenericPO.webDriver.remoteWebDriver.find_element_by_xpath(
-        params['MENU']['DATA']['AGE_PASSING_INDICATOR']).is_displayed(), ErrorsHandler.ELEMENT_NOT_VISIBLE)
-
-        
-        
-                    def test_100_addPaymentMethod_first(self):
-            HomePage.openSut()
-
-            browserStack.changeTestStatus(self, "Error")
-    """

@@ -252,6 +252,7 @@
                         "CLOSE_MODIFIER_X_BUTTON": "/html/body/div[1]/div/div/div[2]",
                         "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
                         "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                        "MENU_TOAST": "//div[@id='toast-container']",
                         "CART_TOTAL": "//*[@id='cart-page']/div[3]/div[1]/dl[5]/dd",
                         "EDIT_ITEM_FROM_CART": 0,
                         "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
@@ -293,13 +294,15 @@
                                      "ENTER_PIN_CANCEL_BUTTON": "",
                                      "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
                                      "ERROR_POPUP": "//popup[@class='popup-wrapper ng-scope']/form/div/div/div[2]" ,
-                                     "CHECKOUT_POPUP": "//div[@class='popup']/div[2]"
+                                     "CHECKOUT_POPUP": "//div[@class='popup']/div[2]",
+                                     "MANAGE_PAYMENT_METHOD": "//div[@class='add-payment-method ng-binding ng-scope']"
 
                                    },
 
 
                        "TEXTS": {
                                   "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
+                                  "PROVIDE_PAYMENT_FOR_CHECKOUT_TEXT": "In order to checkout you need to provide payment method",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
                                 },

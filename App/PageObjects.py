@@ -163,6 +163,7 @@ class HomePage(GenericPO):
                                                params['HOME_PAGE']['DATA']['FIRST_LOCATION_NOT_WORKING'])
 
         if testLocationNumber == 2:
+                time.sleep(1)
                 GenericPO.webDriver.selectFromDropDown(params['HOME_PAGE']['LOCATORS']['SELECT_LOCATION_DROP_DOWN'],
                                                    params['HOME_PAGE']['DATA']['SECOND_LOCATION'])
 
@@ -670,6 +671,22 @@ class Wallet(GenericPO):
         Wallet.clickOnCcApplyButton()
 
 
+    @staticmethod
+    def addCreditCardFromCheckout():
+
+        Wallet.clickOnAddNewCard()
+
+        Wallet.enterCcNumber()
+
+        Wallet.enterExpDate()
+
+        Wallet.enterCvc()
+
+        Wallet.enterPostalCode()
+
+        Wallet.clickOnCcApplyButton()
+
+
 class Menu(GenericPO):
 
     def __init__(self):
@@ -711,6 +728,15 @@ class Menu(GenericPO):
         time.sleep(1)
         GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['SECOND_ITEM'],
                                           LocatorsType=LocatorsTypes.XPATH).click()
+
+
+    @staticmethod
+    def clickOnMenuToast():
+        if BasicTestClass.platform == 'mobile':
+            time.sleep(1)
+            GenericPO.webDriver.findElementBy(params['MENU']['LOCATORS']['MENU_TOAST'],
+                                              LocatorsType=LocatorsTypes.XPATH).click()
+            time.sleep(1)
 
     @staticmethod
     def getSecondItemText():
@@ -861,9 +887,15 @@ class Checkout(GenericPO):
         pass
 
     @staticmethod
+    def addPaymentFromCheckout():
+        GenericPO.webDriver.findElementBy("//div[@class='add-payment-method ng-binding ng-scope']",
+                                          LocatorsType=LocatorsTypes.XPATH)
+
+    @staticmethod
     def clickOnSubmitOrder():
         if GenericPO.webDriver.waitForInvisibilityOfElem("//div[@class='loading']") is True:
                 GenericPO.webDriver.waitForElemToBeClickable(params['CHECKOUT_SCREEN']['LOCATORS']['SUBMIT_ORDER_BUTTON'])
+
 
     @staticmethod
     def enter4DigitsCode():
@@ -903,6 +935,11 @@ class Checkout(GenericPO):
         text = GenericPO.webDriver.waitForVisibilityOfElem(params['CHECKOUT_SCREEN']['LOCATORS']['CHECKOUT_POPUP']).text
 
         return text
+
+    @staticmethod
+    def clickOnManagePaymentMethod():
+        GenericPO.webDriver.findElementBy(params['CHECKOUT_SCREEN']['LOCATORS']['MANAGE_PAYMENT_METHOD'], LocatorsType=LocatorsTypes.XPATH).click()
+
 
 
 class ConfirmationScreen(GenericPO):

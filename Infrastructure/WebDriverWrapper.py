@@ -13,6 +13,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
 from Utils.ErrorHandler import ErrorsHandler
+
+
 class Wrapper:
 
     remoteWebDriver = None
@@ -28,33 +30,35 @@ class Wrapper:
 
 
 
-    def initMobile(self, remote_url, device_model = False):
+    def initMobile(self, remote_url):
 
         urllib3.disable_warnings(urllib3.exceptions)
 
-        # run on cloud
-        desired_cap = {
-                        'os_version' : '7.0',
-                        'device' : 'Samsung Galaxy S8',
-                        'real_mobile' : 'true',
-                        'browserstack.local' : 'false'
+    # run on cloud
 
-        }
-
-
-        self.remoteWebDriver = webdriver.Remote(
-            command_executor=remote_url,
-            desired_capabilities=desired_cap)
+        # desired_cap = {
+        #                 'os_version': '7.0',
+        #                 'device': 'Samsung Galaxy S8',
+        #                 'real_mobile': 'true',
+        #                 'browserstack.local': 'false',
+        #                 'browserstack.debug': 'true'
+        #
+        # }
+        #
+        #
+        # self.remoteWebDriver = webdriver.Remote(
+        #     command_executor=remote_url,
+        #     desired_capabilities=desired_cap)
 
     # run locally
 
-        # mobile_emulation = {"deviceName": "Nexus 5"}
-        #
-        # chrome_options = webdriver.ChromeOptions()
-        #
-        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-        #
-        # self.remoteWebDriver = webdriver.Remote(remote_url, desired_capabilities = chrome_options.to_capabilities())
+        mobile_emulation = {"deviceName": "Nexus 5"}
+
+        chrome_options = webdriver.ChromeOptions()
+
+        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+        self.remoteWebDriver = webdriver.Remote(remote_url, desired_capabilities = chrome_options.to_capabilities())
 
 
     def openSut(self, url):
@@ -75,12 +79,12 @@ class Wrapper:
         try:
             if LocatorsType == LocatorsTypes.XPATH:
 
-                element = WebDriverWait(self.remoteWebDriver, 15).until(
+                element = WebDriverWait(self.remoteWebDriver, 20).until(
                     ec.visibility_of_element_located((By.XPATH, value)))
 
             elif LocatorsType == LocatorsTypes.ID:
 
-                element = WebDriverWait(self.remoteWebDriver, 15).until(
+                element = WebDriverWait(self.remoteWebDriver, 20).until(
                    ec.visibility_of_element_located((By.ID, value)))
 
             if element is not None:

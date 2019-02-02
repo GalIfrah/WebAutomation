@@ -50,7 +50,7 @@ class ErrorsHandler(object):
     TOTAL_PRICE_ERROR = 'the cart total not equal to the one on confirmation'
 
     # HISTORY ERRORS
-    WRONG_HISTORY_TOTAL = 'history record paid value is wrong'
+    WRONG_HISTORY_TOTAL = 'history payment value is wrong'
 
     # CONFIRMATION SCREEN
     CONFIRMATION_MISSING = 'confirmation screen is missing check the screen shot for that test please'

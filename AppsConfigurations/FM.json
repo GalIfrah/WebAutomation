@@ -28,7 +28,7 @@
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
                               "ACCOUNT": {
-                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']",
+                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']/span",
                                           "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info']",
                                           "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']",
                                           "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
@@ -251,6 +251,7 @@
                          "UP_SALE_POPUP_BODY": "//div[@class='popup']/div[@class='popup-body']/div/p",
                          "EDIT_ITEM_BUTTON": "//ul[@class='menu-item-list']/li[2]/ul/li[@class='edit']",
                          "CART_ITEMS_CONTAINER": "//table[@class='cart ng-scope']/tbody/tr",
+                         "MENU_TOAST": "//div[@id='toast-container']",
                          "CART_TOTAL": "//*[@id='cart-page']/div[3]/div[1]/dl[5]/dd",
                          "EDIT_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Edit item']",
                          "DELETE_ITEM_FROM_CART": "//table[@class='cart ng-scope']/tbody/tr/td[2]/ul/li/a[text()='Delete']",
@@ -291,13 +292,15 @@
                                      "CHECKOUT_POPUP": "//div[@class='popup']/div[2]",
                                      "ENTER_PIN_INPUT": "//div[@class='popup']/div[2]/input",
                                      "POPUP_OK_BTN": "//div[@class='popup']/div[3]/button",
-                                     "ENTER_PIN_CANCEL_BUTTON": ""
+                                     "ENTER_PIN_CANCEL_BUTTON": "",
+                                     "MANAGE_PAYMENT_METHOD": "//div[@class='add-payment-method ng-binding ng-scope']"
 
                                    },
 
 
                        "TEXTS": {
                                   "EXCEEDED_PICKUP_TIME_TEXT": "The given pickup time has exceeded, please re-select",
+                                  "PROVIDE_PAYMENT_FOR_CHECKOUT_TEXT": "In order to checkout you need to provide payment method",
                                   "CONFIRMATION_TEXT": "THANK YOU FOR\nYOUR ORDER!"
 
                                 },
