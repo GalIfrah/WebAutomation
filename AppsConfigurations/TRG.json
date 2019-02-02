@@ -221,7 +221,7 @@
                          "WALLET_HEADER_TEXT": "PAYMENT METHODS",
                          "APPLY_BUTTON_TEXT": "APPLY",
                          "CANCEL_BUTTON_TEXT": "CANCEL",
-                         "DEFAULT_CARD_TEXT": "xxxx-1111\n12/19",
+                         "DEFAULT_CARD_TEXT": "xxxx-1111\n12/20",
                          "ADD_NEW_CARD_TEXT": "Add New Card",
                          "ACCEPTED_CARDS_TEXT": "We Accept",
                          "PCI_FOOTER_TEXT": "We are secure with PCI-DSS level 1"

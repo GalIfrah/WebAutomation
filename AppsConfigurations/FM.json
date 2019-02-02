@@ -28,7 +28,7 @@
                               "FOOTER_SECOND_PART": "//ol/li[2]/span",
                               "FOOTER_THIRD_PART": "//ol/li[3]/span",
                               "ACCOUNT": {
-                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']/span",
+                                          "ACCOUNT_BUTTON": "//*[@id='login-btn']",
                                           "PERSONAL_INFO_BUTTON": "//li[@class='profile-item ng-binding ng-scope account-info']",
                                           "PAYMENT_METHODS_BUTTON": "//ul/li[@class='profile-item ng-binding ng-scope payment-methods']",
                                           "GIFT_CARDS": "//ul/li[@class='profile-item ng-binding ng-scope gift-card']",
@@ -225,7 +225,7 @@
                          "DEFAULT_CARD_TEXT": "XXXX-1111\n12/20",
                          "ADD_NEW_CARD_TEXT": "ADD NEW CARD",
                          "ACCEPTED_CARDS_TEXT": "CARD ACCEPTED",
-                         "PCI_FOOTER_TEXT": "Our provider MyCheck is secured to PCI-DSS Level 1 compliance"
+                         "PCI_FOOTER_TEXT": "Our provider Mycheck is secured to PCI-DSS Level 1 compliance"
                }
 
   },

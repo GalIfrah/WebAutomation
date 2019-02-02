@@ -6,7 +6,7 @@ from Utils.ErrorHandler import ErrorsHandler
 
 # Test Classes
 
-from SutTests.BetaTests import BetaTestsClass
+from SutTests.DemoTests import BetaTestsClass
 from SutTests.ConnectTests import ConnectTestsClass
 from SutTests.WalletTests import WalletTestsClass
 from SutTests.HomeScreenTests import HomeScreenTestsClass

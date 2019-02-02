@@ -13,7 +13,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
 from Utils.ErrorHandler import ErrorsHandler
-
 class Wrapper:
 
     remoteWebDriver = None
@@ -29,29 +28,40 @@ class Wrapper:
 
 
 
-    def initMobile(self, remote_url, device_model):
+    def initMobile(self, remote_url, device_model = False):
 
         urllib3.disable_warnings(urllib3.exceptions)
 
-        mobile_emulation = {"deviceName": "Nexus 5"}
+        # run on cloud
+        desired_cap = {
+                        'os_version' : '7.0',
+                        'device' : 'Samsung Galaxy S8',
+                        'real_mobile' : 'true',
+                        'browserstack.local' : 'false'
 
-        chrome_options = webdriver.ChromeOptions()
+        }
 
-        chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-        self.remoteWebDriver = webdriver.Remote(remote_url, desired_capabilities = chrome_options.to_capabilities())
-        # urllib3.disable_warnings(urllib3.exceptions)
+        self.remoteWebDriver = webdriver.Remote(
+            command_executor=remote_url,
+            desired_capabilities=desired_cap)
+
+    # run locally
+
+        # mobile_emulation = {"deviceName": "Nexus 5"}
         #
-        # desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+        # chrome_options = webdriver.ChromeOptions()
         #
-        # self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
-        # self.remoteWebDriver.set_window_size(260, 800)
+        # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+        #
+        # self.remoteWebDriver = webdriver.Remote(remote_url, desired_capabilities = chrome_options.to_capabilities())
+
 
     def openSut(self, url):
         self.remoteWebDriver.get(url)
 
     def closeCurrent(self):
-        self.remoteWebDriver.close()
+        self.remoteWebDriver.quit()
 
 
     def closeAll(self):
@@ -177,3 +187,13 @@ class Wrapper:
                 'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\screenShots\\' + filename)
 
         return testName
+
+
+
+
+        # urllib3.disable_warnings(urllib3.exceptions)
+        #
+        # desired_caps = {'platform': 'WINDOWS', 'browserName': 'chrome'}
+        #
+        # self.remoteWebDriver = webdriver.Remote(remote_url, desired_caps)
+        # self.remoteWebDriver.set_window_size(260, 800)

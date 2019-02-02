@@ -273,7 +273,7 @@ class Account(GenericPO):
                  time.sleep(1)
 
         except NoSuchElementException:
-            logging.error(traceback.format_exc())
+            logging.error(ErrorsHandler.WALLET_IS_NOT_VISIBLE)
 
     @staticmethod
     def clickOnGiftCards():
@@ -641,6 +641,12 @@ class Wallet(GenericPO):
         pciFooterText = GenericPO.webDriver.findElementBy(params['WALLET']['LOCATORS']['PCI_FOOTER_TEXT_AREA'],
                                           LocatorsType=LocatorsTypes.XPATH).text
         return pciFooterText
+
+    @staticmethod
+    def getWalletModal():
+        walletModal = GenericPO.webDriver.waitForVisibilityOfElem(params['WALLET']['LOCATORS']['CARDS_SECTION'])
+
+        return walletModal
 
     @staticmethod
     def closeWallet():

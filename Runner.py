@@ -13,15 +13,15 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            # self.name = sys.argv.pop(1)
-            # self.env = sys.argv.pop(1)
-            # self.platform = sys.argv.pop(1)
-            # self.reportType = sys.argv.pop(1)
+            self.name = sys.argv.pop(1)
+            self.env = sys.argv.pop(1)
+            self.platform = sys.argv.pop(1)
+            self.reportType = sys.argv.pop(1)
 
-            self.name = "TRG"
-            self.env = "test"
-            self.platform = "mobile"
-            self.reportType = "png"
+            # self.name = "FM"
+            # self.env = "test"
+            # self.platform = "mobile"
+            # self.reportType = "png"
 
         self.validateApp()
         self.validatePlatform()
@@ -92,16 +92,19 @@ class SUT:
 
         from Infrastructure.BasicTest import BasicTestClass
         BasicTestClass.reporterType = self.reportType
+        BasicTestClass.appName = self.name
 
         from Utils import EmailService
         EmailService.appName = self.name
 
 
+
+
 sut = SUT()
 
 # from SutTests.TestsClassesInit import *
-from SutTests.FlowsTests import *
-# from SutTests.BetaTests import *
+# from SutTests.FlowsTests import *
+from SutTests.DemoTests import *
 # from SutTests.ConnectTests import *
 # from SutTests.WalletTests import *
 # from SutTests.EnterPhoneScreenTests import *
