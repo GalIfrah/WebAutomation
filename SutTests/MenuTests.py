@@ -4,7 +4,7 @@ from builtins import print
 
 from App import PageObjects
 from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class MenuTestsClass(BasicTestClass, unittest.TestCase):

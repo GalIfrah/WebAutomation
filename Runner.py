@@ -13,15 +13,15 @@ class SUT:
     def __init__(self):
 
         if len(sys.argv) != 0:
-            self.name = sys.argv.pop(1)
-            self.env = sys.argv.pop(1)
-            self.platform = sys.argv.pop(1)
-            self.reportType = sys.argv.pop(1)
+            # self.name = sys.argv.pop(1)
+            # self.env = sys.argv.pop(1)
+            # self.platform = sys.argv.pop(1)
+            # self.reportType = sys.argv.pop(1)
 
-            # self.name = "FM"
-            # self.env = "test"
-            # self.platform = "mobile"
-            # self.reportType = "png"
+            self.name = "FM"
+            self.env = "test"
+            self.platform = "desktop"
+            self.reportType = "png"
 
         self.validateApp()
         self.validatePlatform()
@@ -94,7 +94,7 @@ class SUT:
         BasicTestClass.reporterType = self.reportType
         BasicTestClass.appName = self.name
 
-        from Utils import EmailService
+        from Services import EmailService
         EmailService.appName = self.name
 
 
@@ -116,7 +116,7 @@ print('Running on ' + sut.name + '_' + sut.platform + ' App')
 print("===================================")
 
 if __name__ == '__main__':
-    from Utils import EmailService
+    from Services import EmailService
 try:
 
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='htmlReports'))

@@ -1,8 +1,7 @@
-# from SutTests.TestsClassesInit import *
 import unittest
 from App import PageObjects
 from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class ConnectTestsClass(BasicTestClass, unittest.TestCase):

@@ -1,7 +1,7 @@
 import requests
 
 from Infrastructure.GenericPageObject import GenericPO
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class browserStack:

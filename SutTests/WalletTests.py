@@ -2,7 +2,7 @@
 import unittest
 from App import PageObjects
 from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class WalletTestsClass(BasicTestClass, unittest.TestCase):

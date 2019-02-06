@@ -1,42 +1,30 @@
 import unittest
-from builtins import print
-from Utils.BrowserStackService import browserStack
+# from builtins import print
+from Services.BrowserStackService import browserStack
 
 from App import PageObjects
 from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 import requests
-
+from Services.SmsServices import *
 
 
 
 class DemoTestsClass(BasicTestClass, unittest.TestCase):
 
 
-    def test_100_addPaymentMethod_first(self):
-            
-            HomePage.openSut()
-            
-            Connect.register()
-            
-            # add first card
-            Wallet.addCreditCard()
+        def test_100_sanity(self):
 
-            numberOfCards = Wallet.getUserCardsNumber()
+            Connect.login()
 
-            try:
+            HomePage.startOrder(2)
 
-                if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] == 0:
-                    self.assertEqual(numberOfCards, 1, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS) # 1
+            GenericPO.webDriver.saveScreenShot(1, self.testName)
 
-                if params['WALLET']['LOCATORS']['ADD_NEW_CARD_BUTTON_HEADER'] != 0:
-                    self.assertEqual(numberOfCards, 1, str(1 - numberOfCards) + ErrorsHandler.MISSING_CARDS)
-
-            except AssertionError:
-
-                browserStack.changeTestStatus(self, "Error", ErrorsHandler.MISSING_CARDS)
+            Menu.chooseFirstCategory()
 
 
+"""
     @unittest.skipIf(params['MENU']['DATA']['AMOUNT_LIMIT'] == 0, reason=ErrorsHandler.FEATURE_NOT_EXIST_ON_APP)
     def test_101_checkOrderItemLimit(self):
 
@@ -185,4 +173,5 @@ class DemoTestsClass2(BasicTestClass, unittest.TestCase):
             #
             # except AssertionError:
             #     browserStack.changeTestStatus(self, "Error", ErrorsHandler.WRONG_HISTORY_TOTAL)
+            """
 

@@ -85,17 +85,3 @@ def emailReporting(reporterType):
 
         server.sendmail(email_user, email_send, text)
         server.quit()
-
-
-"""
-attachmentsList = []
-
-            i = 0
-
-            for fileName in os.listdir(dirPath):
-                attachmentsList.insert(i, open(
-                    'C:\\Users\galif\PycharmProjects\WebAutomation\Reports\htmlReports\\' + str(fileName), 'rb'))
-
-            os.path.join(dirPath)
-            latest_report = max(attachmentsList, key=os.path.getctime)
-"""

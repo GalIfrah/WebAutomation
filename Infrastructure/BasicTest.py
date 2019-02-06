@@ -1,6 +1,6 @@
 from Infrastructure.WebDriverWrapper import Wrapper
 from App.PageObjects import *
-from Utils import EmailService
+from Services import EmailService
 import os
 from time import sleep
 

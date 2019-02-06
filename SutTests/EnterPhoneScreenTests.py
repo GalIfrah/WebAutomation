@@ -2,7 +2,7 @@
 import unittest
 from App import PageObjects
 from App.PageObjects import *
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class EnterPhoneTestsClass(BasicTestClass, unittest.TestCase):
@@ -43,7 +43,7 @@ class EnterPhoneTestsClass(BasicTestClass, unittest.TestCase):
 
         HomePage.clickOnConnect()
 
-        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.enterValidPhoneNumber(phoneNumber=SmsService.getFirstAvailableNumber())
 
         EnterPhonePage.submitPhoneNumber()
 

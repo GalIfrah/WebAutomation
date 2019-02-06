@@ -7,11 +7,12 @@ from selenium.webdriver.common.by import By
 from Infrastructure.GenericPageObject import GenericPO
 from Infrastructure.Locators import LocatorsTypes
 from Infrastructure.BasicTest import BasicTestClass
-from Utils.ErrorHandler import ErrorsHandler
-from Utils.utils import ProjectUtils
+from Services.ErrorService import ErrorsHandler
+from Services.utils import ProjectUtils
 import time
 import logging
 from Infrastructure.BasicTest import *
+from Services.SmsServices import *
 
 params = None
 env = ''
@@ -51,7 +52,7 @@ class Connect(GenericPO):
 
         HomePage.clickOnConnect()
 
-        EnterPhonePage.enterValidPhoneNumber()
+        EnterPhonePage.enterValidPhoneNumber(phoneNumber=SmsService.getFirstAvailableNumber())
 
         EnterPhonePage.submitPhoneNumber()
 
@@ -354,14 +355,16 @@ class EnterPhonePage(GenericPO):
         return element
 
     @staticmethod
-    def enterValidPhoneNumber():
+    def enterValidPhoneNumber(phoneNumber):
         GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['PHONE_FIELD'], LocatorsType=
-        LocatorsTypes.XPATH).send_keys(params['ENTER_PHONE_PAGE']['DATA']['VALID_PHONE_NUMBER'])
+                                    LocatorsTypes.XPATH).send_keys(phoneNumber)
 
     @staticmethod
     def submitPhoneNumber():
         GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['SUBMIT_BUTTON'], LocatorsType=
-        LocatorsTypes.XPATH).click()
+                                        LocatorsTypes.XPATH).click()
+
+        GenericPO.webDriver.switchToWindow(1)
 
     @staticmethod
     def getPopup():
@@ -384,10 +387,18 @@ class EnterPhonePage(GenericPO):
 
     @staticmethod
     def enterSmsCode():
-        print("enter sms code")
-        code = raw_input()
+
+        code = SmsService.getSmsCode()
+
+        GenericPO.webDriver.switchToWindow(0)
+
+        time.sleep(1)
+
         GenericPO.webDriver.findElementBy(params['ENTER_PHONE_PAGE']['LOCATORS']['ENTER_SMS_CODE'],
                                           LocatorsType=LocatorsTypes.XPATH).send_keys(code)
+
+        # code = ApiHelper.getCode(phoneToken)
+        # code = raw_input()
 
     @staticmethod
     def enterWrongSmsCode():
@@ -712,6 +723,7 @@ class Menu(GenericPO):
 
     @staticmethod
     def chooseRestrictedAgeCategory():
+        time.sleep(1)
         GenericPO.webDriver.findElementBy(params['MENU']['DATA']['AGE_RESTRICTED_CATEGORY'], LocatorsType=LocatorsTypes.XPATH).click()
 
     @staticmethod

@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.chrome.options import Options
-from Utils.ErrorHandler import ErrorsHandler
+from Services.ErrorService import ErrorsHandler
 
 
 class Wrapper:
@@ -160,6 +160,9 @@ class Wrapper:
     def switchToIframe(self, element):
         self.remoteWebDriver.switch_to.frame(element)
 
+
+    def switchToWindow(self, windowNumber):
+        self.remoteWebDriver.switch_to.window(self.remoteWebDriver.window_handles[windowNumber])
 
     def getCurrentUrl(self):
         currentUrl = self.remoteWebDriver.current_url
