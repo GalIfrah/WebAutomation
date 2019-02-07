@@ -27,7 +27,7 @@ def sendSMS():
 
 
 
-def getCode(verify_token):
+def decodeSmsCode(verify_token):
 
     token = jwt.decode(verify_token, 'example_key', audience=AUDIENCE, algorithms=['HS256'])
 

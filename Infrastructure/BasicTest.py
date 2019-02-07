@@ -1,12 +1,14 @@
 from Infrastructure.WebDriverWrapper import Wrapper
 from App.PageObjects import *
-from Services import EmailService
 import os
 from time import sleep
 
 
 class BasicTestClass:
 
+
+    def __init__(self):
+        pass
 
     driver = Wrapper()
     platform = ''
